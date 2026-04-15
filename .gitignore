@@ -1,0 +1,6 @@
+# Non-site files (keep out of Vercel deployment)
+Q-Day Moodboard.svg
+Q-DAY Prospectu.md
+spec.md
+CLAUDE.md
+*.local.md
