@@ -1,943 +1,1097 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-Day Summit — Crypto Has a Quantum Problem</title>
-  <meta name="description" content="A half-day summit on the quantum threat to crypto. April 25, 2026. Network School, Johor Bahru.">
-  <meta property="og:title" content="Q-Day Summit, April 25, 2026">
-  <meta property="og:description" content="Crypto has a quantum problem. A half-day summit at Network School. Johor Bahru, Malaysia.">
-  <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Replace with your Adobe Fonts project: <link rel="stylesheet" href="https://use.typekit.net/YOUR_PROJECT_ID.css"> -->
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q-Day 2026 — The Window Is Closing</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --lime:#B0EA20;--black:#080808;--off-white:#F0F0EE;
+  --grey-1:#111111;--grey-2:#1A1A1A;--grey-3:#282828;
+  --grey-4:#555555;--grey-5:#888888;--grey-6:#C0C0C0;
+  --nav-width:220px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-serif;cursor:none;overflow-x:hidden}
 
-    :root {
-      --orange: #E85D2A;
-      --orange-light: #FF7A45;
-      --purple: #8B5CF6;
-      --purple-deep: #6D28D9;
-      --magenta: #D946EF;
-      --pink: #F0ABFC;
-      --pink-soft: #FDE4FF;
-      --cream: #FAF5F0;
-      --white: #FFFFFF;
-      --black: #0A0A0A;
-      --gray-900: #1A1A1E;
-      --gray-800: #2A2A2E;
-      --gray-600: #6B6B73;
-      --gray-400: #A0A0A8;
-      --font-sans: 'neue-haas-unica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --font-mono: 'Space Mono', 'SF Mono', monospace;
-    }
+/* CURSOR */
+#cursor-dot{position:fixed;width:14px;height:14px;background:var(--lime);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
 
-    html { scroll-behavior: smooth; }
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--black);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+#loader-days{font-family:'Clash Display',sans-serif;font-size:clamp(40px,5.5vw,68px);font-weight:500;color:var(--off-white);letter-spacing:-0.03em;line-height:1}
+#loader-days em{color:var(--lime);font-style:normal}
+#loader-bottom{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-5);letter-spacing:0.18em;text-transform:uppercase}
+#loader-bar{position:absolute;bottom:0;left:0;height:1px;background:var(--lime);width:0%}
+#glitch-overlay{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:0}
+#glitch-overlay canvas{width:100%;height:100%;display:block}
 
-    body {
-      font-family: var(--font-sans);
-      background: var(--white);
-      color: var(--black);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+/* NAV */
+#sidenav{position:fixed;top:0;left:0;width:var(--nav-width);height:100vh;background:var(--black);border-right:1px solid #1E1E1E;display:flex;flex-direction:column;z-index:100}
+.nav-wordmark{padding:28px 24px 24px;border-bottom:1px solid #1E1E1E;font-family:'Clash Display',sans-serif;font-size:18px;font-weight:400;color:var(--off-white);text-decoration:none;display:block;cursor:none}
+.nav-links{flex:1;padding:20px 0;list-style:none;overflow-y:auto}
+.nav-links li a{display:flex;align-items:center;gap:10px;padding:9px 20px;font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--grey-5);text-decoration:none;transition:color 0.2s,background 0.15s;position:relative;cursor:none}
+.nav-links li a:hover{color:var(--off-white);background:var(--grey-2)}
+.nav-links li a.active{color:var(--off-white)}
+.nav-active-sq{width:6px;height:6px;background:var(--lime);flex-shrink:0;opacity:0;transition:opacity 0.2s}
+.nav-links li a.active .nav-active-sq{opacity:1}
+.nav-links li a.active::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:2px;height:50%;background:var(--lime)}
+.nav-links li.nav-divider{border-top:1px dashed #282828;margin:8px 20px}
+.nav-bottom{padding:20px 24px;border-top:1px solid #1E1E1E}
+.nav-cta{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 16px;background:var(--lime);color:var(--black);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;text-decoration:none;cursor:none;position:relative;overflow:hidden;transition:opacity 0.2s}
+.nav-cta::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.1);opacity:0;transition:opacity 0.2s}
+.nav-cta:hover::before{opacity:1}
+.nav-cta .cta-arrow{font-size:16px;transform:rotate(45deg);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);display:inline-block}
+.nav-cta:hover .cta-arrow{transform:rotate(-45deg)}
 
-    /* ====== UTILITY ====== */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-    .label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
+/* MAIN */
+#content{margin-left:var(--nav-width)}
 
-    /* ====== NAV ====== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 20px 0;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0.8);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-    nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 1px;
-      text-decoration: none;
-    }
-    .nav-logo-text {
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #E85D2A;
-    }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-600);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--black); }
-    .nav-cta {
-      background: var(--orange) !important;
-      color: var(--white) !important;
-      padding: 10px 20px;
-      border-radius: 4px;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--orange-light) !important; }
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .nav-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--black);
-      transition: 0.2s;
-    }
+/* SECTION SHARED */
+.section-eyebrow{font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:var(--grey-4);letter-spacing:0.2em;margin-bottom:20px}
+.section-dither{position:relative}
+.section-dither::before{content:'';position:absolute;inset:0;background-image:url('assets/dither-overlay.png');background-size:cover;opacity:0.5;pointer-events:none;z-index:0}
+.section-inner{position:relative;z-index:1}
 
-    /* ====== HERO ====== */
-    .hero {
-      min-height: auto;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background: var(--white);
-    }
-    .hero-gradient {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(139, 92, 246, 0.2), transparent),
-        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(232, 93, 42, 0.25), transparent),
-        radial-gradient(ellipse 50% 40% at 90% 70%, rgba(217, 70, 239, 0.15), transparent);
-      animation: heroShift 12s ease-in-out infinite alternate;
-    }
-    @keyframes heroShift {
-      0% { opacity: 0.8; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.05); }
-    }
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      animation: orbFloat 8s ease-in-out infinite alternate;
-    }
-    .hero-orb-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
-      top: -10%; right: -5%;
-      opacity: 0.3;
-    }
-    .hero-orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
-      bottom: -5%; left: 10%;
-      opacity: 0.25;
-      animation-delay: -3s;
-    }
-    .hero-orb-3 {
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, var(--magenta) 0%, transparent 70%);
-      top: 30%; left: 50%;
-      opacity: 0.2;
-      animation-delay: -5s;
-    }
-    @keyframes orbFloat {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(30px, -20px); }
-    }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero .container { position: relative; z-index: 2; padding-top: 40px; padding-bottom: 20px; }
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 20px;
-    }
-    .hero-date {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      color: var(--orange);
-      text-transform: uppercase;
-      padding: 8px 16px;
-      border: 1px solid rgba(232, 93, 42, 0.4);
-      border-radius: 2px;
-    }
-    .hero-venue {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      color: var(--gray-600);
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      font-size: clamp(48px, 7vw, 96px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 0.95;
-      max-width: 900px;
-      margin-bottom: 20px;
-    }
-    .hero h1 .gradient-text {
-      background: linear-gradient(135deg, var(--orange), var(--magenta), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 20px);
-      color: var(--gray-600);
-      max-width: 560px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      background: linear-gradient(135deg, var(--orange), #D94E1A);
-      color: var(--white);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 600;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(232, 93, 42, 0.4);
-    }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      background: transparent;
-      color: var(--black);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 500;
-      border: 1px solid rgba(0,0,0,0.15);
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover {
-      border-color: rgba(0,0,0,0.3);
-      background: rgba(0,0,0,0.03);
-    }
-    .btn-secondary .arrow {
-      transition: transform 0.2s;
-    }
-    .btn-secondary:hover .arrow { transform: translateX(4px); }
+/* HERO */
+#hero{position:relative;width:100%;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center bottom;will-change:transform;transform:scale(1.06);filter:brightness(0.38) contrast(1.08);background-image:url('assets/hero-bg.png')}
+.hero-scanlines{position:absolute;inset:0;z-index:2;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.1) 3px,rgba(0,0,0,0.1) 4px)}
+.hero-vignette{position:absolute;inset:0;z-index:3;background:linear-gradient(to top,rgba(8,8,8,0.95) 0%,rgba(8,8,8,0.3) 50%,transparent 80%),linear-gradient(to right,rgba(8,8,8,0.5) 0%,transparent 40%)}
+.hero-pixel-canvas{position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none}
+.hero-top-row{position:relative;z-index:5;display:flex;align-items:flex-start;justify-content:flex-start;gap:48px;padding:52px 52px 0;will-change:transform}
+.hero-qday{font-family:'Clash Display',sans-serif;font-size:clamp(40px,5.5vw,82px);font-weight:400;color:var(--lime);letter-spacing:-0.03em;line-height:1;opacity:0;transform:translateY(20px)}
+.hero-qday span{color:var(--off-white)}
+.hero-bottom{position:relative;z-index:5;padding:0 52px 44px;will-change:transform}
+.hero-eyebrow{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;transform:translateY(14px)}
+.hero-meta-block{opacity:0;transform:translateY(14px);max-width:560px}
+.hero-meta-rule{height:1px;background:#282828;margin-bottom:10px}
+.hero-meta-row{display:flex;align-items:flex-start;gap:48px}
+.hero-meta-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px}
+.hero-meta-val{font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--grey-6)}
+.hero-meta-bottom-rule{height:1px;background:#282828;margin-top:10px;margin-bottom:16px}
+.hero-subhead{font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--grey-5);max-width:400px;line-height:1.65;opacity:0;transform:translateY(14px)}
 
-    /* ====== TICKER ====== */
-    .ticker {
-      overflow: hidden;
-      border-top: 1px solid rgba(0,0,0,0.06);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      padding: 16px 0;
-      background: rgba(0,0,0,0.02);
-    }
-    .ticker-track {
-      display: flex;
-      animation: ticker 30s linear infinite;
-      width: max-content;
-    }
-    @keyframes ticker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .ticker-item {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0 48px;
-      white-space: nowrap;
-    }
-    .ticker-value {
-      font-size: 20px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--orange), var(--magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .ticker-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--gray-600);
-      text-transform: uppercase;
-    }
-    .ticker-sep {
-      flex-shrink: 0;
-      width: 4px; height: 4px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 50%;
-    }
+/* TICKER */
+#ticker{width:100%;border-top:1px solid #1E1E1E;border-bottom:1px solid #1E1E1E;background:#0D0D0D;overflow:hidden;padding:13px 0}
+.ticker-track{display:flex;animation:tickerScroll 34s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:10px;padding:0 28px;white-space:nowrap;flex-shrink:0}
+.ticker-num{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;color:var(--lime);letter-spacing:-0.01em}
+.ticker-label{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-5);letter-spacing:0.08em;text-transform:uppercase}
+.ticker-sep{color:var(--grey-3);font-size:10px;padding:0 4px}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    /* ====== SECTIONS ====== */
-    section { padding: 120px 0; position: relative; }
+/* ABOUT */
+#about{border-top:1px solid #1E1E1E;padding:80px 52px}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
+.about-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;line-height:0.95;margin-bottom:28px}
+.about-body{font-family:'Inter',sans-serif;font-size:14px;font-weight:300;color:var(--grey-5);line-height:1.7;max-width:400px;margin-bottom:48px}
+.about-stats{display:flex;align-items:center;gap:0;border-top:1px solid #1E1E1E;padding-top:32px}
+.about-stat{flex:1}
+.about-stat-num{font-family:'Clash Display',sans-serif;font-size:22px;font-weight:600;color:var(--off-white);letter-spacing:-0.02em;line-height:1;margin-bottom:6px}
+.about-stat-label{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-4);letter-spacing:0.12em;text-transform:uppercase}
+.about-stat-divider{width:1px;height:40px;background:#1E1E1E;margin:0 32px;flex-shrink:0}
+.paper-card{background:#F5F4F0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");padding:32px;display:flex;flex-direction:column;position:relative}
+.paper-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.paper-tag{font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:4px 0;color:#1a1a1a}
+.paper-recipients{font-family:'Roboto Mono',monospace;font-size:9px;color:#888;letter-spacing:0.12em;text-transform:uppercase}
+.paper-rule{height:1px;background:#DDDCD8;margin-bottom:16px}
+.paper-meta{margin-bottom:16px}
+.paper-type{font-family:'Roboto Mono',monospace;font-size:9px;color:#888;letter-spacing:0.12em;text-transform:uppercase}
+.paper-title{font-family:'Clash Display',sans-serif;font-size:clamp(18px,2vw,26px);font-weight:600;color:#0A0A0A;letter-spacing:-0.02em;line-height:1.1;margin-bottom:20px}
+.paper-body{font-family:'Inter',sans-serif;font-size:12px;color:#555;line-height:1.65;margin-bottom:32px;flex:1}
+.paper-footer{display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid #DDDCD8;padding-top:16px}
+.paper-footer-left{display:flex;flex-direction:column;gap:3px}
+.paper-footer-label{font-family:'Roboto Mono',monospace;font-size:9px;color:#aaa;letter-spacing:0.12em;text-transform:uppercase}
+.paper-footer-val{font-family:'Roboto Mono',monospace;font-size:10px;color:#333;letter-spacing:0.08em}
+.paper-corner{font-size:20px;color:#999;transition:color 0.2s,transform 0.2s;cursor:none}
+.paper-card:hover .paper-corner{color:#0A0A0A;transform:translateX(2px) translateY(-2px)}
 
-    .section-num {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: var(--orange);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 24px;
-    }
-    .section-desc {
-      font-size: 18px;
-      color: var(--gray-600);
-      line-height: 1.7;
-      max-width: 640px;
-    }
+/* SPEAKERS */
+#speakers{border-top:1px solid #1E1E1E;padding:72px 52px}
+.speakers-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;position:relative;z-index:1}
+.speakers-header-left{display:flex;flex-direction:column;gap:12px}
+.speakers-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
+.speakers-count{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-4);letter-spacing:0.15em;text-transform:uppercase}
+.speakers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;z-index:1}
+.sp-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:none;background:var(--grey-1)}
+.sp-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.5s ease;filter:grayscale(1);position:absolute;inset:0}
+.sp-card:hover .sp-img{transform:scale(1.04)}
+.sp-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.95) 0%,rgba(8,8,8,0.2) 45%,transparent 70%)}
+.sp-lime-bar{position:absolute;top:0;left:0;right:0;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);z-index:4}
+.sp-card:hover .sp-lime-bar{transform:scaleX(1)}
+.sp-info{position:absolute;bottom:0;left:0;right:0;padding:12px 14px 16px;z-index:2;transition:opacity 0.25s ease}
+.sp-card:hover .sp-info{opacity:0}
+.sp-name-row{display:flex;align-items:baseline;gap:7px;margin-bottom:3px}
+.sp-idx{font-family:'Roboto Mono',monospace;font-size:8px;color:var(--lime);letter-spacing:0.1em;flex-shrink:0}
+.sp-name{font-family:'Clash Display',sans-serif;font-size:13px;font-weight:600;color:var(--off-white);letter-spacing:-0.01em;line-height:1.1}
+.sp-role{font-family:'Inter',sans-serif;font-size:9px;color:var(--grey-5);padding-left:19px}
+.sp-hover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.97) 0%,rgba(8,8,8,0.55) 55%,rgba(8,8,8,0.1) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:14px 14px 16px;opacity:0;transition:opacity 0.3s ease;z-index:3}
+.sp-card:hover .sp-hover-overlay{opacity:1}
+.sp-hover-name{font-family:'Clash Display',sans-serif;font-size:15px;font-weight:600;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:4px}
+.sp-hover-role{font-family:'Inter',sans-serif;font-size:10px;color:var(--grey-5);margin-bottom:2px}
+.sp-hover-org{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--lime);letter-spacing:0.08em}
 
-    /* ====== ABOUT ====== */
-    .about {
-      background: var(--cream);
-      color: var(--black);
-      position: relative;
-      overflow: hidden;
-    }
-    .about::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(232, 93, 42, 0.15), rgba(217, 70, 239, 0.1), transparent);
-      border-radius: 50%;
-      filter: blur(60px);
-    }
-    .about .section-num { color: var(--orange); }
-    .about .section-title { color: var(--black); }
-    .about .section-desc { color: #555; }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-      margin-top: 64px;
-    }
-    .about-highlight {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--black);
-      padding-top: 24px;
-    }
-    .about-highlight span {
-      background: linear-gradient(135deg, var(--orange), var(--magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .about-details { display: flex; flex-direction: column; gap: 24px; }
-    .about-detail {
-      padding: 24px;
-      border-left: 3px solid var(--orange);
-      background: rgba(232, 93, 42, 0.04);
-      border-radius: 0 8px 8px 0;
-    }
-    .about-detail-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 8px;
-    }
-    .about-detail p { font-size: 15px; color: #555; line-height: 1.5; }
+/* PROGRAMME */
+#programme{border-top:1px solid #1E1E1E;padding:72px 52px}
+.prog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;position:relative;z-index:1}
+.prog-header-left{display:flex;flex-direction:column;gap:12px}
+.prog-title-h{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
+.prog-date{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-4);letter-spacing:0.12em;text-transform:uppercase;text-align:right}
+.prog-rows{position:relative;z-index:1}
+.prog-row{display:grid;grid-template-columns:120px 1px 1fr;gap:0 32px;align-items:stretch;padding:28px 16px;border-top:1px solid #1E1E1E;cursor:none;transition:background 0.2s;position:relative}
+.prog-row:last-child{border-bottom:1px solid #1E1E1E}
+.prog-row:hover{background:#1A1A1A}
+.prog-left{display:flex;align-items:flex-start;padding-top:2px}
+.prog-time{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:400;color:var(--lime);letter-spacing:0.05em;white-space:nowrap}
+.prog-divider-v{width:1px;background:#1E1E1E;align-self:stretch}
+.prog-right{display:flex;flex-direction:column;gap:6px}
+.prog-type{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase}
+.prog-title-row{font-family:'Inter',sans-serif;font-size:clamp(15px,1.6vw,22px);font-weight:400;color:var(--off-white);letter-spacing:-0.01em;line-height:1.15}
+.prog-sub{font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--grey-5);line-height:1.5;max-width:520px}
+.prog-speaker{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:0.08em;margin-top:4px}
 
-    /* ====== AUDIENCE ====== */
-    .audience { background: var(--white); }
-    .audience-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      margin-top: 64px;
-      background: rgba(0,0,0,0.08);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .audience-card {
-      background: var(--cream);
-      padding: 40px;
-      position: relative;
-      transition: background 0.2s;
-    }
-    .audience-card:hover { background: #F0EBE5; }
-    .audience-icon {
-      width: 32px; height: 32px;
-      margin-bottom: 20px;
-      color: var(--orange);
-    }
-    .audience-icon svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--orange);
-      stroke-width: 1.5;
-      fill: none;
-    }
-    .audience-card h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-      color: var(--black);
-    }
-    .audience-card p {
-      font-size: 14px;
-      color: var(--gray-600);
-      line-height: 1.5;
-    }
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.do-anim{animation:fadeUp 0.7s ease forwards}
+/* ── WHO'S IN THE ROOM ── */
+#room{border-top:1px solid #1E1E1E;padding:80px 52px}
+.room-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:64px}
+.room-left{}
+.room-right{}
+.room-stakes{font-family:'Inter',sans-serif;font-size:14px;font-weight:300;color:var(--grey-5);line-height:1.75;max-width:400px}
+.room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.room-cell{background:#111;padding:24px 20px 28px;position:relative;cursor:none;transition:background 0.2s}
+.room-cell:hover{background:#1A1A1A}
+.room-cell-lime-bar{position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background 0.2s}
+.room-cell:hover .room-cell-lime-bar{background:var(--lime)}
+.room-cell-top{display:flex;justify-content:flex-end;margin-bottom:20px}
+.room-cell-num{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-4);letter-spacing:0.12em}
+.room-cell-label{font-family:'Inter',sans-serif;font-size:clamp(13px,1.3vw,16px);font-weight:500;color:var(--off-white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px}
+.room-cell-sub{font-family:'Inter',sans-serif;font-size:11px;font-weight:300;color:var(--grey-5);line-height:1.5}
 
-    /* ====== PROGRAMME ====== */
-    .programme {
-      background: var(--cream);
-      color: var(--black);
-    }
-    .programme .section-num { color: var(--orange); }
-    .programme .section-title { color: var(--black); }
-    .programme-list {
-      margin-top: 64px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .programme-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .programme-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
-    .programme-time {
-      padding: 40px 32px;
-      background: linear-gradient(135deg, var(--orange), var(--magenta));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .programme-time .time-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 4px;
-    }
-    .programme-time .time-format {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--white);
-      font-weight: 700;
-    }
-    .programme-content { padding: 40px; }
-    .programme-content .prog-type {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 8px;
-    }
-    .programme-content h3 {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-      color: var(--black);
-    }
-    .programme-content p {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.6;
-    }
+/* ── SPONSORS ── */
+#sponsors{border-top:1px solid #1E1E1E;padding:80px 52px;position:relative}
+#sponsors::before{content:'';position:absolute;inset:0;background-image:url('assets/dither-overlay.png');background-size:cover;opacity:0.5;pointer-events:none;z-index:0}
+.sponsors-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center}
+.sponsors-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
+.sponsors-header-left{display:flex;flex-direction:column;gap:12px;align-items:center}
+.sponsors-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
+.sponsors-tiers{display:flex;flex-direction:column;gap:0}
+.sponsor-tier{display:grid;grid-template-columns:160px 1fr;align-items:center;border-top:1px solid #1E1E1E;padding:28px 0}
+.sponsor-tier:last-child{border-bottom:1px solid #1E1E1E}
+.sponsor-tier-top{margin-bottom:28px}
+.sponsor-tier-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:28px;display:block}
+.sponsor-logos{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.sponsor-name{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:500;color:var(--grey-5);letter-spacing:-0.01em;transition:color 0.2s;cursor:none}
+.sponsor-name:hover{color:var(--lime)}
 
-    /* ====== CTA ====== */
-    .cta-section {
-      background: var(--cream);
-      color: var(--black);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(232, 93, 42, 0.1), transparent),
-        radial-gradient(ellipse 40% 40% at 30% 60%, rgba(139, 92, 246, 0.08), transparent),
-        radial-gradient(ellipse 40% 40% at 70% 40%, rgba(217, 70, 239, 0.06), transparent);
-    }
-    .cta-section .container { position: relative; z-index: 1; }
-    .cta-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .cta-header .section-title { max-width: 600px; margin: 0 auto 16px; color: var(--black); }
-    .cta-header p { color: var(--gray-600); font-size: 18px; }
-    .cta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(0,0,0,0.08);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .cta-card {
-      padding: 48px 40px;
-      background: var(--white);
-      display: flex;
-      flex-direction: column;
-      transition: background 0.2s;
-    }
-    .cta-card:hover { background: #FEFCFA; }
-    .cta-card-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 16px;
-    }
-    .cta-card h3 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-      color: var(--black);
-    }
-    .cta-card p {
-      font-size: 15px;
-      color: var(--gray-600);
-      line-height: 1.6;
-      margin-bottom: 32px;
-      flex: 1;
-    }
-    .cta-card .btn-primary { justify-content: center; font-size: 14px; padding: 14px 24px; }
+/* ── BECOME A SPONSOR ── */
+#become-sponsor{border-top:1px solid #1E1E1E;padding:80px 52px}
+.become-inner{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:640px;margin:0 auto}
+.become-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;line-height:1;margin-bottom:48px}
+.become-title em{color:var(--lime);font-style:normal}
+.become-body{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:1.75;margin-bottom:40px;max-width:520px}
+.become-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1E1E1E;width:100%;margin-bottom:32px}
+.become-tier{background:var(--black);padding:24px 20px;text-align:center}
+.become-tier-name{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:10px}
+.become-tier-price{font-family:'Clash Display',sans-serif;font-size:22px;font-weight:600;color:var(--off-white);letter-spacing:-0.02em}
+.become-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;background:var(--lime);color:var(--black);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;cursor:none;transition:opacity 0.2s}
+.become-cta:hover{opacity:0.85}
+/* ── REGISTER ── */
+#register{border-top:1px solid #1E1E1E;padding:80px 52px;position:relative;background:var(--black)}
+#register::before{content:'';position:absolute;inset:0;background-image:url('assets/dither-overlay.png');background-size:cover;opacity:0.5;pointer-events:none;z-index:0}
+.register-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.register-left{}
+.register-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;margin-bottom:20px}
+.register-body{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:1.75;max-width:380px}
+.register-ticket{background:var(--grey-1);border:1px solid #282828;padding:32px}
+.register-ticket-top{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:28px}
+.register-ticket-cell{padding-bottom:20px}
+.register-ticket-cell:nth-child(odd){border-right:1px solid #282828;padding-right:24px}
+.register-ticket-cell:nth-child(even){padding-left:24px}
+.register-ticket-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px}
+.register-ticket-val{font-family:'Inter',sans-serif;font-size:13px;color:var(--off-white);font-weight:400}
+.register-ticket-divider{border:none;border-top:1px dashed #333;margin:0 0 28px}
+.register-ticket-cta{display:flex;align-items:center;justify-content:space-between}
+.register-ticket-note{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.1em;text-transform:uppercase}
+.register-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:var(--lime);color:var(--black);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;cursor:none;transition:opacity 0.2s;white-space:nowrap}
+.register-btn:hover{opacity:0.85}
+.register-attend-note{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.12em;text-transform:uppercase;margin-top:16px;text-align:center}
 
-    /* ====== FOOTER ====== */
-    footer {
-      padding: 64px 0;
-      border-top: 1px solid rgba(0,0,0,0.06);
-      background: var(--white);
-      color: var(--black);
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 48px;
-    }
-    .footer-brand p {
-      color: var(--gray-600);
-      font-size: 14px;
-      margin-top: 12px;
-      max-width: 320px;
-      line-height: 1.5;
-    }
-    .footer-links { display: flex; gap: 48px; }
-    .footer-col h4 {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-bottom: 16px;
-    }
-    .footer-col a {
-      display: block;
-      color: var(--gray-600);
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-    .footer-col a:hover { color: var(--black); }
-    footer .nav-logo { color: var(--black); }
-    .footer-bottom {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-bottom p {
-      font-size: 13px;
-      color: var(--gray-600);
-    }
-    .footer-bottom a { color: var(--orange); text-decoration: none; }
+/* ── FAQ ── */
+#faq{border-top:1px solid #1E1E1E;padding:80px 52px}
+.faq-header{margin-bottom:56px}
+.faq-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-top:1px solid #1E1E1E}
+.faq-item:last-child{border-bottom:1px solid #1E1E1E}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:26px 0;cursor:none;gap:32px}
+.faq-q-text{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:var(--off-white);line-height:1.4}
+.faq-icon{font-family:'Inter',sans-serif;font-size:20px;font-weight:300;color:var(--grey-4);flex-shrink:0;width:24px;text-align:center;transition:transform 0.3s ease,color 0.2s;user-select:none}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.45s ease}
+.faq-a-inner{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:1.75;padding-bottom:28px;max-width:680px}
+.faq-link{color:var(--lime);text-decoration:underline;text-underline-offset:3px;transition:opacity 0.2s}
+.faq-link:hover{opacity:0.75}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--lime)}
+.faq-item.open .faq-a{max-height:300px}
 
-    /* ====== SCROLL ANIMATIONS ====== */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* ── FOOTER ── */
+#footer{
+  border-top:1px solid #1E1E1E;
+  position:relative;
+  overflow:hidden;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.footer-ticker{
+  width:100%;overflow:hidden;
+  border-bottom:1px solid #1E1E1E;
+  padding:13px 0;
+  background:#0D0D0D;
+  flex-shrink:0;
+}
+.footer-ticker-track{
+  display:flex;width:max-content;
+  animation:tickerScroll 70s linear infinite;
+}
+.footer-ticker-item{
+  display:flex;align-items:center;gap:16px;
+  padding:0 32px;white-space:nowrap;flex-shrink:0;
+  font-family:'Roboto Mono',monospace;
+  font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--grey-4);
+}
+.footer-ticker-item em{color:var(--lime);font-style:normal}
+.footer-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:64px 52px 0;
+  position:relative;
+  z-index:1;
+}
+.footer-cta-area{
+  text-align:center;
+  padding:40px 0 48px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+}
+.footer-big-text{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(60px,10vw,150px);
+  font-weight:500;
+  letter-spacing:-0.03em;
+  line-height:0.9;
+  background:linear-gradient(90deg,var(--off-white) 0%,var(--lime) 40%,var(--off-white) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:block;
+  margin-bottom:48px;
+  animation:gradientShift 5s ease-in-out infinite alternate;
+}
+@keyframes gradientShift{
+  0%{background-position:0% center}
+  100%{background-position:100% center}
+}
+.footer-btn-row{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-bottom:48px;
+}
+.footer-btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 32px;
+  background:var(--lime);color:var(--black);
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;
+  text-decoration:none;cursor:none;transition:opacity 0.2s;
+}
+.footer-btn-primary:hover{opacity:0.85}
+.footer-nav-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;margin-bottom:20px;
+}
+.footer-nav-row a{
+  font-family:'Roboto Mono',monospace;font-size:10px;
+  color:var(--grey-4);letter-spacing:0.12em;
+  text-transform:uppercase;text-decoration:none;
+  transition:color 0.2s;cursor:none;
+}
+.footer-nav-row a:hover{color:var(--off-white)}
+.footer-get-involved{
+  display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;margin-bottom:0;
+}
+.footer-get-involved a{
+  font-family:'Roboto Mono',monospace;font-size:10px;
+  color:var(--grey-5);letter-spacing:0.1em;
+  text-transform:uppercase;text-decoration:none;
+  transition:color 0.2s;cursor:none;
+}
+.footer-get-involved a:hover{color:var(--lime)}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;
+  border-top:1px solid #1E1E1E;
+  position:relative;z-index:1;
+}
+.footer-copy{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-4);letter-spacing:0.08em}
+.footer-luma{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:0.08em;text-decoration:none;cursor:none;transition:opacity 0.2s}
+.footer-luma:hover{opacity:0.7}
 
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255,255,255,0.95);
-        backdrop-filter: blur(20px);
-        padding: 24px 32px;
-        gap: 16px;
-        border-bottom: 1px solid rgba(0,0,0,0.06);
-      }
-      .nav-toggle { display: flex; }
-      .hero h1 { font-size: clamp(36px, 8vw, 64px); }
-      .hero-meta { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .audience-grid { grid-template-columns: 1fr; }
-.programme-item { grid-template-columns: 1fr; }
-      .programme-time { padding: 24px 32px; }
-      .cta-grid { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; }
-      .footer-links { gap: 32px; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .hero-buttons { flex-direction: column; }
-      .hero-buttons a { text-align: center; justify-content: center; width: 100%; }
-      .section-title { font-size: clamp(28px, 7vw, 48px); }
-      section { padding: 64px 0; }
-      .container { padding: 0 20px; }
-      .audience-card { padding: 28px; }
-      .cta-card { padding: 32px 28px; }
-      .programme-content { padding: 28px; }
-    }
-  </style>
+/* ── SPONSOR MODAL ── */
+#sponsor-modal-overlay{
+  position:fixed;inset:0;z-index:5000;
+  background:rgba(8,8,8,0.85);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+#sponsor-modal-overlay.open{opacity:1;pointer-events:all}
+#sponsor-modal{
+  background:#111;
+  border:1px solid #282828;
+  width:100%;max-width:540px;
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  padding:40px;
+  scrollbar-width:none;
+}
+#sponsor-modal::-webkit-scrollbar{display:none}
+.modal-header{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:32px;
+}
+.modal-title{
+  font-family:'Clash Display',sans-serif;
+  font-size:22px;font-weight:500;
+  color:var(--off-white);letter-spacing:-0.02em;
+}
+.modal-close{
+  background:none;border:none;
+  font-size:20px;color:var(--grey-4);
+  cursor:none;padding:0;line-height:1;
+  transition:color 0.2s;
+}
+.modal-close:hover{color:var(--off-white)}
+.modal-form{display:flex;flex-direction:column;gap:20px}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.modal-field{display:flex;flex-direction:column;gap:8px}
+.modal-field.full{grid-column:1/-1}
+.modal-label{
+  font-family:'Roboto Mono',monospace;
+  font-size:9px;color:var(--grey-4);
+  letter-spacing:0.18em;text-transform:uppercase;
+}
+.modal-input,
+.modal-select,
+.modal-textarea{
+  background:#1A1A1A;
+  border:1px solid #282828;
+  color:var(--off-white);
+  font-family:'Inter',sans-serif;
+  font-size:13px;font-weight:300;
+  padding:12px 14px;
+  outline:none;
+  transition:border-color 0.2s;
+  width:100%;
+  -webkit-appearance:none;
+}
+.modal-input::placeholder,
+.modal-textarea::placeholder{color:var(--grey-4)}
+.modal-input:focus,
+.modal-select:focus,
+.modal-textarea:focus{border-color:var(--lime)}
+.modal-select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:36px;
+  cursor:none;
+}
+.modal-select option{background:#1A1A1A;color:var(--off-white)}
+.modal-textarea{resize:vertical;min-height:100px}
+.modal-submit{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 24px;
+  background:var(--lime);
+  color:var(--black);
+  font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;
+  border:none;cursor:none;
+  width:100%;
+  margin-top:4px;
+  transition:opacity 0.2s;
+}
+.modal-submit:hover{opacity:0.85}
+
+</style>
 </head>
 <body>
+<div id="cursor-dot"></div>
 
-  <!-- NAV -->
-  <nav>
-    <div class="container">
-      <a href="#" class="nav-logo">
-            <svg width="130" height="25" viewBox="0 0 1657 320" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M269.654 320L160.891 211.138L179.29 192.738L288.053 301.6L269.654 320Z" fill="#FF6B35"/><path d="M192.805 179.225L211.197 160.833L319.978 269.677L301.575 288.08L192.805 179.225Z" fill="#FF6B35"/><path d="M308.465 124.709C307.659 120.7 306.69 116.751 305.568 112.875C294.853 75.0657 269.816 44.3815 238.04 24.6476C208.27 5.74302 172.341-3.5182 135.873 1.22843C129.359 2.03375 122.844 3.27928 116.368 4.98889C94.4841 10.6432 73.2044 21.5322 54.0473 38.4166C54.0268 38.4337 54.0064 38.4508 53.9893 38.4678C53.8801 38.5634 53.7709 38.6623 53.6651 38.7579C53.3648 39.024 53.0611 39.2936 52.7608 39.5666C52.6107 39.7031 52.4605 39.8362 52.3138 39.9727C52.0306 40.232 51.7439 40.4914 51.4607 40.7507C51.1979 40.9896 50.9386 41.2318 50.6793 41.4741C50.5598 41.5867 50.437 41.6994 50.3176 41.812C49.5293 42.549 48.7479 43.2895 47.9801 44.0334C46.0555 45.8659 44.148 47.7632 42.2643 49.7219C40.8414 51.2745 39.4559 52.8408 38.1081 54.4173C22.4179 72.3869 11.9657 92.1481 6.11009 112.486C4.2947 118.649 2.90586 124.846 1.9265 131.049C-4.56045 170.701 5.71084 209.896 27.0758 241.577C48.7922 274.544 82.493 299.689 123.554 308.19C127.267 308.981 131.031 309.63 134.846 310.138C153.29 312.68 172.761 311.8 192.672 306.76C193.433 306.582 194.194 306.402 194.955 306.211V306.204C196.453 305.811 197.954 305.398 199.449 304.958L199.401 304.9C200.633 304.532 201.868 304.146 203.104 303.747C205.54 302.979 207.987 302.153 210.437 301.263L210.43 301.256C211.884 300.706 213.334 300.14 214.774 299.546L214.726 299.498C216.566 298.751 218.408 297.966 220.251 297.144L190.191 267.057C189.782 267.183 189.376 267.313 188.963 267.432L188.946 267.415C187.315 267.913 185.684 268.371 184.049 268.79H184.046C182.408 269.193 180.763 269.565 179.104 269.899L179.087 269.882C176.491 270.435 173.894 270.892 171.304 271.254C169.898 271.442 168.485 271.609 167.069 271.742L167.055 271.725C163.428 272.107 159.821 272.308 156.245 272.339C132.761 272.387 110.004 265.115 90.9113 252.332C87.1372 249.794 83.5098 247.036 80.0497 244.085C63.6634 230.009 51.1058 211.51 44.4892 190.534C43.0355 185.815 41.8787 180.952 41.0427 175.956C40.7663 174.489 40.524 173.022 40.3124 171.554C40.0702 169.678 39.8688 167.787 39.7187 165.883C39.5788 164.47 39.4696 163.057 39.3877 161.652C39.2717 159.031 39.2478 156.39 39.3194 153.728C39.3672 147.033 40.0156 140.468 41.2065 134.08C44.9294 114.885 53.532 96.9869 65.7552 82.0269C83.1072 61.0305 107.584 46.0809 134.836 41.0339C138.374 40.4095 141.971 39.9556 145.622 39.6724C147.475 39.495 149.321 39.3653 151.16 39.28C152.693 39.2322 154.232 39.2151 155.781 39.2322C157.388 39.2185 158.988 39.2424 160.582 39.2936C163.039 39.4131 165.506 39.6144 167.983 39.901C175.743 40.6517 183.227 42.1737 190.382 44.3747C211.034 50.8855 229.328 63.1394 243.37 79.1639C243.558 79.3789 243.745 79.5939 243.933 79.8123C243.984 79.8703 244.032 79.9283 244.083 79.9864C246.431 82.7299 248.656 85.5793 250.748 88.5276C263.141 106.081 270.802 126.951 272.201 148.787C272.211 148.978 272.225 149.172 272.235 149.364C272.58 155.967 272.351 162.699 271.491 169.5L271.549 169.551C271.137 172.872 270.573 176.202 269.853 179.536L269.939 179.621C269.185 183.153 268.25 186.685 267.137 190.203L297.153 220.242C298.558 217.072 299.855 213.909 301.046 210.749L301.131 210.834C302.032 208.326 302.872 205.828 303.65 203.337C304.24 201.522 304.796 199.713 305.318 197.905L305.376 197.953C305.626 197.007 305.864 196.066 306.096 195.124C312.716 170.616 313.054 146.791 308.465 124.699V124.709Z" fill="#FF6B35"/><path d="M442.157 289.168C411.196 289.168 388.57 283.346 374.28 271.702C359.858 260.059 352.713 241.138 352.713 215.204V108.162H394.524V210.97C394.524 226.848 398.097 238.227 405.506 245.107C412.916 252.12 424.956 255.56 441.893 255.56C458.829 255.56 471.002 252.12 478.411 245.24C485.689 238.359 489.393 226.848 489.393 210.97V108.162H530.808V215.204C530.808 241.27 523.663 260.059 509.505 271.702C495.347 283.346 472.854 289.168 442.157 289.168ZM759.907 287.051H716.243L701.424 252.12H607.613L592.397 287.051H550.983L630.901 108.162H680.254L759.907 287.051ZM649.028 157.515L620.315 223.408H689.119L660.936 157.515L655.908 143.225H654.188L649.028 157.515ZM827.847 287.051H788.021V108.162H836.448L916.366 215.998L931.052 236.904L932.111 236.639L931.317 202.502V108.162H971.144V287.051H921.261L827.847 160.823L826.921 161.088L827.847 195.225V287.051ZM1180.66 108.162V141.505H1112.39V287.051H1070.71V141.505H1002.04V108.162H1180.66ZM1300.6 289.168C1269.64 289.168 1247.01 283.346 1232.72 271.702C1218.3 260.059 1211.16 241.138 1211.16 215.204V108.162H1252.97V210.97C1252.97 226.848 1256.54 238.227 1263.95 245.107C1271.36 252.12 1283.4 255.56 1300.34 255.56C1317.27 255.56 1329.44 252.12 1336.85 245.24C1344.13 238.359 1347.84 226.848 1347.84 210.97V108.162H1389.25V215.204C1389.25 241.27 1382.11 260.059 1367.95 271.702C1353.79 283.346 1331.3 289.168 1300.6 289.168ZM1516.86 289.168C1486.83 289.168 1464.47 284.669 1449.78 275.539C1434.96 266.542 1426.89 251.855 1425.44 231.743H1466.19C1466.98 241.932 1471.61 249.209 1479.82 253.708C1488.02 258.206 1500.33 260.456 1516.86 260.456C1532.21 260.456 1543.33 258.339 1550.21 253.84C1557.09 249.341 1560.66 243.519 1560.66 236.11C1560.66 231.347 1559.21 227.509 1556.29 224.731C1553.38 221.952 1547.69 219.571 1539.49 217.454C1531.29 215.337 1519.11 213.484 1502.97 211.764C1491.2 210.573 1481.27 209.118 1473.07 207.265C1464.87 205.545 1457.72 203.428 1451.63 200.782C1445.55 198.268 1440.92 195.225 1437.48 191.52C1434.04 187.815 1431.39 183.713 1429.8 178.95C1428.21 174.187 1427.42 168.63 1427.42 162.146C1427.42 155.531 1428.35 149.444 1430.33 143.887C1432.32 138.33 1435.49 133.302 1439.99 128.539C1444.36 123.775 1449.91 119.806 1456.53 116.498C1463.15 113.322 1471.22 110.676 1480.88 108.824C1490.53 106.971 1501.38 106.045 1513.56 106.045C1540.95 106.045 1561.59 110.544 1575.61 119.277C1589.64 128.142 1597.31 141.638 1598.64 159.632L1559.34 159.368C1558.54 151.164 1554.44 144.945 1546.77 140.711C1539.09 136.61 1527.19 134.493 1511.18 134.493C1496.89 134.493 1486.3 136.61 1479.29 140.711C1472.28 144.945 1468.83 150.503 1468.83 157.515C1468.83 162.279 1470.29 165.983 1473.2 168.63C1476.11 171.276 1481.54 173.525 1489.61 175.378C1497.68 177.23 1509.85 178.95 1525.99 180.538C1540.81 182.126 1552.99 184.11 1562.51 186.492C1572.04 188.874 1579.71 192.049 1585.8 196.019C1591.75 199.988 1595.99 204.751 1598.37 210.309C1600.75 215.866 1601.94 222.746 1601.94 230.95C1601.94 239.418 1600.22 247.224 1597.05 254.105C1593.87 260.985 1588.84 267.204 1582.23 272.496C1575.61 277.789 1566.75 281.891 1555.63 284.801C1544.52 287.712 1531.68 289.168 1516.86 289.168Z" fill="#FF6B35"/></svg>
-          </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#audience">Attendees</a>
-        <a href="#programme">Programme</a>
-        <a href="#register" class="nav-cta">Join Q-Day</a>
+<!-- LOADER -->
+<div id="loader">
+  <div id="loader-days"><em id="ld-num">399</em></div>
+  <div id="loader-bottom">days until QDay</div>
+  <div id="loader-bar"></div>
+</div>
+<div id="glitch-overlay"><canvas id="glitch-canvas"></canvas></div>
+
+<!-- NAV -->
+<nav id="sidenav">
+  <a href="#hero" class="nav-wordmark">QDay</a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="nav-link"><span class="nav-active-sq"></span>Home</a></li>
+    <li><a href="#about" class="nav-link"><span class="nav-active-sq"></span>About</a></li>
+    <li><a href="#speakers" class="nav-link"><span class="nav-active-sq"></span>Speakers</a></li>
+    <li><a href="#programme" class="nav-link"><span class="nav-active-sq"></span>Programme</a></li>
+    <li class="nav-divider"></li>
+    <li><a href="#sponsors" class="nav-link"><span class="nav-active-sq"></span>Sponsors</a></li>
+    <li><a href="#become-sponsor" class="nav-link"><span class="nav-active-sq"></span>Become a Sponsor</a></li>
+    <li class="nav-divider"></li>
+    <li><a href="#register" class="nav-link"><span class="nav-active-sq"></span>Register</a></li>
+    <li><a href="#faq" class="nav-link"><span class="nav-active-sq"></span>FAQ</a></li>
+  </ul>
+  <div class="nav-bottom">
+    <a href="https://lu.ma/co5uqvwx" class="nav-cta" target="_blank">Register<span class="cta-arrow">&#x2197;</span></a>
+  </div>
+</nav>
+
+<main id="content">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-scanlines"></div>
+  <div class="hero-vignette"></div>
+  <canvas class="hero-pixel-canvas" id="pixel-canvas"></canvas>
+  <div class="hero-top-row" id="hero-top">
+    <div class="hero-qday" id="he-qday">QDay <span>'26</span></div>
+  </div>
+  <div style="flex:1"></div>
+  <div class="hero-bottom" id="hero-bottom">
+    <p class="hero-eyebrow" id="he-eyebrow">Quantus &middot; Network School &middot; Zcash</p>
+    <div class="hero-meta-block" id="he-meta">
+      <div class="hero-meta-rule"></div>
+      <div class="hero-meta-row">
+        <div><div class="hero-meta-label">Date</div><div class="hero-meta-val">06 June 2026</div></div>
+        <div><div class="hero-meta-label">Time</div><div class="hero-meta-val">4pm &ndash; 8pm</div></div>
+        <div><div class="hero-meta-label">Venue</div><div class="hero-meta-val">Network School, Johor Bahru</div></div>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="hero-meta-bottom-rule"></div>
     </div>
-  </nav>
+    <p class="hero-subhead" id="he-sub">A half-day summit on the quantum threat to Blockchains. </p>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-gradient"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="hero-grid"></div>
-    <div class="container">
-      <div class="hero-meta fade-up">
-        <div class="hero-date">25 April 2026</div>
-        <div class="hero-venue">Johor Bahru, Malaysia</div>
-      </div>
-      <h1 class="fade-up">Crypto has a <span class="gradient-text">quantum problem.</span></h1>
-      <p class="hero-sub fade-up">A half-day summit for researchers, builders, and investors preparing blockchains for quantum computing.</p>
-      <div class="hero-buttons fade-up">
-        <a href="#register" class="btn-primary">Join Q-Day <span>&rarr;</span></a>
-        <a href="#about" class="btn-secondary">Learn More <span class="arrow">&rarr;</span></a>
+<!-- TICKER -->
+<div id="ticker"><div class="ticker-track" id="ticker-track"></div></div>
+
+<!-- ABOUT -->
+<section id="about" class="section-dither">
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="section-eyebrow">02</p>
+      <h2 class="about-title">Half-Day Summit</h2>
+      <p class="about-body">Quantum computing is no longer theoretical. The cryptography underpinning Bitcoin, Ethereum, and every major blockchain are on a countdown. Q-Day is where the people who understand this gather to decide what comes next.</p>
+      <div class="about-stats">
+        <div class="about-stat"><div class="about-stat-num">60–80</div><div class="about-stat-label">Curated Delegates</div></div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat"><div class="about-stat-num">4hrs</div><div class="about-stat-label">Focused Format</div></div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-label">Sessions</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-track">
-      <div class="ticker-item"><span class="ticker-value">4M+ BTC</span><span class="ticker-label">Exposed in P2PK addresses</span></div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item"><span class="ticker-value">$2.6T+</span><span class="ticker-label">Crypto market at stake</span></div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item"><span class="ticker-value">~2031</span><span class="ticker-label">Projected quantum break window</span></div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item"><span class="ticker-value">1,000+</span><span class="ticker-label">Paper recipients</span></div>
-      <div class="ticker-sep"></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="ticker-item"><span class="ticker-value">4M+ BTC</span><span class="ticker-label">Exposed in P2PK addresses</span></div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item"><span class="ticker-value">$2.6T+</span><span class="ticker-label">Crypto market at stake</span></div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item"><span class="ticker-value">~2031</span><span class="ticker-label">Projected quantum break window</span></div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item"><span class="ticker-value">1,000+</span><span class="ticker-label">Paper recipients</span></div>
-      <div class="ticker-sep"></div>
+    <div class="about-right">
+      <div class="paper-card">
+        <div class="paper-card-top"><span class="paper-tag">Companion Paper</span><span class="paper-recipients">1,000+ Recipients</span></div>
+        <div class="paper-rule"></div>
+        <div class="paper-meta"><span class="paper-type">Research &middot; 2026</span></div>
+        <h3 class="paper-title">The State of Quantum Computing: What Crypto Can't Afford to Ignore</h3>
+        <p class="paper-body">A technical brief prepared for Q-Day delegates. Covers the current state of quantum hardware, Shor's algorithm timelines, vulnerable cryptographic primitives, and the post-quantum migration path for major protocols.</p>
+        <div class="paper-footer">
+          <div class="paper-footer-left"><span class="paper-footer-label">Distributed at</span><span class="paper-footer-val">Q-Day &middot; 06.06.26</span></div>
+          <div class="paper-corner">&#x2197;</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-num fade-up">02, About</div>
-      <div class="section-title fade-up">What is Q-Day?</div>
-      <p class="section-desc fade-up">Quantum computers will break today's blockchains. The window to act is narrowing.</p>
-      <div class="about-grid">
-        <div class="about-highlight fade-up">
-          Presented by <span>Quantus</span> and hosted at Network School in Johor Bahru.
+<!-- SPEAKERS -->
+<section id="speakers">
+  <div class="section-inner" style="padding:80px 52px">
+    <div class="speakers-header">
+      <div class="speakers-header-left">
+        <span class="section-eyebrow">03</span>
+        <h2 class="speakers-title">The Right Room</h2>
+      </div>
+      <span class="speakers-count">06 Speakers</span>
+    </div>
+    <div class="speakers-grid"><div class="sp-card">
+        <img src="assets/speaker-balaji.jpg" alt="Balaji Srinivasan" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">01</span><span class="sp-name">Balaji Srinivasan</span></div>
+          <div class="sp-role">Author & Investor &middot; Network School</div>
         </div>
-        <div class="about-details fade-up">
-          <div class="about-detail">
-            <div class="about-detail-label">Format</div>
-            <p>Half-day. Keynotes, panels, and structured networking.</p>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Balaji Srinivasan</div>
+          <div class="sp-hover-role">Author & Investor</div>
+          <div class="sp-hover-org">Network School</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-teik.jpg" alt="Teik Guan Tan" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">02</span><span class="sp-name">Teik Guan Tan</span></div>
+          <div class="sp-role">CEO & Co-Founder &middot; pQCee</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Teik Guan Tan</div>
+          <div class="sp-hover-role">CEO & Co-Founder</div>
+          <div class="sp-hover-org">pQCee</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-lana.jpg" alt="Lana" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">03</span><span class="sp-name">Lana</span></div>
+          <div class="sp-role">Researcher & Builder &middot; CircuitLabs.io</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Lana</div>
+          <div class="sp-hover-role">Researcher & Builder</div>
+          <div class="sp-hover-org">CircuitLabs.io</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-chris.jpg" alt="Christopher Smith" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">04</span><span class="sp-name">Christopher Smith</span></div>
+          <div class="sp-role">CEO & CTO &middot; Quantus</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Christopher Smith</div>
+          <div class="sp-hover-role">CEO & CTO</div>
+          <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-jonathan.jpg" alt="Jonathan Angle" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">05</span><span class="sp-name">Jonathan Angle</span></div>
+          <div class="sp-role">Communications Director &middot; Quantus</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Jonathan Angle</div>
+          <div class="sp-hover-role">Communications Director</div>
+          <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-joe.jpg" alt="Joseph Mattia" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">06</span><span class="sp-name">Joseph Mattia</span></div>
+          <div class="sp-role">COO &middot; Quantus</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Joseph Mattia</div>
+          <div class="sp-hover-role">COO</div>
+          <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section id="programme" class="section-dither">
+  <div class="section-inner" style="padding:80px 52px">
+    <div class="prog-header">
+      <div class="prog-header-left">
+        <span class="section-eyebrow">04</span>
+        <h2 class="prog-title-h">Programme</h2>
+      </div>
+      <div class="prog-date">Saturday &middot; 06 June 2026 &middot; GMT+8</div>
+    </div>
+    <div class="prog-rows">
+    </div><div class="prog-row">
+      <div class="prog-left"><div class="prog-time">4:00 PM</div></div>
+      <div class="prog-divider-v"></div>
+      <div class="prog-right">
+        <div class="prog-type">Networking</div>
+        <div class="prog-title-row">Arrival & Registration</div>
+        <div class="prog-sub">Network School · Johor Bahru</div>
+      </div>
+    </div><div class="prog-row">
+      <div class="prog-left"><div class="prog-time">5:00 PM</div></div>
+      <div class="prog-divider-v"></div>
+      <div class="prog-right">
+        <div class="prog-type">Keynote</div>
+        <div class="prog-title-row">The Quantum Threat to Modern Cryptography</div>
+        <div class="prog-sub">Opening address setting the technical context</div><div class="prog-speaker">Christopher Smith</div>
+      </div>
+    </div><div class="prog-row">
+      <div class="prog-left"><div class="prog-time">5:30 PM</div></div>
+      <div class="prog-divider-v"></div>
+      <div class="prog-right">
+        <div class="prog-type">Panel</div>
+        <div class="prog-title-row">Should Blockchains Prepare for Q-Day Now?</div>
+        <div class="prog-sub">A structured debate across protocol, capital, and policy perspectives</div><div class="prog-speaker">All Speakers</div>
+      </div>
+    </div><div class="prog-row">
+      <div class="prog-left"><div class="prog-time">6:30 PM</div></div>
+      <div class="prog-divider-v"></div>
+      <div class="prog-right">
+        <div class="prog-type">Open Floor</div>
+        <div class="prog-title-row">Open Discussion & Networking</div>
+        <div class="prog-sub">Unstructured time for delegates to connect and continue the conversation</div>
+      </div>
+    </div><div class="prog-row">
+      <div class="prog-left"><div class="prog-time">8:00 PM</div></div>
+      <div class="prog-divider-v"></div>
+      <div class="prog-right">
+        <div class="prog-type">Close</div>
+        <div class="prog-title-row">Event Closes</div>
+        
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- PLACEHOLDERS -->
+
+  <section id="sponsors">
+    <div class="sponsors-inner">
+      <div style="margin-bottom:64px"><p class="section-eyebrow">06</p><h2 style="font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em">Supported By</h2></div>
+      <div class="sponsors-tiers">
+        <div class="sponsor-tier">
+          <span class="sponsor-tier-label">Co-Hosts</span>
+          <div class="sponsor-logos">
+            <img src="assets/logo-zcash.png" alt="Zcash" class="sponsor-logo-img large">
+            <img src="assets/logo-network-school.png" alt="Network School" class="sponsor-logo-img large">
           </div>
-          <div class="about-detail">
-            <div class="about-detail-label">Companion Paper</div>
-            <p>"The State of Quantum Computing: What Crypto Can't Afford to Ignore" — pre-distributed to 1,000+ researchers, investors, and press.</p>
+        </div>
+        <div class="sponsor-tier">
+          <span class="sponsor-tier-label">Sponsors</span>
+          <div class="sponsor-logos">
+            <img src="assets/logo-near.png" alt="NEAR" class="sponsor-logo-img">
           </div>
-          <div class="about-detail">
-            <div class="about-detail-label">Hosted by Quantus</div>
-            <p>Quantum-secure private money.</p>
+        </div>
+        <div class="sponsor-tier">
+          <span class="sponsor-tier-label">Media</span>
+          <div class="sponsor-logos">
+            <img src="assets/logo-yellow-media.png" alt="Yellow Media" class="sponsor-logo-img">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHO'S IN THE ROOM -->
-  <section class="audience" id="audience">
-    <div class="container">
-      <div class="section-num fade-up">03, Attendees</div>
-      <div class="section-title fade-up">Who's in the room.</div>
-      <p class="section-desc fade-up">Quantum academics and crypto builders. Hosted at Balaji's Network School. The companion paper is distributed to 1,000+ before the event.</p>
-      <div class="audience-grid">
-        <div class="audience-card fade-up">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-2.83-7.17l-2.83 2.83M7.76 16.24l-2.83 2.83m0-14.14l2.83 2.83m8.48 8.48l2.83 2.83"/></svg></div>
-          <h3>Quantum & PQC Researchers</h3>
-          <p>Academics and PQC specialists from institutions including NUS, NTU, and UTS.</p>
+  <section id="become-sponsor">
+    <div class="become-inner">
+      <h2 class="become-title" style="margin-top:0">Partner with <em>Q-Day</em></h2>
+      <p class="become-body">Q-Day brings together the most relevant minds in quantum computing, cryptography, and blockchain. Sponsoring puts your brand in front of protocol engineers, institutional capital, and the people shaping post-quantum standards.</p>
+      <div class="become-tiers">
+        <div class="become-tier">
+          <div class="become-tier-name">Gold</div>
+          <div class="become-tier-price">$12,500</div>
         </div>
-        <div class="audience-card fade-up">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <h3>Protocol Engineers & Cryptographers</h3>
-          <p>L1/L2 architects, core developers, and security engineers building quantum-safe infrastructure.</p>
+        <div class="become-tier">
+          <div class="become-tier-name">Silver</div>
+          <div class="become-tier-price">$5,000</div>
         </div>
-        <div class="audience-card fade-up">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
-          <h3>Investors & Capital Allocators</h3>
-          <p>Quantum-focused funds and institutional investors evaluating the post-quantum transition.</p>
+        <div class="become-tier">
+          <div class="become-tier-name">Community</div>
+          <div class="become-tier-price">$2,500</div>
         </div>
-        <div class="audience-card fade-up">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><line x1="10" y1="6" x2="16" y2="6"/><line x1="10" y1="10" x2="16" y2="10"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
-          <h3>Media & Analysts</h3>
-          <p>Crypto media and analysts covering the quantum threat to digital assets.</p>
+      </div>
+      <button class="become-cta" onclick="openSponsorModal()" style="border:none;cursor:none">Become a Sponsor &#x2197;</button>
+    </div>
+  </section>
+
+  <section id="register">
+    <div class="register-inner">
+      <div class="register-left">
+        <p class="section-eyebrow">08</p>
+        <h2 class="register-title">Request Your Seat</h2>
+        <p class="register-body">Q-Day is an invite-only event for sixty to eighty curated delegates. All registrations are reviewed. If you work in quantum, cryptography, protocol development, or institutional capital this is for you.</p>
+      </div>
+      <div class="register-right">
+        <div class="register-ticket" style="position:relative;overflow:hidden">
+          <canvas id="ticket-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+          <div style="position:relative;z-index:1">
+            <div class="register-ticket-top">
+              <div class="register-ticket-cell">
+                <div class="register-ticket-label">Event</div>
+                <div class="register-ticket-val">Q-Day 2026</div>
+              </div>
+              <div class="register-ticket-cell">
+                <div class="register-ticket-label">Format</div>
+                <div class="register-ticket-val">Invite-only</div>
+              </div>
+              <div class="register-ticket-cell">
+                <div class="register-ticket-label">Date</div>
+                <div class="register-ticket-val">06 June 2026</div>
+              </div>
+              <div class="register-ticket-cell">
+                <div class="register-ticket-label">Venue</div>
+                <div class="register-ticket-val">Network School, JB</div>
+              </div>
+            </div>
+            <hr class="register-ticket-divider">
+            <div class="register-ticket-cta">
+              <span class="register-ticket-note">All registrations reviewed</span>
+              <a href="https://lu.ma/co5uqvwx" class="register-btn" target="_blank">Register on Luma &#x2197;</a>
+            </div>
+          </div>
         </div>
+        <p class="register-attend-note">Attendance is curated &middot; All registrations reviewed</p>
       </div>
     </div>
   </section>
 
-  <!-- PROGRAMME -->
-  <section class="programme" id="programme">
-    <div class="container">
-      <div class="section-num fade-up">04, Programme</div>
-      <div class="section-title fade-up">What to expect.</div>
-      <p class="section-desc" style="color:#666;">Three focused sessions.</p>
-      <div class="programme-list">
-        <div class="programme-item fade-up">
-          <div class="programme-time">
-            <div class="time-label">Session 01</div>
-            <div class="time-format">Keynote</div>
-          </div>
-          <div class="programme-content">
-            <div class="prog-type">Opening Address</div>
-            <h3>The Quantum Hardware Landscape & Breakthrough Timeline</h3>
-            <p>Where quantum hardware stands today.</p>
-          </div>
-        </div>
-        <div class="programme-item fade-up">
-          <div class="programme-time">
-            <div class="time-label">Session 02</div>
-            <div class="time-format">Panel</div>
-          </div>
-          <div class="programme-content">
-            <div class="prog-type">Panel Discussion</div>
-            <h3>Upgrading Blockchains to PQC</h3>
-            <p>The migration process of bringing public blockchains to quantum readiness.</p>
-          </div>
-        </div>
-        <div class="programme-item fade-up">
-          <div class="programme-time">
-            <div class="time-label">Session 03</div>
-            <div class="time-format">Fireside Chat</div>
-          </div>
-          <div class="programme-content">
-            <div class="prog-type">Deep Dive</div>
-            <h3>Post-Quantum Privacy & Scale</h3>
-            <p>How zero-knowledge proofs solve the new blockchain trilemma: scalability, quantum security, and privacy.</p>
-          </div>
-        </div>
+  
+  <section id="faq">
+    <div class="faq-header">
+      <p class="section-eyebrow">09</p>
+      <h2 class="faq-title">FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">Why should I come to Q-Day?</span>
+        <span class="faq-icon">+</span>
       </div>
+      <div class="faq-a"><p class="faq-a-inner">Because the conversation happening in that room won't happen anywhere else. Q-Day is sixty to eighty people who understand the quantum threat to cryptography, in one room, for four hours. If you're building, funding, or governing systems that rely on public-key cryptography, this is where you need to be.</p></div>
+    </div><div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">What is Q-Day and who organises it?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p class="faq-a-inner">Q-Day is a half-day invite-only summit on the quantum threat to cryptography, organised by Quantus and co-hosted with Network School and Zcash. The event brings together researchers, protocol engineers, institutional investors, and policy representatives to address the post-quantum migration challenge.</p></div>
+    </div><div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">How do I get from Singapore to the venue?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p class="faq-a-inner">The venue is at Network School in Johor Bahru, Malaysia — approximately 45 minutes from central Singapore. We recommend taking the MRT to Woodlands and crossing via the Causeway. Taxis and Grab are also widely available from most parts of Singapore. If you'd like to take a taxi, you can learn more <a href="https://ns-rideshare.com/guide" target="_blank" rel="noopener" class="faq-link">here</a>.</p></div>
+    </div><div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">What is the companion paper?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p class="faq-a-inner">The companion paper — 'The State of Quantum Computing: What Crypto Can't Afford to Ignore' — is a technical brief prepared for delegates. It covers quantum hardware timelines, Shor's algorithm, vulnerable cryptographic primitives, and the post-quantum migration path. Over 1,000 copies will be distributed at the event.</p></div>
+    </div><div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">How do I sponsor Q-Day?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p class="faq-a-inner">Sponsorship tiers start at $2,500 (Community), $5,000 (Silver), and $12,500 (Gold). Use the Become a Sponsor form on this page or reach out directly to the Quantus team. Each tier includes brand presence, delegate access, and programme integration.</p></div>
+    </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="register">
-    <div class="container">
-      <div class="cta-header fade-up">
-        <div class="section-num">05, Join</div>
-        <div class="section-title">Join Q-Day.</div>
-      </div>
-      <div class="cta-grid">
-        <div class="cta-card fade-up">
-          <div class="cta-card-label">Attend</div>
-          <h3>Get Tickets</h3>
-          <p>Register on Luma to secure your spot.</p>
-          <a href="https://lu.ma/co5uqvwx" class="btn-primary" target="_blank" rel="noopener">Register on Luma &rarr;</a>
-        </div>
-        <div class="cta-card fade-up">
-          <div class="cta-card-label">Research</div>
-          <h3>Contribute & Speak</h3>
-          <p>Review or contribute to the companion paper. Submit research for a speaking slot.</p>
-          <a href="mailto:jay@quantus.com?subject=Q-Day Research / Speaking" class="btn-primary">Get in Touch &rarr;</a>
-        </div>
-        <div class="cta-card fade-up">
-          <div class="cta-card-label">Partner</div>
-          <h3>Sponsor & Speak</h3>
-          <p>Gold, Silver, and Community tiers. Brand placement in the companion paper and on-stage access.</p>
-          <a href="mailto:jay@quantus.com?subject=Q-Day Partnership" class="btn-primary">Get in Touch &rarr;</a>
-        </div>
+  
+  <footer id="footer">
+    <img src="assets/footer-tunnel.png" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.08;pointer-events:none;z-index:0;mix-blend-mode:screen" alt="">
+    <div class="footer-ticker" style="position:relative;z-index:1">
+      <div class="footer-ticker-track">
+        <div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div>
       </div>
     </div>
-  </section>
+    <div class="footer-body" style="z-index:1">
+      <div class="footer-cta-area">
+        <span class="footer-big-text">QDay</span>
+        <div class="footer-btn-row">
+          <a href="https://lu.ma/co5uqvwx" class="footer-btn-primary" target="_blank">Register on Luma &#x2197;</a>
+        </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="#" class="nav-logo">
-            <svg width="130" height="25" viewBox="0 0 1657 320" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M269.654 320L160.891 211.138L179.29 192.738L288.053 301.6L269.654 320Z" fill="#FF6B35"/><path d="M192.805 179.225L211.197 160.833L319.978 269.677L301.575 288.08L192.805 179.225Z" fill="#FF6B35"/><path d="M308.465 124.709C307.659 120.7 306.69 116.751 305.568 112.875C294.853 75.0657 269.816 44.3815 238.04 24.6476C208.27 5.74302 172.341-3.5182 135.873 1.22843C129.359 2.03375 122.844 3.27928 116.368 4.98889C94.4841 10.6432 73.2044 21.5322 54.0473 38.4166C54.0268 38.4337 54.0064 38.4508 53.9893 38.4678C53.8801 38.5634 53.7709 38.6623 53.6651 38.7579C53.3648 39.024 53.0611 39.2936 52.7608 39.5666C52.6107 39.7031 52.4605 39.8362 52.3138 39.9727C52.0306 40.232 51.7439 40.4914 51.4607 40.7507C51.1979 40.9896 50.9386 41.2318 50.6793 41.4741C50.5598 41.5867 50.437 41.6994 50.3176 41.812C49.5293 42.549 48.7479 43.2895 47.9801 44.0334C46.0555 45.8659 44.148 47.7632 42.2643 49.7219C40.8414 51.2745 39.4559 52.8408 38.1081 54.4173C22.4179 72.3869 11.9657 92.1481 6.11009 112.486C4.2947 118.649 2.90586 124.846 1.9265 131.049C-4.56045 170.701 5.71084 209.896 27.0758 241.577C48.7922 274.544 82.493 299.689 123.554 308.19C127.267 308.981 131.031 309.63 134.846 310.138C153.29 312.68 172.761 311.8 192.672 306.76C193.433 306.582 194.194 306.402 194.955 306.211V306.204C196.453 305.811 197.954 305.398 199.449 304.958L199.401 304.9C200.633 304.532 201.868 304.146 203.104 303.747C205.54 302.979 207.987 302.153 210.437 301.263L210.43 301.256C211.884 300.706 213.334 300.14 214.774 299.546L214.726 299.498C216.566 298.751 218.408 297.966 220.251 297.144L190.191 267.057C189.782 267.183 189.376 267.313 188.963 267.432L188.946 267.415C187.315 267.913 185.684 268.371 184.049 268.79H184.046C182.408 269.193 180.763 269.565 179.104 269.899L179.087 269.882C176.491 270.435 173.894 270.892 171.304 271.254C169.898 271.442 168.485 271.609 167.069 271.742L167.055 271.725C163.428 272.107 159.821 272.308 156.245 272.339C132.761 272.387 110.004 265.115 90.9113 252.332C87.1372 249.794 83.5098 247.036 80.0497 244.085C63.6634 230.009 51.1058 211.51 44.4892 190.534C43.0355 185.815 41.8787 180.952 41.0427 175.956C40.7663 174.489 40.524 173.022 40.3124 171.554C40.0702 169.678 39.8688 167.787 39.7187 165.883C39.5788 164.47 39.4696 163.057 39.3877 161.652C39.2717 159.031 39.2478 156.39 39.3194 153.728C39.3672 147.033 40.0156 140.468 41.2065 134.08C44.9294 114.885 53.532 96.9869 65.7552 82.0269C83.1072 61.0305 107.584 46.0809 134.836 41.0339C138.374 40.4095 141.971 39.9556 145.622 39.6724C147.475 39.495 149.321 39.3653 151.16 39.28C152.693 39.2322 154.232 39.2151 155.781 39.2322C157.388 39.2185 158.988 39.2424 160.582 39.2936C163.039 39.4131 165.506 39.6144 167.983 39.901C175.743 40.6517 183.227 42.1737 190.382 44.3747C211.034 50.8855 229.328 63.1394 243.37 79.1639C243.558 79.3789 243.745 79.5939 243.933 79.8123C243.984 79.8703 244.032 79.9283 244.083 79.9864C246.431 82.7299 248.656 85.5793 250.748 88.5276C263.141 106.081 270.802 126.951 272.201 148.787C272.211 148.978 272.225 149.172 272.235 149.364C272.58 155.967 272.351 162.699 271.491 169.5L271.549 169.551C271.137 172.872 270.573 176.202 269.853 179.536L269.939 179.621C269.185 183.153 268.25 186.685 267.137 190.203L297.153 220.242C298.558 217.072 299.855 213.909 301.046 210.749L301.131 210.834C302.032 208.326 302.872 205.828 303.65 203.337C304.24 201.522 304.796 199.713 305.318 197.905L305.376 197.953C305.626 197.007 305.864 196.066 306.096 195.124C312.716 170.616 313.054 146.791 308.465 124.699V124.709Z" fill="#FF6B35"/><path d="M442.157 289.168C411.196 289.168 388.57 283.346 374.28 271.702C359.858 260.059 352.713 241.138 352.713 215.204V108.162H394.524V210.97C394.524 226.848 398.097 238.227 405.506 245.107C412.916 252.12 424.956 255.56 441.893 255.56C458.829 255.56 471.002 252.12 478.411 245.24C485.689 238.359 489.393 226.848 489.393 210.97V108.162H530.808V215.204C530.808 241.27 523.663 260.059 509.505 271.702C495.347 283.346 472.854 289.168 442.157 289.168ZM759.907 287.051H716.243L701.424 252.12H607.613L592.397 287.051H550.983L630.901 108.162H680.254L759.907 287.051ZM649.028 157.515L620.315 223.408H689.119L660.936 157.515L655.908 143.225H654.188L649.028 157.515ZM827.847 287.051H788.021V108.162H836.448L916.366 215.998L931.052 236.904L932.111 236.639L931.317 202.502V108.162H971.144V287.051H921.261L827.847 160.823L826.921 161.088L827.847 195.225V287.051ZM1180.66 108.162V141.505H1112.39V287.051H1070.71V141.505H1002.04V108.162H1180.66ZM1300.6 289.168C1269.64 289.168 1247.01 283.346 1232.72 271.702C1218.3 260.059 1211.16 241.138 1211.16 215.204V108.162H1252.97V210.97C1252.97 226.848 1256.54 238.227 1263.95 245.107C1271.36 252.12 1283.4 255.56 1300.34 255.56C1317.27 255.56 1329.44 252.12 1336.85 245.24C1344.13 238.359 1347.84 226.848 1347.84 210.97V108.162H1389.25V215.204C1389.25 241.27 1382.11 260.059 1367.95 271.702C1353.79 283.346 1331.3 289.168 1300.6 289.168ZM1516.86 289.168C1486.83 289.168 1464.47 284.669 1449.78 275.539C1434.96 266.542 1426.89 251.855 1425.44 231.743H1466.19C1466.98 241.932 1471.61 249.209 1479.82 253.708C1488.02 258.206 1500.33 260.456 1516.86 260.456C1532.21 260.456 1543.33 258.339 1550.21 253.84C1557.09 249.341 1560.66 243.519 1560.66 236.11C1560.66 231.347 1559.21 227.509 1556.29 224.731C1553.38 221.952 1547.69 219.571 1539.49 217.454C1531.29 215.337 1519.11 213.484 1502.97 211.764C1491.2 210.573 1481.27 209.118 1473.07 207.265C1464.87 205.545 1457.72 203.428 1451.63 200.782C1445.55 198.268 1440.92 195.225 1437.48 191.52C1434.04 187.815 1431.39 183.713 1429.8 178.95C1428.21 174.187 1427.42 168.63 1427.42 162.146C1427.42 155.531 1428.35 149.444 1430.33 143.887C1432.32 138.33 1435.49 133.302 1439.99 128.539C1444.36 123.775 1449.91 119.806 1456.53 116.498C1463.15 113.322 1471.22 110.676 1480.88 108.824C1490.53 106.971 1501.38 106.045 1513.56 106.045C1540.95 106.045 1561.59 110.544 1575.61 119.277C1589.64 128.142 1597.31 141.638 1598.64 159.632L1559.34 159.368C1558.54 151.164 1554.44 144.945 1546.77 140.711C1539.09 136.61 1527.19 134.493 1511.18 134.493C1496.89 134.493 1486.3 136.61 1479.29 140.711C1472.28 144.945 1468.83 150.503 1468.83 157.515C1468.83 162.279 1470.29 165.983 1473.2 168.63C1476.11 171.276 1481.54 173.525 1489.61 175.378C1497.68 177.23 1509.85 178.95 1525.99 180.538C1540.81 182.126 1552.99 184.11 1562.51 186.492C1572.04 188.874 1579.71 192.049 1585.8 196.019C1591.75 199.988 1595.99 204.751 1598.37 210.309C1600.75 215.866 1601.94 222.746 1601.94 230.95C1601.94 239.418 1600.22 247.224 1597.05 254.105C1593.87 260.985 1588.84 267.204 1582.23 272.496C1575.61 277.789 1566.75 281.891 1555.63 284.801C1544.52 287.712 1531.68 289.168 1516.86 289.168Z" fill="#FF6B35"/></svg>
-          </a>
-          <p>Quantum-secure private money.</p>
-        </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Event</h4>
-            <a href="#about">About</a>
-            <a href="#audience">Attendees</a>
-            <a href="#programme">Programme</a>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <a href="mailto:jay@quantus.com">jay@quantus.com</a>
-            <a href="#register">Join Q-Day</a>
-          </div>
-        </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Quantus. All rights reserved.</p>
-        <p>Hosted at Network School, Johor Bahru</p>
+        <span class="footer-copy">&copy; 2026 Quantus. All rights reserved.</span>
+        <a href="https://lu.ma/co5uqvwx" class="footer-luma" target="_blank">lu.ma/co5uqvwx</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Mobile nav toggle
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('active');
+<!-- SPONSOR MODAL -->
+<div id="sponsor-modal-overlay" onclick="closeSponsorModal(event)">
+  <div id="sponsor-modal">
+    <div class="modal-header">
+      <div class="modal-title">Join as a Sponsor</div>
+      <button class="modal-close" onclick="closeSponsorModal(null, true)">&#x2715;</button>
+    </div>
+    <div class="modal-form">
+      <div class="modal-row">
+        <div class="modal-field">
+          <label class="modal-label">Name *</label>
+          <input class="modal-input" type="text" placeholder="Your full name">
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Email *</label>
+          <input class="modal-input" type="email" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-field">
+          <label class="modal-label">Phone</label>
+          <input class="modal-input" type="tel" placeholder="+1 000 000 0000">
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Designation *</label>
+          <input class="modal-input" type="text" placeholder="CEO / Founder / Director">
+        </div>
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Organization *</label>
+        <input class="modal-input" type="text" placeholder="Company or organization name">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Investment Tier *</label>
+        <select class="modal-select">
+          <option value="" disabled selected>Select a tier</option>
+          <option value="gold">Gold — $12,500</option>
+          <option value="silver">Silver — $5,000</option>
+          <option value="community">Community — $2,500</option>
+          <option value="custom">Custom / Other</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Anything you'd like to add?</label>
+        <textarea class="modal-textarea" placeholder="Tell us about your goals, topic ideas, or any questions..."></textarea>
+      </div>
+      <button class="modal-submit" id="modal-submit-btn" onclick="handleSponsorSubmit()">Submit &#x2197;</button>
+      <div id="modal-success" style="display:none;text-align:center;padding:24px 0">
+        <div style="font-family:'Clash Display',sans-serif;font-size:20px;font-weight:500;color:var(--lime);margin-bottom:12px">We'll be in touch.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:1.6">Thanks for your interest in sponsoring Q-Day.<br>Our team will reach out within 48 hours.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<script>
+var dot=document.getElementById('cursor-dot');
+var mx=0,my=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+
+var tickerData=[
+  {num:'4M+',label:'BTC Exposed in P2PK Addresses'},
+  {num:'$2.6T+',label:'Crypto Market at Stake'},
+  {num:'~2031',label:'Projected Quantum Break'},
+  {num:'60-80',label:'Curated Delegates'},
+  {num:'1,000+',label:'Companion Paper Recipients'},
+  {num:'3',label:'Focused Sessions'},
+  {num:'06.06.26',label:'Johor Bahru'},
+  {num:'4hrs',label:'Half-Day Summit'},
+];
+var track=document.getElementById('ticker-track');
+var inner='';
+for(var rep=0;rep<2;rep++){tickerData.forEach(function(d){inner+='<div class="ticker-item"><span class="ticker-num">'+d.num+'</span><span class="ticker-label">'+d.label+'</span><span class="ticker-sep">/</span></div>';});}
+track.innerHTML=inner;
+
+var pcanvas=document.getElementById('pixel-canvas');
+var pctx=pcanvas.getContext('2d');
+function resizePC(){pcanvas.width=pcanvas.offsetWidth;pcanvas.height=pcanvas.offsetHeight;drawHP();}
+function drawHP(){pctx.clearRect(0,0,pcanvas.width,pcanvas.height);pctx.globalCompositeOperation='color-dodge';var sizes=[4,8,12,16];var sh=pcanvas.height*0.6;for(var i=0;i<40;i++){var x=Math.random()*pcanvas.width;var y=Math.random()*sh;var s=sizes[Math.floor(Math.random()*sizes.length)];pctx.fillStyle='rgba(176,234,32,'+(Math.random()*0.2+0.04)+')';pctx.fillRect(x,y,s,s);}pctx.globalCompositeOperation='source-over';}
+resizePC();window.addEventListener('resize',resizePC);
+
+var loaderEl=document.getElementById('loader');
+var ldNum=document.getElementById('ld-num');
+var ldBar=document.getElementById('loader-bar');
+var QDAY=new Date('2026-06-06');
+var daysLeft=Math.ceil((QDAY-new Date())/86400000);
+var displayVal=daysLeft+120;
+var startT=null;
+function loaderTick(ts){if(!startT)startT=ts;var e=ts-startT;var p=Math.min(e/800,1);ldBar.style.width=(p*100)+'%';var ease=1-Math.pow(1-p,3);displayVal=Math.round(daysLeft+120*(1-ease));ldNum.textContent=displayVal;if(p<1){requestAnimationFrame(loaderTick);}else{ldNum.textContent=daysLeft;setTimeout(doGlitch,200);}}
+requestAnimationFrame(loaderTick);
+
+var gcanvas=document.getElementById('glitch-canvas');
+var gctx=gcanvas.getContext('2d');
+gcanvas.width=window.innerWidth;gcanvas.height=window.innerHeight;
+function doGlitch(){var gl=document.getElementById('glitch-overlay');[0,70,140,210,280].forEach(function(t,i){setTimeout(function(){if(i%2===0){gl.style.opacity='1';gctx.clearRect(0,0,gcanvas.width,gcanvas.height);for(var b=0;b<7;b++){var gy=Math.random()*gcanvas.height;gctx.fillStyle='rgba(176,234,32,'+(Math.random()*0.45+0.1)+')';gctx.fillRect(0,gy,gcanvas.width,Math.random()*18+2);}}else{gl.style.opacity='0';gctx.clearRect(0,0,gcanvas.width,gcanvas.height);}}  ,t);});setTimeout(function(){loaderEl.style.transition='opacity 0.3s';loaderEl.style.opacity='0';document.getElementById('glitch-overlay').style.opacity='0';setTimeout(function(){loaderEl.style.display='none';heroIn();},300);},360);}
+
+function heroIn(){var items=[['he-eyebrow',0],['he-qday',80],['he-meta',200],['he-sub',300]];items.forEach(function(p){var el=document.getElementById(p[0]);if(el)setTimeout(function(){el.classList.add('do-anim');},p[1]);});}
+
+window.addEventListener('scroll',function(){var sy=window.scrollY;var bg=document.getElementById('hero-bg');if(bg)bg.style.transform='scale(1.06) translateY('+(sy*0.22)+'px)';var ht=document.getElementById('hero-top');var hb=document.getElementById('hero-bottom');if(ht)ht.style.transform='translateY('+(sy*0.08)+'px)';if(hb)hb.style.transform='translateY('+(sy*0.05)+'px)';});
+
+var secs=document.querySelectorAll('section[id]');
+var nls=document.querySelectorAll('.nav-link');
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){nls.forEach(function(l){l.classList.remove('active');});var a=document.querySelector('.nav-link[href="#'+en.target.id+'"]');if(a)a.classList.add('active');}});},{threshold:0.3});
+secs.forEach(function(s){io.observe(s);});
+
+function toggleFaq(el){
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){
+    i.classList.remove('open');
+    i.querySelector('.faq-icon').textContent='+';
+  });
+  if(!isOpen){
+    el.classList.add('open');
+    el.querySelector('.faq-icon').textContent='×';
+  }
+}
+
+
+// TICKET CANVAS ANIMATION + 3D TILT
+(function(){
+  var c = document.getElementById('ticket-canvas');
+  var ticket = c ? c.closest('.register-ticket') : null;
+  if(!c || !ticket) return;
+  var ctx = c.getContext('2d');
+
+  function resize(){
+    c.width = c.offsetWidth * (window.devicePixelRatio||1);
+    c.height = c.offsetHeight * (window.devicePixelRatio||1);
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var blobs = [];
+  for(var i=0;i<7;i++){
+    blobs.push({
+      x:Math.random(), y:Math.random(),
+      r:0.18+Math.random()*0.28,
+      vx:(Math.random()-0.5)*0.0006,
+      vy:(Math.random()-0.5)*0.0006,
+      phase:Math.random()*Math.PI*2,
+      speed:0.004+Math.random()*0.005,
+      lime: i < 2
+    });
+  }
+
+  function draw(){
+    var W=c.offsetWidth, H=c.offsetHeight;
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#0A0A0A';
+    ctx.fillRect(0,0,W,H);
+
+    blobs.forEach(function(b){
+      b.phase+=b.speed;
+      b.x+=b.vx+Math.sin(b.phase*0.6)*0.0004;
+      b.y+=b.vy+Math.cos(b.phase*0.4)*0.0004;
+      if(b.x<-0.4)b.x=1.4; if(b.x>1.4)b.x=-0.4;
+      if(b.y<-0.4)b.y=1.4; if(b.y>1.4)b.y=-0.4;
+      var cx=b.x*W, cy=b.y*H;
+      var r=b.r*Math.max(W,H)*(1+Math.sin(b.phase)*0.12);
+      var g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+      if(b.lime){
+        g.addColorStop(0,'rgba(176,234,32,0.22)');
+        g.addColorStop(0.4,'rgba(176,234,32,0.07)');
+        g.addColorStop(1,'rgba(176,234,32,0)');
+        ctx.globalCompositeOperation='screen';
+      } else {
+        g.addColorStop(0,'rgba(45,45,55,0.85)');
+        g.addColorStop(0.5,'rgba(20,20,28,0.35)');
+        g.addColorStop(1,'rgba(8,8,8,0)');
+        ctx.globalCompositeOperation='source-over';
+      }
+      ctx.fillStyle=g;
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill();
     });
 
-    // Close mobile nav on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
-      });
+    ctx.globalCompositeOperation='source-over';
+    for(var y=0;y<H;y+=4){ctx.fillStyle='rgba(0,0,0,0.1)';ctx.fillRect(0,y,W,1);}
+
+    // grain
+    var id=ctx.getImageData(0,0,Math.min(W,400),Math.min(H,200));
+    var d=id.data;
+    for(var i=0;i<d.length;i+=20){var n=(Math.random()-0.5)*14;d[i]=Math.min(255,Math.max(0,d[i]+n));d[i+1]=Math.min(255,Math.max(0,d[i+1]+n));d[i+2]=Math.min(255,Math.max(0,d[i+2]+n));}
+    ctx.putImageData(id,0,0);
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // 3D TILT
+  ticket.style.transition='transform 0.15s ease,box-shadow 0.15s ease';
+  ticket.style.transformStyle='preserve-3d';
+  ticket.style.willChange='transform';
+
+  ticket.addEventListener('mousemove',function(e){
+    var r=ticket.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width-0.5;
+    var y=(e.clientY-r.top)/r.height-0.5;
+    var tiltX=y*14;
+    var tiltY=-x*14;
+    ticket.style.transform='perspective(800px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) scale(1.02)';
+    ticket.style.boxShadow='0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(176,234,32,0.08)';
+  });
+  ticket.addEventListener('mouseleave',function(){
+    ticket.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+    ticket.style.boxShadow='none';
+  });
+})();
+
+
+function openSponsorModal(){
+  document.getElementById('sponsor-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSponsorModal(e, force){
+  if(force || (e && e.target===document.getElementById('sponsor-modal-overlay'))){
+    document.getElementById('sponsor-modal-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeSponsorModal(null,true);
+});
+
+
+function handleSponsorSubmit(){
+  var btn = document.getElementById('modal-submit-btn');
+  var form = document.querySelector('.modal-form');
+  var success = document.getElementById('modal-success');
+  btn.textContent = 'Submitting...';
+  btn.style.opacity = '0.6';
+  setTimeout(function(){
+    form.querySelectorAll('.modal-row, .modal-field, .modal-submit').forEach(function(el){
+      el.style.display='none';
     });
+    success.style.display='block';
+    setTimeout(function(){
+      closeSponsorModal(null, true);
+      // Reset
+      setTimeout(function(){
+        form.querySelectorAll('.modal-row, .modal-field').forEach(function(el){el.style.display='';});
+        btn.style.display='';
+        btn.textContent='Submit ↗';
+        btn.style.opacity='1';
+        success.style.display='none';
+        document.querySelectorAll('.modal-input,.modal-textarea').forEach(function(el){el.value='';});
+        document.querySelector('.modal-select').selectedIndex=0;
+      }, 400);
+    }, 2800);
+  }, 900);
+}
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  </script>
-
+</script>
 </body>
 </html>

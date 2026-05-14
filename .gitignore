@@ -4,6 +4,7 @@ Q-DAY Prospectu.md
 spec.md
 CLAUDE.md
 *.local.md
+.DS_Store
 
 # wrangler files
 .wrangler
