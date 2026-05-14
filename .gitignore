@@ -4,3 +4,10 @@ Q-DAY Prospectu.md
 spec.md
 CLAUDE.md
 *.local.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
