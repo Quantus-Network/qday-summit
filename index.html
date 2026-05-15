@@ -1365,7 +1365,7 @@ function handleSponsorSubmit(){
   btn.textContent = 'Submitting...';
   btn.style.opacity = '0.6';
 
-  fetch('https://api.quantus.com/api', {
+  fetch('https://api.quantus.com/api/sponsorships', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
