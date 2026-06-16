@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="assets/image_1.webp">
 <link rel="apple-touch-icon" href="assets/image_2.webp">
-<title>Q-Day 2026 — The Window Is Closing</title>
+<title>QDay 2026 — The Window Is Closing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .hero-meta-block{opacity:0;transform:translateY(14px);max-width:560px}
 .hero-meta-rule{height:1px;background:#282828;margin-bottom:10px}
 .hero-meta-row{display:flex;align-items:flex-start;gap:48px}
-.hero-meta-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px}
+.hero-meta-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-6);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px}
 .hero-meta-val{font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--grey-6)}
 .hero-meta-bottom-rule{height:1px;background:#282828;margin-top:10px;margin-bottom:16px}
 .hero-subhead{font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--grey-5);max-width:400px;line-height:1.65;opacity:0;transform:translateY(14px)}
@@ -83,14 +83,14 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .ticker-track{display:flex;animation:tickerScroll 34s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:flex;align-items:center;gap:10px;padding:0 28px;white-space:nowrap;flex-shrink:0}
-.ticker-num{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;color:var(--lime);letter-spacing:-0.01em}
-.ticker-label{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--grey-5);letter-spacing:0.08em;text-transform:uppercase}
-.ticker-sep{color:var(--grey-3);font-size:10px;padding:0 4px}
+.ticker-num{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;color:#C8FF00;letter-spacing:-0.01em}
+.ticker-label{font-family:'Roboto Mono',monospace;font-size:10px;color:#C8FF00;letter-spacing:0.08em;text-transform:uppercase}
+.ticker-sep{color:#C8FF00;font-size:10px;padding:0 4px}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ABOUT */
 #about{border-top:1px solid #1E1E1E;padding:80px 52px}
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:stretch;position:relative;z-index:1}.about-left{display:flex;flex-direction:column;justify-content:center}
 .about-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;line-height:0.95;margin-bottom:28px}
 .about-body{font-family:'Inter',sans-serif;font-size:14px;font-weight:300;color:var(--grey-5);line-height:1.7;max-width:400px;margin-bottom:48px}
 .about-stats{display:flex;align-items:center;gap:0;border-top:1px solid #1E1E1E;padding-top:32px;justify-content:center;text-align:center}
@@ -153,7 +153,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .prog-time{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:400;color:var(--lime);letter-spacing:0.05em;white-space:nowrap}
 .prog-divider-v{width:1px;background:#1E1E1E;align-self:stretch}
 .prog-right{display:flex;flex-direction:column;gap:6px}
-.prog-type{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase}
+.prog-type{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-6);letter-spacing:0.18em;text-transform:uppercase}
 .prog-title-row{font-family:'Inter',sans-serif;font-size:clamp(15px,1.6vw,22px);font-weight:400;color:var(--off-white);letter-spacing:-0.01em;line-height:1.15}
 .prog-sub{font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--grey-5);line-height:1.5;max-width:520px}
 .prog-speaker{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:0.08em;margin-top:4px}
@@ -177,7 +177,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 /* ── SPONSORS ── */
 #sponsors{border-top:1px solid #1E1E1E;padding:80px 52px}
 #sponsors::before{display:none}
-.sponsors-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center}
+.sponsors-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center}.sponsor-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:0;padding:32px 40px;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s ease,background 0.2s ease;}.sponsor-card:hover{border-color:rgba(200,255,0,0.3);background:rgba(200,255,0,0.05);}.sponsor-card img{height:28px !important;width:auto !important;max-width:none !important;opacity:1 !important;filter:brightness(1) !important;display:block !important;margin:0 auto !important;}.sponsor-card img[src*="quantus-logo"],.sponsor-card img[src*="network-school-logo"]{height:32px !important;}.sponsor-card img[src*="zcash-logo"],.sponsor-card img[src*="superteam-my-logo"],.sponsor-card img[src*="t3-logo"]{height:40px !important;}
 .sponsors-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
 .sponsors-header-left{display:flex;flex-direction:column;gap:12px;align-items:center}
 .sponsors-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
@@ -185,7 +185,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .sponsor-tier{display:grid;grid-template-columns:160px 1fr;align-items:center;border-top:1px solid #1E1E1E;padding:28px 0}
 .sponsor-tier:last-child{border-bottom:1px solid #1E1E1E}
 .sponsor-tier-top{margin-bottom:28px}
-.sponsor-tier-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:28px;display:block}
+.sponsor-tier-label{font-family:'Roboto Mono',monospace;font-size:13px;color:#CCCCCC;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:28px;display:block}
 .sponsor-logos{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
 .sponsor-name{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:500;color:var(--grey-5);letter-spacing:-0.01em;transition:color 0.2s;cursor:none}
 .sponsor-name:hover{color:var(--lime)}
@@ -213,11 +213,11 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .register-ticket-cell{padding-bottom:20px}
 .register-ticket-cell:nth-child(odd){border-right:1px solid #282828;padding-right:24px}
 .register-ticket-cell:nth-child(even){padding-left:24px}
-.register-ticket-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px}
+.register-ticket-label{font-family:'Roboto Mono',monospace;font-size:9px;color:#CCCCCC;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px}
 .register-ticket-val{font-family:'Inter',sans-serif;font-size:13px;color:var(--off-white);font-weight:400}
 .register-ticket-divider{border:none;border-top:1px dashed #333;margin:0 0 28px}
 .register-ticket-cta{display:flex;align-items:center;justify-content:space-between}
-.register-ticket-note{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.1em;text-transform:uppercase}
+.register-ticket-note{font-family:'Roboto Mono',monospace;font-size:9px;color:#CCCCCC;letter-spacing:0.1em;text-transform:uppercase}
 .register-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:var(--lime);color:var(--black);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;cursor:none;transition:opacity 0.2s;white-space:nowrap}
 .register-btn:hover{opacity:0.85}
 .register-attend-note{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.12em;text-transform:uppercase;margin-top:16px;text-align:center}
@@ -262,9 +262,9 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   padding:0 32px;white-space:nowrap;flex-shrink:0;
   font-family:'Roboto Mono',monospace;
   font-size:10px;letter-spacing:0.2em;
-  text-transform:uppercase;color:var(--grey-4);
+  text-transform:uppercase;color:#C8FF00;
 }
-.footer-ticker-item em{color:var(--lime);font-style:normal}
+.footer-ticker-item em{color:#C8FF00;font-style:normal}
 .footer-body{
   flex:1;
   display:flex;
@@ -680,6 +680,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   img[src*="network-school"] { height: 32px !important; width: auto !important; }
 }
 </style>
+  <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 </head>
 <body>
 
@@ -695,14 +696,14 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 <div id="mobile-nav">
   <ul class="mobile-nav-links">
     <li><a href="#about" onclick="closeMobileNav()">About</a></li>
-    <li><a href="#speakers" onclick="closeMobileNav()">Speakers</a></li>
-    <li><a href="#programme" onclick="closeMobileNav()">Programme</a></li>
+    <li><a href="#speakers" onclick="closeMobileNav()">Past Speakers</a></li>
+    <li><a href="#programme" onclick="closeMobileNav()">Previous Programme</a></li>
     <li><a href="#sponsors" onclick="closeMobileNav()">Sponsors</a></li>
     <li><a href="#become-sponsor" onclick="closeMobileNav()">Become a Sponsor</a></li>
     <li><a href="#register" onclick="closeMobileNav()">Register</a></li>
     <li><a href="#faq" onclick="closeMobileNav()">FAQ</a></li>
   </ul>
-  <a href="https://lu.ma/co5uqvwx" class="mobile-nav-cta" target="_blank">Register on Luma</a>
+  <a href="https://luma.com/jtof4o9b" class="mobile-nav-cta" target="_blank">Register Now</a>
 </div>
 <div id="cursor-dot"></div>
 
@@ -720,8 +721,8 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   <ul class="nav-links">
     <li><a href="#hero" class="nav-link"><span class="nav-active-sq"></span>Home</a></li>
     <li><a href="#about" class="nav-link"><span class="nav-active-sq"></span>About</a></li>
-    <li><a href="#speakers" class="nav-link"><span class="nav-active-sq"></span>Speakers</a></li>
-    <li><a href="#programme" class="nav-link"><span class="nav-active-sq"></span>Programme</a></li>
+    <li><a href="#speakers" class="nav-link"><span class="nav-active-sq"></span>Past Speakers</a></li>
+    <li><a href="#programme" class="nav-link"><span class="nav-active-sq"></span>Previous Programme</a></li>
     <li class="nav-divider"></li>
     <li><a href="#sponsors" class="nav-link"><span class="nav-active-sq"></span>Sponsors</a></li>
     <li><a href="#become-sponsor" class="nav-link"><span class="nav-active-sq"></span>Become a Sponsor</a></li>
@@ -730,7 +731,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <li><a href="#faq" class="nav-link"><span class="nav-active-sq"></span>FAQ</a></li>
   </ul>
   <div class="nav-bottom">
-    <a href="https://lu.ma/co5uqvwx" class="nav-cta" target="_blank">Register<span class="cta-arrow">&#x2197;</span></a>
+    <a href="https://luma.com/jtof4o9b" class="nav-cta" target="_blank">REGISTER NOW<span class="cta-arrow">&#x2197;</span></a>
   </div>
 </nav>
 
@@ -747,21 +748,20 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   </div>
   <div style="flex:1"></div>
   <div class="hero-bottom" id="hero-bottom">
-    <p class="hero-eyebrow" id="he-eyebrow">Quantus &middot; Network School &middot; Zcash</p>
     <div class="hero-meta-block" id="he-meta">
       <div class="hero-meta-rule"></div>
       <div class="hero-meta-row">
-        <div><div class="hero-meta-label">Date</div><div class="hero-meta-val">06 June 2026</div></div>
-        <div><div class="hero-meta-label">Time</div><div class="hero-meta-val">3pm &ndash; 6pm</div></div>
-        <div><div class="hero-meta-label">Venue</div><div class="hero-meta-val">Network School, Johor Bahru</div></div>
+        <div><div class="hero-meta-label">Date</div><div class="hero-meta-val">6 October 2026</div></div>
+        <div><div class="hero-meta-label">Time</div><div class="hero-meta-val">10:00 AM &ndash; 6:00 PM</div></div>
+        <div><div class="hero-meta-label">Venue</div><div class="hero-meta-val">To Be Announced, Singapore</div></div>
       </div>
       <div class="hero-meta-bottom-rule"></div>
     </div>
-      <p class="hero-subhead" id="he-sub">A half-day summit on the quantum threat to cryptography. One room. The conversation that can't wait.</p>
+      <p class="hero-subhead" id="he-sub">A QDay Summit on the quantum threat to cryptography. One room. The conversation that can't wait.</p>
   </div>
   <div class="hero-mobile-content">
-    <p class="hero-mobile-sub">A half-day summit on the quantum threat to cryptography. One room. The conversation that can't wait.</p>
-    <a href="https://lu.ma/co5uqvwx" class="hero-mobile-cta" target="_blank">Register on Luma</a>
+    <p class="hero-mobile-sub">A QDay Summit on the quantum threat to cryptography. One room. The conversation that can't wait.</p>
+    <a href="https://luma.com/jtof4o9b" class="hero-mobile-cta" target="_blank">Register Now</a>
   </div>
 </section>
 
@@ -790,28 +790,11 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   <div class="about-inner">
     <div class="about-left">
       <p class="section-eyebrow">02</p>
-      <h2 class="about-title">Half-Day Summit</h2>
-      <p class="about-body">Quantum computing is no longer theoretical. The cryptographic assumptions underpinning Bitcoin, Ethereum, and every major blockchain are on a countdown. Q-Day is where the people who understand this gather to decide what comes next.</p>
-      <div class="about-stats">
-        <div class="about-stat"><div class="about-stat-num">60–80</div><div class="about-stat-label">Curated Delegates</div></div>
-        <div class="about-stat-divider"></div>
-        <div class="about-stat"><div class="about-stat-num">4hrs</div><div class="about-stat-label">Focused Format</div></div>
-        <div class="about-stat-divider"></div>
-        <div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-label">Sessions</div></div>
-      </div>
+      <h2 class="about-title">QDay Summit</h2>
+      <p class="about-body">Quantum computing is no longer theoretical. The cryptographic assumptions underpinning Bitcoin, Ethereum, and every major blockchain are on a countdown. QDay is where the people who understand this gather to decide what comes next.</p>
     </div>
     <div class="about-right">
-      <div class="paper-card">
-        <div class="paper-card-top"><span class="paper-tag">Companion Paper</span><span class="paper-recipients">1,000+ Recipients</span></div>
-        <div class="paper-rule"></div>
-        <div class="paper-meta"><span class="paper-type">Research &middot; 2026</span></div>
-        <h3 class="paper-title">The State of Quantum Computing: What Crypto Can't Afford to Ignore</h3>
-        <p class="paper-body">A technical brief prepared for Q-Day delegates. Covers the current state of quantum hardware, Shor's algorithm timelines, vulnerable cryptographic primitives, and the post-quantum migration path for major protocols.</p>
-        <div class="paper-footer">
-          <div class="paper-footer-left"><span class="paper-footer-label">Distributed at</span><span class="paper-footer-val">Q-Day &middot; 06.06.26</span></div>
-          <div class="paper-corner">&#x2197;</div>
-        </div>
-      </div>
+      <div style="height:100%;overflow:hidden;"><img src="assets/qday-group-photo.jpeg" alt="QDay group photo" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;"></div>
     </div>
   </div>
 </section>
@@ -822,9 +805,9 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <div class="speakers-header">
       <div class="speakers-header-left">
         <span class="section-eyebrow">03</span>
-        <h2 class="speakers-title">The Right Room</h2>
+        <h2 class="speakers-title">Past Speakers</h2>
       </div>
-      <span class="speakers-count">08 Speakers</span>
+      <span class="speakers-count">10 Speakers</span>
     </div>
     <div class="speakers-grid"><div class="sp-card">
         <img src="assets/image_6.webp" alt="Balaji Srinivasan" class="sp-img">
@@ -840,37 +823,11 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
           <div class="sp-hover-org">Network School</div>
         </div>
       </div><div class="sp-card">
-        <img src="assets/image_7.webp" alt="Teik Guan Tan" class="sp-img">
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">02</span><span class="sp-name">Teik Guan Tan</span></div>
-          <div class="sp-role">CEO & Co-Founder &middot; pQCee</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Teik Guan Tan</div>
-          <div class="sp-hover-role">CEO & Co-Founder</div>
-          <div class="sp-hover-org">pQCee</div>
-        </div>
-      </div><div class="sp-card">
-        <img src="assets/image_8.webp" alt="Lana Ivina" class="sp-img">
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">03</span><span class="sp-name">Lana Ivina</span></div>
-          <div class="sp-role">Researcher & Builder &middot; CircuitLabs.io</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Lana Ivina</div>
-          <div class="sp-hover-role">Researcher & Builder</div>
-          <div class="sp-hover-org">CircuitLabs.io</div>
-        </div>
-      </div><div class="sp-card">
         <img src="assets/image_9.webp" alt="Christopher Smith" class="sp-img">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">04</span><span class="sp-name">Christopher Smith</span></div>
+          <div class="sp-name-row"><span class="sp-idx">02</span><span class="sp-name">Christopher Smith</span></div>
           <div class="sp-role">CEO & CTO &middot; Quantus</div>
         </div>
         <div class="sp-hover-overlay">
@@ -879,24 +836,24 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
           <div class="sp-hover-org">Quantus</div>
         </div>
       </div><div class="sp-card">
-        <img src="assets/image_10.webp" alt="Jonathan Angle" class="sp-img">
+        <img src="assets/image_7.webp" alt="Teik Guan Tan" class="sp-img">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">05</span><span class="sp-name">Jonathan Angle</span></div>
-          <div class="sp-role">Communications Director &middot; Quantus</div>
+          <div class="sp-name-row"><span class="sp-idx">03</span><span class="sp-name">Teik Guan Tan</span></div>
+          <div class="sp-role">CEO & Co-Founder &middot; pQCee</div>
         </div>
         <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Jonathan Angle</div>
-          <div class="sp-hover-role">Communications Director</div>
-          <div class="sp-hover-org">Quantus</div>
+          <div class="sp-hover-name">Teik Guan Tan</div>
+          <div class="sp-hover-role">CEO & Co-Founder</div>
+          <div class="sp-hover-org">pQCee</div>
         </div>
       </div><div class="sp-card">
         <img src="assets/image_11.webp" alt="Joseph Mattia" class="sp-img">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">06</span><span class="sp-name">Joseph Mattia</span></div>
+          <div class="sp-name-row"><span class="sp-idx">04</span><span class="sp-name">Joseph Mattia</span></div>
           <div class="sp-role">COO &middot; Quantus</div>
         </div>
         <div class="sp-hover-overlay">
@@ -905,11 +862,63 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
           <div class="sp-hover-org">Quantus</div>
         </div>
       </div><div class="sp-card">
+        <img src="assets/image_8.webp" alt="Lana Ivina" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">05</span><span class="sp-name">Lana Ivina</span></div>
+          <div class="sp-role">Researcher & Builder &middot; CircuitLabs.io</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Lana Ivina</div>
+          <div class="sp-hover-role">Researcher & Builder</div>
+          <div class="sp-hover-org">CircuitLabs.io</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/image_10.webp" alt="Jonathan Angle" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">06</span><span class="sp-name">Jonathan Angle</span></div>
+          <div class="sp-role">Communications Director &middot; Quantus</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Jonathan Angle</div>
+          <div class="sp-hover-role">Communications Director</div>
+          <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/Jay_Speaker.png" alt="Jarrod Frankel" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">07</span><span class="sp-name">Jarrod Frankel</span></div>
+          <div class="sp-role">CMO &middot; Quantus</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Jarrod Frankel</div>
+          <div class="sp-hover-role">CMO</div>
+          <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/Moby_Speaker.png" alt="Moby" class="sp-img">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">08</span><span class="sp-name">Moby</span></div>
+          <div class="sp-role">Founder &middot; Moby Media</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Moby</div>
+          <div class="sp-hover-role">Founder</div>
+          <div class="sp-hover-org">Moby Media</div>
+        </div>
+      </div><div class="sp-card">
         <img src="assets/image_12.webp" alt="Ian Chong" class="sp-img">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">07</span><span class="sp-name">Ian Chong</span></div>
+          <div class="sp-name-row"><span class="sp-idx">09</span><span class="sp-name">Ian Chong</span></div>
           <div class="sp-role">DevRel &middot; Terminal 3</div>
         </div>
         <div class="sp-hover-overlay">
@@ -922,7 +931,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">08</span><span class="sp-name">Daniel Kang</span></div>
+          <div class="sp-name-row"><span class="sp-idx">10</span><span class="sp-name">Daniel Kang</span></div>
           <div class="sp-role">Co-Founder &middot; AER Labs</div>
         </div>
         <div class="sp-hover-overlay">
@@ -940,7 +949,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <div class="prog-header">
       <div class="prog-header-left">
         <span class="section-eyebrow">04</span>
-        <h2 class="prog-title-h">Programme</h2>
+        <h2 class="prog-title-h">Previous Programme</h2>
       </div>
       <div class="prog-date">Saturday &middot; 06 June 2026 &middot; GMT+8</div>
     </div>
@@ -949,16 +958,15 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <div class="prog-divider-v"></div>
       <div class="prog-right">
         <div class="prog-type">Networking</div>
-        <div class="prog-title-row">Registration & Networking</div>
-        <div class="prog-sub">Arrival and registration at Network School</div>
+        <div class="prog-title-row">Registration &amp; Networking</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">3:00 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
         <div class="prog-type">Opening</div>
-        <div class="prog-title-row">Welcome & Opening</div>
-        
+        <div class="prog-title-row">Welcome &amp; Opening</div>
+        <div class="prog-speaker">Jonathan Angle</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">3:10 PM</div></div>
@@ -966,7 +974,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <div class="prog-right">
         <div class="prog-type">Keynote</div>
         <div class="prog-title-row">The Quantum Opportunity</div>
-        <div class="prog-sub">Setting the stage for the day's conversations</div>
+        <div class="prog-speaker">Joseph Mattia</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">3:30 PM</div></div>
@@ -974,15 +982,15 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <div class="prog-right">
         <div class="prog-type">Panel</div>
         <div class="prog-title-row">The Immediate Quantum Risks</div>
-        <div class="prog-sub">What are the real threats and how close are we?</div>
+        <div class="prog-speaker">Jonathan Angle &middot; Lana Ivina &middot; Teik Guan Tan &middot; Joseph Mattia</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">4:00 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
-        <div class="prog-type">Panel</div>
-        <div class="prog-title-row">Why Quantum Breaks Crypto</div>
-        <div class="prog-sub">A deep dive into cryptographic vulnerabilities</div>
+        <div class="prog-type">Fireside</div>
+        <div class="prog-title-row">Quantum X AI: The New Computational Substrate</div>
+        <div class="prog-speaker">Moby &middot; Daniel Kang</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">4:30 PM</div></div>
@@ -990,54 +998,52 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <div class="prog-right">
         <div class="prog-type">Break</div>
         <div class="prog-title-row">Break</div>
-        
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">4:50 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
-        <div class="prog-type">Session</div>
+        <div class="prog-type">Fireside</div>
         <div class="prog-title-row">Privacy and Scaling in the Post-Quantum World</div>
-        <div class="prog-sub">Exploring solutions and migration paths</div>
+        <div class="prog-speaker">Jarrod Frankel &middot; Ian Chong</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">5:20 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
-        <div class="prog-type">Keynote</div>
-        <div class="prog-title-row">Keynote from Quantus CEO</div>
+        <div class="prog-type">Fireside</div>
+        <div class="prog-title-row">The Quantum Arms Race</div>
+        <div class="prog-speaker">Balaji Srinivasan &middot; Christopher Smith</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">5:40 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
-        <div class="prog-type">Fireside Chat</div>
-        <div class="prog-title-row">Fireside Chat</div>
-        <div class="prog-sub">Two industry leaders in conversation</div>
+        <div class="prog-type">Keynote</div>
+        <div class="prog-title-row">Quantum Fundamentals</div>
+        <div class="prog-speaker">Balaji Srinivasan</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">6:00 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
+        <div class="prog-type">Keynote</div>
+        <div class="prog-title-row">The Quantum Threat to Blockchain</div>
+        <div class="prog-speaker">Christopher Smith</div>
+      </div>
+    </div><div class="prog-row">
+      <div class="prog-left"><div class="prog-time">6:20 PM</div></div>
+      <div class="prog-divider-v"></div>
+      <div class="prog-right">
         <div class="prog-type">Close</div>
         <div class="prog-title-row">Closing Remarks</div>
-        
+        <div class="prog-speaker">Jonathan Angle</div>
       </div>
     </div><div class="prog-row">
-      <div class="prog-left"><div class="prog-time">6:10 PM</div></div>
+      <div class="prog-left"><div class="prog-time">6:30 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
-        <div class="prog-type">Networking</div>
-        <div class="prog-title-row">Networking & Drinks</div>
-        <div class="prog-sub">Until 7:00 PM</div>
-      </div>
-    </div><div class="prog-row">
-      <div class="prog-left"><div class="prog-time">7:30 PM</div></div>
-      <div class="prog-divider-v"></div>
-      <div class="prog-right">
-        <div class="prog-type">Transfer</div>
-        <div class="prog-title-row">Return buses depart for Singapore</div>
-        
+        <div class="prog-title-row">Networking</div>
       </div>
     </div></div>
     </div>
@@ -1047,68 +1053,68 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 
   <section id="sponsors">
     <div class="sponsors-inner" style="text-align:center">
-      <h2 style="font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;margin-bottom:64px">Supported By</h2>
+      <h2 style="font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;margin-bottom:64px">Previously Supported By</h2>
 
-      <h3 style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:var(--grey-4);letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Hosted By</h3>
+      <h3 style="font-family:'Roboto Mono',monospace;font-size:13px;font-weight:400;color:#CCCCCC;letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Hosted By</h3>
       <div class="sponsors-cols" style="display:flex;gap:40px 48px;justify-content:center;margin-bottom:96px;">
         <div class="sp-col">
-          <a href="https://www.quantus.com/" target="_blank" rel="noopener noreferrer"><img src="assets/quantus-logo.webp" alt="Quantus" style="height:20px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://www.quantus.com/" target="_blank" rel="noopener noreferrer"><img src="assets/quantus-logo.webp" alt="Quantus" style="height:20px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://ns.com/" target="_blank" rel="noopener noreferrer"><img src="assets/network-school-logo.webp" alt="Network School" style="height:20px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://ns.com/" target="_blank" rel="noopener noreferrer"><img src="assets/network-school-logo.webp" alt="Network School" style="height:20px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
       </div>
 
-      <h3 style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:var(--grey-4);letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Partners</h3>
-      <div class="sponsors-cols" style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px;align-items:center;justify-items:center;margin-bottom:96px;">
+      <h3 style="font-family:'Roboto Mono',monospace;font-size:13px;font-weight:400;color:#CCCCCC;letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Partners</h3>
+      <div class="sponsors-cols" style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px;align-items:center;justify-items:center;margin:0 auto 96px auto;max-width:700px;">
         <div class="sp-col">
-          <a href="https://z.cash/" target="_blank" rel="noopener noreferrer"><img src="assets/zcash-logo.webp" alt="Zcash" style="height:45px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://z.cash/" target="_blank" rel="noopener noreferrer"><img src="assets/zcash-logo.webp" alt="Zcash" style="height:45px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://docs.near-intents.org/" target="_blank" rel="noopener noreferrer"><img src="assets/near-intents-logo.webp" alt="NEAR Intents" style="height:32px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://docs.near-intents.org/" target="_blank" rel="noopener noreferrer"><img src="assets/near-intents-logo.webp" alt="NEAR Intents" style="height:32px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col" id="base">
-          <a href="https://www.base.org/" target="_blank" rel="noopener noreferrer"><img src="assets/base-logo.webp" alt="Base" style="height:24px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://www.base.org/" target="_blank" rel="noopener noreferrer"><img src="assets/base-logo.webp" alt="Base" style="height:24px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col" id="superteam">
-          <a href="https://superteam.fun/" target="_blank" rel="noopener noreferrer"><img src="assets/superteam-my-logo.webp" alt="Superteam MY" style="height:45px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://superteam.fun/" target="_blank" rel="noopener noreferrer"><img src="assets/superteam-my-logo.webp" alt="Superteam MY" style="height:45px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://www.circuitlabs.io/" target="_blank" rel="noopener noreferrer"><img src="assets/circuit-labs-logo.webp" alt="Circuit Labs" style="height:32px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://www.circuitlabs.io/" target="_blank" rel="noopener noreferrer"><img src="assets/circuit-labs-logo.webp" alt="Circuit Labs" style="height:32px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://midnight.network/" target="_blank" rel="noopener noreferrer"><img src="assets/midnight-logo.webp" alt="Midnight" style="height:24px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://midnight.network/" target="_blank" rel="noopener noreferrer"><img src="assets/midnight-logo.webp" alt="Midnight" style="height:24px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://keyst.one/" target="_blank" rel="noopener noreferrer"><img src="assets/keystone-logo.webp" alt="Keystone" style="height:32px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://keyst.one/" target="_blank" rel="noopener noreferrer"><img src="assets/keystone-logo.webp" alt="Keystone" style="height:32px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://www.terminal3.io/" target="_blank" rel="noopener noreferrer"><img src="assets/t3-logo.webp" alt="Terminal3" style="height:45px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://www.terminal3.io/" target="_blank" rel="noopener noreferrer"><img src="assets/t3-logo.webp" alt="Terminal3" style="height:45px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://quip.network/" target="_blank" rel="noopener noreferrer"><img src="assets/quip-network-logo.webp" alt="Quip Network" style="height:24px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://quip.network/" target="_blank" rel="noopener noreferrer"><img src="assets/quip-network-logo.webp" alt="Quip Network" style="height:24px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col" id="v12-logo" style="grid-column:2/3;">
-          <a href="https://v12.sh/" target="_blank" rel="noopener noreferrer" style="display:flex;justify-content:center;"><img src="assets/v12-logo.webp" alt="V12" style="height:22px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://v12.sh/" target="_blank" rel="noopener noreferrer" style="display:flex;justify-content:center;"><img src="assets/v12-logo.webp" alt="V12" style="height:22px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
       </div>
 
-      <h3 style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:var(--grey-4);letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Media Partner</h3>
+      <h3 style="font-family:'Roboto Mono',monospace;font-size:13px;font-weight:400;color:#CCCCCC;letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Media Partners</h3>
       <div class="sponsors-cols" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:40px;">
         <div class="sp-col" id="yellow-media">
-          <a href="https://yellow.com/" target="_blank" rel="noopener noreferrer" style="display:flex;justify-content:center;"><img src="assets/image_14.webp" alt="Yellow Media" style="height:30px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://yellow.com/" target="_blank" rel="noopener noreferrer" style="display:flex;justify-content:center;"><img src="assets/image_14.webp" alt="Yellow Media" style="height:30px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://www.bitcoin.com/" target="_blank" rel="noopener noreferrer"><img src="assets/bitcoin-logo.webp" alt="Bitcoin.com" style="height:32px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://www.bitcoin.com/" target="_blank" rel="noopener noreferrer"><img src="assets/bitcoin-logo.webp" alt="Bitcoin.com" style="height:32px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://coinedition.com/" target="_blank" rel="noopener noreferrer"><img src="assets/coin-edition-logo.webp" alt="Coin Edition" style="height:34px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://coinedition.com/" target="_blank" rel="noopener noreferrer"><img src="assets/coin-edition-logo.webp" alt="Coin Edition" style="height:34px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://blockchainreporter.net/" target="_blank" rel="noopener noreferrer"><img src="assets/blockchain-reporter-logo.webp" alt="Blockchain Reporter" style="height:15px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://blockchainreporter.net/" target="_blank" rel="noopener noreferrer"><img src="assets/blockchain-reporter-logo.webp" alt="Blockchain Reporter" style="height:15px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
         <div class="sp-col">
-          <a href="https://crypto.news/" target="_blank" rel="noopener noreferrer"><img src="assets/cryptonews-logo.webp" alt="Crypto.news" style="height:28px;width:auto;opacity:0.75;display:block;"></a>
+          <div class="sponsor-card"><a href="https://crypto.news/" target="_blank" rel="noopener noreferrer"><img src="assets/cryptonews-logo.webp" alt="Crypto.news" style="height:28px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
       </div>
     </div>
@@ -1116,22 +1122,8 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 
   <section id="become-sponsor">
     <div class="become-inner">
-      <h2 class="become-title" style="margin-top:0">Partner with <em>Q-Day</em></h2>
-      <p class="become-body">Q-Day brings together the most relevant minds in quantum computing, cryptography, and blockchain. Sponsoring puts your brand in front of protocol engineers, institutional capital, and the people shaping post-quantum standards.</p>
-      <div class="become-tiers">
-        <div class="become-tier">
-          <div class="become-tier-name">Gold</div>
-          <div class="become-tier-price">$12,500</div>
-        </div>
-        <div class="become-tier">
-          <div class="become-tier-name">Silver</div>
-          <div class="become-tier-price">$5,000</div>
-        </div>
-        <div class="become-tier">
-          <div class="become-tier-name">Community</div>
-          <div class="become-tier-price">$2,500</div>
-        </div>
-      </div>
+      <h2 class="become-title" style="margin-top:0">Partner with <em>QDay</em></h2>
+      <p class="become-body">QDay brings together the most relevant minds in quantum computing, cryptography, and blockchain. Sponsoring puts your brand in front of protocol engineers, institutional capital, and the people shaping post-quantum standards.</p>
       <button class="become-cta" onclick="openSponsorModal()" style="border:none;cursor:none">Become a Sponsor <span class="become-arr">&#x2197;</span></button>
     </div>
   </section>
@@ -1140,8 +1132,8 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <div class="register-inner">
       <div class="register-left">
         <p class="section-eyebrow">08</p>
-        <h2 class="register-title">Request Your Seat</h2>
-        <p class="register-body">Q-Day is an invite-only event for sixty to eighty curated delegates. All registrations are reviewed. If you work in quantum, cryptography, protocol development, or institutional capital — this room is for you.</p>
+        <h2 class="register-title">Register Now</h2>
+        <p class="register-body">QDay is an invite-only event for sixty to eighty curated delegates. All registrations are reviewed. If you work in quantum, cryptography, protocol development, or institutional capital, this room is for you.</p>
       </div>
       <div class="register-right">
         <div class="register-ticket" style="position:relative;overflow:hidden">
@@ -1150,7 +1142,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
             <div class="register-ticket-top">
               <div class="register-ticket-cell">
                 <div class="register-ticket-label">Event</div>
-                <div class="register-ticket-val">Q-Day 2026</div>
+                <div class="register-ticket-val">QDay 2026</div>
               </div>
               <div class="register-ticket-cell">
                 <div class="register-ticket-label">Format</div>
@@ -1158,21 +1150,20 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
               </div>
               <div class="register-ticket-cell">
                 <div class="register-ticket-label">Date</div>
-                <div class="register-ticket-val">06 June 2026</div>
+                <div class="register-ticket-val">6 October 2026</div>
               </div>
               <div class="register-ticket-cell">
                 <div class="register-ticket-label">Venue</div>
-                <div class="register-ticket-val">Network School, JB</div>
+                <div class="register-ticket-val">To Be Announced, Singapore</div>
               </div>
             </div>
             <hr class="register-ticket-divider">
             <div class="register-ticket-cta">
               <span class="register-ticket-note">All registrations reviewed</span>
-              <a href="https://lu.ma/co5uqvwx" class="register-btn" target="_blank">Register on Luma &#x2197;</a>
+              <a href="https://luma.com/jtof4o9b" class="luma-checkout--button register-btn" data-luma-action="checkout" data-luma-event-id="jtof4o9b">Register Now</a>
             </div>
           </div>
         </div>
-        <p class="register-attend-note">Attendance is curated &middot; All registrations reviewed</p>
       </div>
     </div>
   </section>
@@ -1186,40 +1177,28 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <div class="faq-list">
       <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">
-        <span class="faq-q-text">Why should I come to Q-Day?</span>
+        <span class="faq-q-text">Why should I come to QDay?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-a"><p class="faq-a-inner">Because the conversation happening in that room won't happen anywhere else. Q-Day is not a conference — it's sixty to eighty people who understand the quantum threat to cryptography, in one room, for four hours. No panels for optics. No keynotes for clout. If you're building, funding, or governing systems that rely on public-key cryptography, this is where you need to be.</p></div>
+      <div class="faq-a"><p class="faq-a-inner">Because the conversation happening in that room won't happen anywhere else. QDay is not a conference. It's a focused conversation on the quantum threat to cryptography, in one room, for four hours. No panels for optics. No keynotes for clout. If you're building, funding, or governing systems that rely on public-key cryptography, this is where you need to be.</p></div>
     </div><div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">
-        <span class="faq-q-text">What is Q-Day and who organises it?</span>
+        <span class="faq-q-text">What is QDay and who organises it?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-a"><p class="faq-a-inner">Q-Day is a half-day invite-only summit on the quantum threat to cryptography, organised by Quantus and co-hosted with Network School and Zcash. The event brings together researchers, protocol engineers, institutional investors, and policy representatives to address the post-quantum migration challenge.</p></div>
+      <div class="faq-a"><p class="faq-a-inner">QDay is a half-day invite-only summit on the quantum threat to cryptography, organised by Quantus. The event brings together researchers, protocol engineers, institutional investors, and policy representatives to address the post-quantum migration challenge.</p></div>
     </div><div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">
-        <span class="faq-q-text">Is Q-Day open to the public?</span>
+        <span class="faq-q-text">Is QDay open to the public?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-a"><p class="faq-a-inner">No. Q-Day is invite-only and attendance is curated. All registrations are reviewed by the organising team. If you work in quantum computing, cryptography, protocol development, institutional capital, or policy — register on Luma and we'll be in touch.</p></div>
+      <div class="faq-a"><p class="faq-a-inner">No. QDay is invite-only and attendance is curated. All registrations are reviewed by the organising team. If you work in quantum computing, cryptography, protocol development, institutional capital, or policy, register on Luma and we'll be in touch.</p></div>
     </div><div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">
-        <span class="faq-q-text">How do I get from Singapore to the venue?</span>
+        <span class="faq-q-text">How do I sponsor QDay?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-a"><p class="faq-a-inner">The venue is at Network School in Johor Bahru, Malaysia — approximately 45 minutes from central Singapore. We recommend taking the MRT to Woodlands and crossing via the Causeway. Taxis and Grab are also widely available from most parts of Singapore.</p></div>
-    </div><div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">What is the companion paper?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a"><p class="faq-a-inner">The companion paper — 'The State of Quantum Computing: What Crypto Can't Afford to Ignore' — is a technical brief prepared for delegates. It covers quantum hardware timelines, Shor's algorithm, vulnerable cryptographic primitives, and the post-quantum migration path. Over 1,000 copies will be distributed at the event.</p></div>
-    </div><div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">How do I sponsor Q-Day?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-a"><p class="faq-a-inner">Sponsorship tiers start at $2,500 (Community), $5,000 (Silver), and $12,500 (Gold). Use the Become a Sponsor form on this page or reach out directly to the Quantus team. Each tier includes brand presence, delegate access, and programme integration.</p></div>
+      <div class="faq-a"><p class="faq-a-inner">Sponsorship tiers are yet to be decided. Reach out to the Quantus team to express your interest.</p></div>
     </div>
     </div>
   </section>
@@ -1229,20 +1208,19 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <img src="assets/image_15.webp" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.08;pointer-events:none;z-index:0;mix-blend-mode:screen" alt="">
     <div class="footer-ticker" style="position:relative;z-index:1">
       <div class="footer-ticker-track">
-        <div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>Q-Day</em> is coming &nbsp;·&nbsp; 06.06.26 &nbsp;·&nbsp; Johor Bahru &nbsp;·&nbsp; </div>
+        <div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div><div class="footer-ticker-item"><em>QDay</em> &nbsp;·&nbsp; 06.10.26 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; </div>
       </div>
     </div>
     <div class="footer-body" style="z-index:1">
       <div class="footer-cta-area">
         <span class="footer-big-text">QDay</span>
         <div class="footer-btn-row">
-          <a href="https://lu.ma/co5uqvwx" class="footer-btn-primary" target="_blank">Register on Luma &#x2197;</a>
+          <a href="https://luma.com/jtof4o9b" class="footer-btn-primary" target="_blank">Register Now &#x2197;</a>
         </div>
 
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">&copy; 2026 Quantus. All rights reserved.</span>
-        <a href="https://lu.ma/co5uqvwx" class="footer-luma" target="_blank">lu.ma/co5uqvwx</a>
       </div>
     </div>
   </footer>
@@ -1300,7 +1278,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       </div>
       <div id="modal-success" style="display:none;text-align:center;padding:24px 0">
         <div style="font-family:'Clash Display',sans-serif;font-size:20px;font-weight:500;color:var(--lime);margin-bottom:12px">We'll be in touch.</div>
-        <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:1.6">Thanks for your interest in sponsoring Q-Day.<br>Our team will reach out within 48 hours.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:1.6">Thanks for your interest in sponsoring QDay.<br>Our team will reach out within 48 hours.</div>
       </div>
     </form>
   </div>
@@ -1316,11 +1294,7 @@ var tickerData=[
   {num:'4M+',label:'BTC Exposed in P2PK Addresses'},
   {num:'$2.6T+',label:'Crypto Market at Stake'},
   {num:'~2031',label:'Projected Quantum Break'},
-  {num:'60-80',label:'Curated Delegates'},
-  {num:'1,000+',label:'Companion Paper Recipients'},
-  {num:'3',label:'Focused Sessions'},
-  {num:'06.06.26',label:'Johor Bahru'},
-  {num:'4hrs',label:'Half-Day Summit'},
+  {num:'06.10.26',label:'Singapore'},
 ];
 var track=document.getElementById('ticker-track');
 var inner='';
@@ -1336,7 +1310,7 @@ resizePC();window.addEventListener('resize',resizePC);
 var loaderEl=document.getElementById('loader');
 var ldNum=document.getElementById('ld-num');
 var ldBar=document.getElementById('loader-bar');
-var QDAY=new Date('2026-06-06');
+var QDAY=new Date('2026-10-06');
 var daysLeft=Math.ceil((QDAY-new Date())/86400000);
 var displayVal=daysLeft+120;
 var startT=null;
@@ -1749,6 +1723,8 @@ function closeMobileNav(){
   .become-arr { display: none; }
   .register-attend-note { display: none; }
 }
+.luma-checkout--button{display:inline-flex !important;align-items:center !important;gap:8px !important;padding:11px 22px !important;background:var(--lime) !important;color:var(--black) !important;font-family:'Inter',sans-serif !important;font-size:11px !important;font-weight:600 !important;text-decoration:none !important;text-transform:uppercase !important;letter-spacing:0.1em !important;border:none !important;border-radius:0 !important;box-shadow:none !important;cursor:none !important;transition:opacity 0.2s !important;white-space:nowrap !important}
+.luma-checkout--button:hover{opacity:0.85 !important}
 </style>
 
 </body>
