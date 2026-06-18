@@ -177,7 +177,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 /* ── SPONSORS ── */
 #sponsors{border-top:1px solid #1E1E1E;padding:80px 52px}
 #sponsors::before{display:none}
-.sponsors-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center}.sponsor-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:0;padding:32px 40px;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s ease,background 0.2s ease;}.sponsor-card:hover{border-color:rgba(200,255,0,0.3);background:rgba(200,255,0,0.05);}.sponsor-card img{height:28px !important;width:auto !important;max-width:none !important;opacity:1 !important;filter:brightness(1) !important;display:block !important;margin:0 auto !important;}.sponsor-card img[src*="quantus-logo"],.sponsor-card img[src*="network-school-logo"]{height:32px !important;}.sponsor-card img[src*="zcash-logo"],.sponsor-card img[src*="superteam-my-logo"],.sponsor-card img[src*="t3-logo"]{height:40px !important;}
+.sponsors-inner{position:relative;z-index:1;max-width:1080px;margin:0 auto;text-align:center}.sponsor-card{width:320px;height:136px;border-radius:12px;border:none;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.sponsor-card img{height:32px !important;width:auto !important;max-width:240px !important;object-fit:contain !important;opacity:1 !important;filter:brightness(1) !important;display:block !important;margin:0 auto !important;}
 .sponsors-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
 .sponsors-header-left{display:flex;flex-direction:column;gap:12px;align-items:center}
 .sponsors-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
@@ -654,7 +654,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   .sponsors-cols { grid-template-columns: 1fr !important; gap: 32px !important; }
   .sp-col { width: 100%; justify-content: center; align-items: center; }
 }
-.sponsors-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px;align-items:center;justify-items:center;}
+.sponsors-cols{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
 .sp-col{display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:flex-end;}
 .sp-col-label{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;text-align:center;}
 .sp-logo{height:28px;width:auto;opacity:0.75;transition:opacity 0.2s;cursor:none;}
@@ -954,13 +954,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <div class="prog-date">Saturday &middot; 06 June 2026 &middot; GMT+8</div>
     </div>
     <div class="prog-rows"><div class="prog-row">
-      <div class="prog-left"><div class="prog-time">2:30 PM</div></div>
-      <div class="prog-divider-v"></div>
-      <div class="prog-right">
-        <div class="prog-type">Networking</div>
-        <div class="prog-title-row">Registration &amp; Networking</div>
-      </div>
-    </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">3:00 PM</div></div>
       <div class="prog-divider-v"></div>
       <div class="prog-right">
@@ -991,13 +984,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
         <div class="prog-type">Fireside</div>
         <div class="prog-title-row">Quantum X AI: The New Computational Substrate</div>
         <div class="prog-speaker">Moby &middot; Daniel Kang</div>
-      </div>
-    </div><div class="prog-row">
-      <div class="prog-left"><div class="prog-time">4:30 PM</div></div>
-      <div class="prog-divider-v"></div>
-      <div class="prog-right">
-        <div class="prog-type">Break</div>
-        <div class="prog-title-row">Break</div>
       </div>
     </div><div class="prog-row">
       <div class="prog-left"><div class="prog-time">4:50 PM</div></div>
@@ -1039,12 +1025,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
         <div class="prog-title-row">Closing Remarks</div>
         <div class="prog-speaker">Jonathan Angle</div>
       </div>
-    </div><div class="prog-row">
-      <div class="prog-left"><div class="prog-time">6:30 PM</div></div>
-      <div class="prog-divider-v"></div>
-      <div class="prog-right">
-        <div class="prog-title-row">Networking</div>
-      </div>
     </div></div>
     </div>
   </section>
@@ -1056,7 +1036,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <h2 style="font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;margin-bottom:64px">Previously Supported By</h2>
 
       <h3 style="font-family:'Roboto Mono',monospace;font-size:13px;font-weight:400;color:#CCCCCC;letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Hosted By</h3>
-      <div class="sponsors-cols" style="display:flex;gap:40px 48px;justify-content:center;margin-bottom:96px;">
+      <div class="sponsors-cols" style="margin-bottom:96px;">
         <div class="sp-col">
           <div class="sponsor-card"><a href="https://www.quantus.com/" target="_blank" rel="noopener noreferrer"><img src="assets/quantus-logo.webp" alt="Quantus" style="height:20px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
@@ -1066,7 +1046,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       </div>
 
       <h3 style="font-family:'Roboto Mono',monospace;font-size:13px;font-weight:400;color:#CCCCCC;letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Partners</h3>
-      <div class="sponsors-cols" style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px;align-items:center;justify-items:center;margin:0 auto 96px auto;max-width:700px;">
+      <div class="sponsors-cols" style="margin-bottom:96px;">
         <div class="sp-col">
           <div class="sponsor-card"><a href="https://z.cash/" target="_blank" rel="noopener noreferrer"><img src="assets/zcash-logo.webp" alt="Zcash" style="height:45px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
@@ -1100,7 +1080,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       </div>
 
       <h3 style="font-family:'Roboto Mono',monospace;font-size:13px;font-weight:400;color:#CCCCCC;letter-spacing:0.2em;margin-bottom:20px;text-transform:uppercase;">Media Partners</h3>
-      <div class="sponsors-cols" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:40px;">
+      <div class="sponsors-cols">
         <div class="sp-col" id="yellow-media">
           <div class="sponsor-card"><a href="https://yellow.com/" target="_blank" rel="noopener noreferrer" style="display:flex;justify-content:center;"><img src="assets/image_14.webp" alt="Yellow Media" style="height:30px;width:auto;opacity:0.75;display:block;"></a></div>
         </div>
@@ -1314,7 +1294,7 @@ var QDAY=new Date('2026-10-06');
 var daysLeft=Math.ceil((QDAY-new Date())/86400000);
 var displayVal=daysLeft+120;
 var startT=null;
-function loaderTick(ts){if(!startT)startT=ts;var e=ts-startT;var p=Math.min(e/2600,1);ldBar.style.width=(p*100)+'%';var ease=1-Math.pow(1-p,3);displayVal=Math.round(daysLeft+120*(1-ease));ldNum.textContent=displayVal;if(p<1){requestAnimationFrame(loaderTick);}else{ldNum.textContent=daysLeft;setTimeout(doGlitch,200);}}
+function loaderTick(ts){if(!startT)startT=ts;var e=ts-startT;var p=Math.min(e/1140,1);ldBar.style.width=(p*100)+'%';var ease=1-Math.pow(1-p,3);displayVal=Math.round(daysLeft+120*(1-ease));ldNum.textContent=displayVal;if(p<1){requestAnimationFrame(loaderTick);}else{ldNum.textContent=daysLeft;setTimeout(doGlitch,200);}}
 requestAnimationFrame(loaderTick);
 
 var gcanvas=document.getElementById('glitch-canvas');
