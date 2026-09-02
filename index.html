@@ -7,12 +7,16 @@
 <link rel="apple-touch-icon" href="assets/image_2.webp">
 <title>Quantum &amp; Privacy Day — 8 October 2026, Tower Club Singapore</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --lime:#B7F61C;--black:#000000;--off-white:#F0F0EE;
+  --lime:#B7F61C;--lime-rgb:183,246,28;
+  --black:#000000;--black-rgb:0,0,0;
+  --off-white:#F0F0EE;--content:#D8D8D4;
   --grey-1:#111111;--grey-2:#1A1A1A;--grey-3:#282828;
   --grey-4:#555555;--grey-5:#888888;--grey-6:#C0C0C0;
   --nav-width:220px;
@@ -47,9 +51,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .nav-cta{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 16px;background:var(--lime);color:var(--black);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;text-decoration:none;cursor:none;position:relative;overflow:hidden;transition:opacity 0.2s;letter-spacing:.06em;text-transform:uppercase}
 .nav-cta::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.1);opacity:0;transition:opacity 0.2s}
 .nav-cta:hover::before{opacity:1}
-.nav-cta .cta-arrow{font-size:16px;transform:rotate(45deg);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);display:inline-block}
-.nav-cta:hover .cta-arrow{transform:rotate(-45deg)}
-
+.nav-cta .nav-cta:hover 
 /* MAIN */
 #content{margin-left:var(--nav-width)}
 
@@ -63,15 +65,12 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 #hero{position:relative;width:100%;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:right bottom;will-change:transform;transform:scale(1.06);filter:brightness(0.38) contrast(1.08);background-image:url('assets/image_4.webp')}
 .hero-scanlines{position:absolute;inset:0;z-index:2;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.1) 3px,rgba(0,0,0,0.1) 4px)}
-.hero-vignette{position:absolute;inset:0;z-index:3;background:linear-gradient(to top,rgba(8,8,8,0.95) 0%,rgba(8,8,8,0.3) 50%,transparent 80%),linear-gradient(to right,rgba(8,8,8,0.5) 0%,transparent 40%)}
+.hero-vignette{position:absolute;inset:0;z-index:3;background:linear-gradient(to top,rgba(var(--black-rgb),0.95) 0%,rgba(var(--black-rgb),0.3) 50%,transparent 80%),linear-gradient(to right,rgba(var(--black-rgb),0.5) 0%,transparent 40%)}
 .hero-pixel-canvas{position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none}
 .hero-top-row{position:relative;z-index:5;display:flex;align-items:center;justify-content:center;gap:48px;padding:0 52px;will-change:transform}
 .hero-qday{font-family:'Clash Display',sans-serif;font-size:clamp(40px,5.5vw,82px);font-weight:400;color:var(--lime);letter-spacing:-0.03em;line-height:1;opacity:0;transform:translateY(20px)}
 .hero-qday span{color:var(--off-white)}
 .hero-head{display:flex;flex-direction:column;align-items:center;text-align:center}
-.footer-lockup-wrap{display:flex;justify-content:center;margin-bottom:8px}
-.footer-lockup{width:clamp(220px,30vw,420px);height:auto;display:block}
-.sponsors-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-.03em;margin-bottom:56px}
 .current-partners{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
 .cp-card{flex:0 1 340px;min-height:150px;border:1px solid #1E1E1E;display:flex;align-items:center;justify-content:center;padding:36px;text-decoration:none;color:var(--off-white);transition:border-color .22s,background .22s,transform .22s}
 .cp-card:hover{border-color:var(--lime);background:#0C0C0C;transform:translateY(-2px)}
@@ -80,13 +79,13 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .cp-mark-near{height:42px}
 .cp-mark-quantus{height:26px}
 .sponsors-pitch{font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:var(--grey-5);line-height:1.7;max-width:520px;margin:0 auto 24px}
-.sponsors-cta{display:inline-block;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--lime);color:var(--black);padding:13px 24px;text-decoration:none;transition:opacity .2s}
+.sponsors-cta{cursor:none;display:inline-block;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--lime);color:var(--black);padding:13px 24px;text-decoration:none;transition:opacity .2s}
 .sponsors-cta:hover{opacity:.85}
 .prev-partners{margin-top:96px;border-top:1px solid #1E1E1E;padding-top:44px}
 .pp-head{font-family:'Inter',sans-serif;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-4);margin-bottom:14px}
 .pp-list{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--grey-5);line-height:2;max-width:760px;margin:0 auto 36px}
 .pp-list:last-child{margin-bottom:0}
-.pp-link{color:var(--grey-5);text-decoration:none;transition:color .18s}
+.pp-link{cursor:none;color:var(--grey-5);text-decoration:none;transition:color .18s}
 .pp-link:hover{color:var(--lime)}
 .pp-sep{color:#333;margin:0 2px}
 
@@ -105,10 +104,9 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .venue-body{font-family:'Inter',sans-serif;font-size:14px;font-weight:300;color:var(--grey-5);line-height:1.7;margin-bottom:20px}
 .venue-rules{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
 .venue-rule{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--lime);border:1px solid #2a2a2a;padding:8px 14px}
-.venue-photo{width:100%;height:auto;min-height:320px;object-fit:cover;display:block}
-@media(max-width:900px){.venue-inner{grid-template-columns:1fr;gap:40px}#venue{padding:60px 24px}.wte-row{grid-template-columns:1fr;gap:8px}.hero-meta-bar{display:none}.hero-meta-cell{padding:10px 0}.hero-meta-row{flex-direction:column}}
+.venue-photo{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block}
 .hero-cta-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:28px;opacity:0;transform:translateY(14px)}
-.hero-cta-primary,.hero-cta-secondary{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:13px 24px;text-decoration:none;display:inline-block;transition:opacity .2s,border-color .2s,color .2s}
+.hero-cta-primary,.hero-cta-secondary{cursor:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:13px 24px;text-decoration:none;display:inline-block;transition:opacity .2s,border-color .2s,color .2s}
 .hero-cta-primary{background:var(--lime);color:var(--black)}
 .hero-cta-primary:hover{opacity:.85}
 .hero-cta-secondary{border:1px solid var(--off-white);color:var(--off-white)}
@@ -124,6 +122,8 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .hero-meta-val{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--off-white);letter-spacing:-0.015em}
 
 .hero-subhead{font-family:'Inter',sans-serif;font-size:17px;font-weight:400;color:var(--content,#D8D8D4);max-width:540px;line-height:1.55;letter-spacing:-.01em;opacity:0;transform:translateY(14px);margin:0 auto}
+
+@media(max-width:900px){.venue-inner{grid-template-columns:1fr;gap:40px}#venue{padding:60px 24px}.wte-row{grid-template-columns:1fr;gap:8px}.hero-meta-bar{display:none}.hero-meta-cell{padding:10px 0}.hero-meta-row{flex-direction:column}}
 
 /* TICKER */
 #ticker{width:100%;border-top:1px solid #1E1E1E;border-bottom:1px solid #1E1E1E;background:#0D0D0D;overflow:hidden;padding:13px 0}
@@ -144,8 +144,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .about-figure{margin:0}
 .about-figure img{width:100%;height:clamp(240px,34vw,420px);object-fit:cover;object-position:center;display:block}
 .about-tail{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-@media(max-width:900px){.about-tail{grid-template-columns:1fr;gap:0}}.about-left{display:flex;flex-direction:column;justify-content:center}
-.about-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;line-height:0.95;margin-bottom:28px}
+@media(max-width:900px){.about-tail{grid-template-columns:1fr;gap:40px}}.about-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em;line-height:0.95;margin-bottom:28px}
 .about-body{font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:var(--grey-5);line-height:1.7;max-width:520px;margin-bottom:0}
 .about-stats{display:flex;align-items:center;gap:0;border-bottom:1px solid #1E1E1E;padding:26px 0;justify-content:center;text-align:center;flex-wrap:wrap}
 .about-stat{flex:0 0 auto;min-width:100px}
@@ -178,7 +177,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .sp-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:none;background:var(--grey-1)}
 .sp-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.5s ease;filter:grayscale(1);position:absolute;inset:0}
 .sp-card:hover .sp-img{transform:scale(1.04)}
-.sp-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.95) 0%,rgba(8,8,8,0.2) 45%,transparent 70%)}
+.sp-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--black-rgb),0.95) 0%,rgba(var(--black-rgb),0.2) 45%,transparent 70%)}
 .sp-lime-bar{position:absolute;top:0;left:0;right:0;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);z-index:4}
 .sp-card:hover .sp-lime-bar{transform:scaleX(1)}
 .sp-info{position:absolute;bottom:0;left:0;right:0;padding:12px 14px 16px;z-index:2;transition:opacity 0.25s ease}
@@ -187,7 +186,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .sp-idx{font-family:'Roboto Mono',monospace;font-size:8px;color:var(--lime);letter-spacing:0.1em;flex-shrink:0}
 .sp-name{font-family:'Clash Display',sans-serif;font-size:13px;font-weight:600;color:var(--off-white);letter-spacing:-0.01em;line-height:1.1}
 .sp-role{font-family:'Inter',sans-serif;font-size:9px;color:var(--grey-5);padding-left:19px}
-.sp-hover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.97) 0%,rgba(8,8,8,0.55) 55%,rgba(8,8,8,0.1) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:14px 14px 16px;opacity:0;transition:opacity 0.3s ease;z-index:3}
+.sp-hover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--black-rgb),0.97) 0%,rgba(var(--black-rgb),0.55) 55%,rgba(var(--black-rgb),0.1) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:14px 14px 16px;opacity:0;transition:opacity 0.3s ease;z-index:3}
 .sp-card:hover .sp-hover-overlay{opacity:1}
 .sp-hover-name{font-family:'Clash Display',sans-serif;font-size:15px;font-weight:600;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:4px}
 .sp-hover-role{font-family:'Inter',sans-serif;font-size:10px;color:var(--grey-5);margin-bottom:2px}
@@ -199,18 +198,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .prog-header-left{display:flex;flex-direction:column;gap:12px}
 .prog-title-h{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
 .prog-date{font-family:'Inter',sans-serif;font-size:10px;color:var(--grey-4);letter-spacing:0.12em;text-transform:uppercase;text-align:right}
-.prog-rows{position:relative;z-index:1}
-.prog-row{display:grid;grid-template-columns:120px 1px 1fr;gap:0 32px;align-items:stretch;padding:28px 0;border-top:1px solid #1E1E1E;cursor:none;transition:background 0.2s;position:relative}
-.prog-row:last-child{border-bottom:1px solid #1E1E1E}
-.prog-row:hover{background:#1A1A1A}
-.prog-left{display:flex;align-items:flex-start;padding-top:2px}
-.prog-time{font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--lime);letter-spacing:0.05em;white-space:nowrap}
-.prog-divider-v{width:1px;background:#1E1E1E;align-self:stretch}
-.prog-right{display:flex;flex-direction:column;gap:6px}
-.prog-type{font-family:'Inter',sans-serif;font-size:9px;color:var(--grey-6);letter-spacing:0.18em;text-transform:uppercase}
-.prog-title-row{font-family:'Inter',sans-serif;font-size:clamp(15px,1.6vw,22px);font-weight:400;color:var(--off-white);letter-spacing:-0.01em;line-height:1.15}
-.prog-sub{font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--grey-5);line-height:1.5;max-width:520px}
-.prog-speaker{font-family:'Inter',sans-serif;font-size:10px;color:var(--lime);letter-spacing:0.08em;margin-top:4px}
 
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 .do-anim{animation:fadeUp 0.7s ease forwards}
@@ -237,12 +224,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .footer-lockup-wrap{display:flex;justify-content:center;margin-bottom:8px}
 .footer-lockup{width:clamp(220px,30vw,420px);height:auto;display:block}
 .sponsors-title{font-family:'Clash Display',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:600;color:var(--off-white);letter-spacing:-0.03em}
-.sponsors-tiers{display:flex;flex-direction:column;gap:0}
-.sponsor-tier{display:grid;grid-template-columns:160px 1fr;align-items:center;border-top:1px solid #1E1E1E;padding:28px 0}
-.sponsor-tier:last-child{border-bottom:1px solid #1E1E1E}
-.sponsor-tier-top{margin-bottom:28px}
-.sponsor-tier-label{font-family:'Inter',sans-serif;font-size:13px;color:#CCCCCC;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:28px;display:block}
-.sponsor-logos{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
 .sponsor-name{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:500;color:var(--grey-5);letter-spacing:-0.01em;transition:color 0.2s;cursor:none}
 .sponsor-name:hover{color:var(--lime)}
 
@@ -339,21 +320,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   justify-content:center;
   flex:1;
 }
-.footer-big-text{
-  font-family:'Clash Display',sans-serif;
-  font-size:clamp(60px,10vw,150px);
-  font-weight:500;
-  letter-spacing:-0.03em;
-  line-height:0.9;
-  background:linear-gradient(90deg,var(--off-white) 0%,var(--lime) 40%,var(--off-white) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  display:block;
-  margin-bottom:48px;
-  animation:gradientShift 5s ease-in-out infinite alternate;
-}
 @keyframes gradientShift{
   0%{background-position:0% center}
   100%{background-position:100% center}
@@ -406,7 +372,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 /* ── SPONSOR MODAL ── */
 #sponsor-modal-overlay{
   position:fixed;inset:0;z-index:5000;
-  background:rgba(8,8,8,0.85);
+  background:rgba(var(--black-rgb),0.85);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   display:flex;align-items:center;justify-content:center;
@@ -499,9 +465,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   box-sizing: border-box;
 }
 @media (min-width: 769px) {
-  .sponsor-tier { flex-direction: row !important; align-items: center !important; gap: 48px !important; }
-  .sponsor-tier-label { width: 120px !important; flex-shrink: 0; }
-}
+    }
 /* ── RESPONSIVE ── */
 /* Hide topbar and mobile nav on desktop */
 #topbar { display: none; }
@@ -512,18 +476,10 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 @media (max-width: 768px) {
   .sponsor-logo-img { width: 80px !important; }
   .sponsor-logo-img.large { width: 80px !important; }
-  .sponsor-logos { gap: 28px !important; justify-content: flex-start !important; }
-  #sidenav { display: none; }
+    #sidenav { display: none; }
   #content { margin-left: 0; }
   #topbar { display: flex; }
-  .nav-mobile-cta .cta-arrow,
-  .hero-mobile-cta .arr,
-  .register-btn .arr,
-  .footer-btn-primary .arr,
-  .mobile-nav-cta .arr { display: none; }
-  .hero-mobile-cta::after { content: none; }
-  #mobile-nav { display: block; }
-
+  .nav-mobile-cta 
   /* Top bar */
   #topbar {
     display: flex;
@@ -619,8 +575,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   #programme .section-inner,
   #programme { padding: 0; }
   #programme-inner { padding: 60px 24px !important; margin: 0 !important; }
-  .prog-row { grid-template-columns: 80px 1px 1fr; gap: 0 16px; padding: 20px 0; }
-  .prog-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .prog-header { flex-direction: column; gap: 8px; align-items: flex-start; }
 
   /* Room */
   #room { padding: 60px 24px; }
@@ -645,8 +600,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   /* Footer */
   #footer { padding: 0; }
   .footer-body { padding: 40px 24px 0; }
-  .footer-big-text { font-size: clamp(48px, 12vw, 100px); }
-  .footer-btn-row { flex-direction: column; align-items: center; }
+    .footer-btn-row { flex-direction: column; align-items: center; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 
   /* Ticket */
@@ -694,31 +648,27 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 
   .speakers-grid { grid-template-columns: repeat(2,1fr); }
   .room-grid { grid-template-columns: 1fr; }
-  .about-stats { flex-direction: column; gap: 20px; }
-  .about-stat-divider { width: 40px; height: 1px; margin: 0; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 0; padding: 30px 0; }
+  .about-stat-divider { display: none; }
+  .about-stat { min-width: 0; }
+  /* stats sit at children 1,3,5,7 — the dividers are display:none but still count */
+  .about-stat:nth-child(5), .about-stat:nth-child(7) { border-top: 1px solid #1E1E1E; padding-top: 30px; }
+  /* centre the body copy on mobile */
+  .about-tail .about-body, .about-body { text-align: center; margin-left: auto; margin-right: auto; }
 
-  .prog-row { grid-template-columns: 70px 1px 1fr; gap: 0 12px; }
-  .prog-time { font-size: 10px; }
-  .prog-title-row { font-size: 14px; }
-
-  .footer-big-text { font-size: clamp(40px, 14vw, 72px); }
-  .footer-nav-row { flex-direction: column; gap: 12px; }
+      
+    .footer-nav-row { flex-direction: column; gap: 12px; }
 }
 
 /* ── SPONSORS GRID ── */
 @media (max-width: 768px) {
   .sponsors-cols { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .sp-col { width: 100%; justify-content: center; align-items: center; }
-}
+  }
 .sponsors-cols{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
-.sp-col{display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:flex-end;}
 .sp-col-label{font-family:'Inter',sans-serif;font-size:9px;color:var(--grey-4);letter-spacing:0.18em;text-transform:uppercase;text-align:center;}
-.sp-logo{height:28px;width:auto;opacity:0.75;transition:opacity 0.2s;cursor:none;}
-.sp-logo:hover{opacity:1;}
 @media(max-width:768px){
   .sponsors-cols{gap:32px 40px;}
-  .sp-logo{height:22px;}
-}
+  }
 
 </style>
 
@@ -731,12 +681,41 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 @media (max-width: 768px) {
   .sponsors-cols { grid-template-columns: 1fr !important; gap: 24px !important; }
   .sponsors-cols img { height: 32px !important; width: auto !important; max-width: none !important; display: block !important; margin: 0 auto !important; }
-  .sp-logo { height: 32px !important; width: auto !important; max-width: none !important; }
-  img[src*="quantus"] { height: 32px !important; width: auto !important; }
+    img[src*="quantus"] { height: 32px !important; width: auto !important; }
   img[src*="network-school"] { height: 32px !important; width: auto !important; }
 }
 </style>
   <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
+
+<style id="sponsor-cards-e02">
+.sponsors-title{margin-bottom:44px}
+.sp-group{margin-bottom:56px}
+.sp-group-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:28px}
+.sponsor-card,.cp-card{width:320px;height:136px;border-radius:12px;border:none;
+  background:var(--grey-2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;padding:0 24px;text-decoration:none;color:var(--off-white);
+  cursor:none;transition:background .22s,transform .22s}
+.sponsor-card:hover,.cp-card:hover{background:#242424;transform:translateY(-2px);border:none}
+.sponsors-cols,.current-partners{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:0}
+.sl,.cp-mark{width:auto;max-width:100%;display:block;opacity:1}
+.sl-quip-network,.sl-zcash,.sl-keystone{height:26px}
+.sl-vizor{height:30px}
+.sl-project-eleven{height:40px}
+.cp-mark-quantus{height:28px}
+.cp-mark-near{height:34px}
+@media (max-width:768px){
+  .sponsor-card,.cp-card{width:calc(50% - 6px);max-width:320px;height:112px;padding:0 16px}
+  .sl-quip-network,.sl-zcash,.sl-keystone{height:20px}
+  .sl-vizor{height:24px}
+  .sl-project-eleven{height:30px}
+  .cp-mark-quantus{height:22px}
+  .cp-mark-near{height:26px}
+  .sp-group-label{font-size:10px;margin-bottom:20px}
+  .sp-group{margin-bottom:40px}
+}
+@media (max-width:480px){.sponsor-card,.cp-card{width:100%;max-width:none}}
+</style>
 </head>
 <body>
 
@@ -760,7 +739,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <li><a href="#sponsors" onclick="closeMobileNav()">Sponsors</a></li>
     <li><a href="#faq" onclick="closeMobileNav()">FAQ</a></li>
   </ul>
-  <a href="https://luma.com/jtof4o9b" class="mobile-nav-cta" target="_blank">Register now</a>
+  <a href="https://luma.com/jtof4o9b" class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">Register now</a>
 </div>
 <div id="cursor-dot"></div>
 
@@ -783,13 +762,13 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <li><a href="#venue" class="nav-link"><span class="nav-active-sq"></span>Venue</a></li>
     <li class="nav-divider"></li>
     <li><a href="#register" class="nav-link"><span class="nav-active-sq"></span>Register</a></li>
+    <li><a href="#sponsors" class="nav-link"><span class="nav-active-sq"></span>Sponsors</a></li>
     <li><a href="#become-sponsor" class="nav-link"><span class="nav-active-sq"></span>Become a Sponsor</a></li>
     <li class="nav-divider"></li>
-    <li><a href="#sponsors" class="nav-link"><span class="nav-active-sq"></span>Sponsors</a></li>
     <li><a href="#faq" class="nav-link"><span class="nav-active-sq"></span>FAQ</a></li>
   </ul>
   <div class="nav-bottom">
-    <a href="https://luma.com/jtof4o9b" class="nav-cta" target="_blank">Register now</a>
+    <a href="https://luma.com/jtof4o9b" class="nav-cta" target="_blank" rel="noopener noreferrer">Register now</a>
   </div>
 </nav>
 
@@ -817,7 +796,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
         <div class="hero-meta-row">
           <div class="hero-meta-cell"><div class="hero-meta-label">Date</div><div class="hero-meta-val">Thursday 8 October 2026</div></div>
           <div class="hero-meta-bar"></div>
-          <div class="hero-meta-cell"><div class="hero-meta-label">Time</div><div class="hero-meta-val">12:00 to 19:00</div></div>
+          <div class="hero-meta-cell"><div class="hero-meta-label">Time</div><div class="hero-meta-val">13:00 to 20:00 SGT</div></div>
           <div class="hero-meta-bar"></div>
           <div class="hero-meta-cell"><div class="hero-meta-label">Venue</div><div class="hero-meta-val">Tower Club, Republic Plaza</div></div>
         </div>
@@ -837,7 +816,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   </div>
   <div class="mei-row">
     <div class="mei-label">Time</div>
-    <div class="mei-val">12:00 to 19:00</div>
+    <div class="mei-val">13:00 to 20:00 SGT</div>
   </div>
   <div class="mei-row">
     <div class="mei-label">Venue</div>
@@ -854,11 +833,11 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
       <p class="about-body">On 6 June 2026, 220+ builders, researchers and investors gathered for the first QDay Summit at Network School to face a single fact: the cryptography underpinning Bitcoin, Ethereum and every major blockchain is on a countdown.</p>
     </div>
     <figure class="about-figure">
-      <img src="assets/qday-group-photo.webp" alt="Attendees at the first QDay Summit, June 2026">
+      <img src="assets/qday-group-photo.webp" alt="Attendees at the first QDay Summit, June 2026" loading="lazy">
       <figcaption class="about-stats">
         <div class="about-stat"><div class="about-stat-num">220</div><div class="about-stat-label">Attendees</div></div>
         <div class="about-stat-divider"></div>
-        <div class="about-stat"><div class="about-stat-num">8</div><div class="about-stat-label">Speakers</div></div>
+        <div class="about-stat"><div class="about-stat-num">10</div><div class="about-stat-label">Speakers</div></div>
         <div class="about-stat-divider"></div>
         <div class="about-stat"><div class="about-stat-num">12</div><div class="about-stat-label">Partners</div></div>
         <div class="about-stat-divider"></div>
@@ -881,92 +860,27 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
         <h2 class="speakers-title">The people in the room</h2>
         <p class="speakers-intro">First wave announced. More names drop weekly until 8 October.</p>
       </div>
-      <span class="speakers-count">11 Speakers</span>
+      <span class="speakers-count">16 Speakers</span>
     </div>
     <div class="speakers-grid"><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Illia Polosukhin portrait pending"></div>
+        <img src="assets/speaker-qureshi.webp" alt="Haseeb Qureshi" class="sp-img" width="800" height="800" loading="lazy">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">01</span><span class="sp-name">Illia Polosukhin</span></div>
-          <div class="sp-role">Co-Founder &middot; NEAR</div>
+          <div class="sp-name-row"><span class="sp-idx">01</span><span class="sp-name">Haseeb Qureshi</span></div>
+          <div class="sp-role">Managing Partner &middot; Dragonfly</div>
         </div>
         <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Illia Polosukhin</div>
-          <div class="sp-hover-role">Co-Founder</div>
-          <div class="sp-hover-org">NEAR</div>
+          <div class="sp-hover-name">Haseeb Qureshi</div>
+          <div class="sp-hover-role">Managing Partner</div>
+          <div class="sp-hover-org">Dragonfly</div>
         </div>
       </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Alex Shevchenko portrait pending"></div>
+        <img src="assets/speaker-dillion.webp" alt="Colton Dillion" class="sp-img" width="800" height="800" loading="lazy">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">02</span><span class="sp-name">Alex Shevchenko</span></div>
-          <div class="sp-role">NEAR Intents &middot; Defuse</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Alex Shevchenko</div>
-          <div class="sp-hover-role">NEAR Intents</div>
-          <div class="sp-hover-org">Defuse</div>
-        </div>
-      </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Zooko Wilcox portrait pending"></div>
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">03</span><span class="sp-name">Zooko Wilcox</span></div>
-          <div class="sp-role">Founder &middot; Zcash</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Zooko Wilcox</div>
-          <div class="sp-hover-role">Founder</div>
-          <div class="sp-hover-org">Zcash</div>
-        </div>
-      </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Alex Pruden portrait pending"></div>
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">04</span><span class="sp-name">Alex Pruden</span></div>
-          <div class="sp-role">CEO &middot; Project 11</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Alex Pruden</div>
-          <div class="sp-hover-role">CEO</div>
-          <div class="sp-hover-org">Project 11</div>
-        </div>
-      </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Dev Ojha portrait pending"></div>
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">05</span><span class="sp-name">Dev Ojha</span></div>
-          <div class="sp-role">Founder &middot; Osmosis</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Dev Ojha</div>
-          <div class="sp-hover-role">Founder</div>
-          <div class="sp-hover-org">Osmosis</div>
-        </div>
-      </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Richard Carback portrait pending"></div>
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">06</span><span class="sp-name">Richard Carback</span></div>
-          <div class="sp-role">CTO &middot; Quip Network</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Richard Carback</div>
-          <div class="sp-hover-role">CTO</div>
-          <div class="sp-hover-org">Quip Network</div>
-        </div>
-      </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Colton Dillion portrait pending"></div>
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">07</span><span class="sp-name">Colton Dillion</span></div>
+          <div class="sp-name-row"><span class="sp-idx">02</span><span class="sp-name">Colton Dillion</span></div>
           <div class="sp-role">CEO &middot; Quip Network</div>
         </div>
         <div class="sp-hover-overlay">
@@ -975,56 +889,186 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
           <div class="sp-hover-org">Quip Network</div>
         </div>
       </div><div class="sp-card">
-        <div class="sp-img sp-img-placeholder" role="img" aria-label="Raghav Gulati portrait pending"></div>
+        <img src="assets/speaker-warwick.webp" alt="Kain Warwick" class="sp-img" width="800" height="800" loading="lazy">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">08</span><span class="sp-name">Raghav Gulati</span></div>
-          <div class="sp-role">ex-CEO &middot; CoinList</div>
+          <div class="sp-name-row"><span class="sp-idx">03</span><span class="sp-name">Kain Warwick</span></div>
+          <div class="sp-role">Founder &middot; Infinex</div>
         </div>
         <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Raghav Gulati</div>
-          <div class="sp-hover-role">ex-CEO</div>
-          <div class="sp-hover-org">CoinList</div>
+          <div class="sp-hover-name">Kain Warwick</div>
+          <div class="sp-hover-role">Founder</div>
+          <div class="sp-hover-org">Infinex</div>
         </div>
       </div><div class="sp-card">
-        <img src="assets/image_9.webp" alt="Chris Smith" class="sp-img" loading="lazy">
+        <img src="assets/speaker-mattia.webp" alt="Joe Mattia" class="sp-img" width="800" height="800" loading="lazy">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">09</span><span class="sp-name">Chris Smith</span></div>
-          <div class="sp-role">Co-Founder &middot; Quantus</div>
-        </div>
-        <div class="sp-hover-overlay">
-          <div class="sp-hover-name">Chris Smith</div>
-          <div class="sp-hover-role">Co-Founder</div>
-          <div class="sp-hover-org">Quantus</div>
-        </div>
-      </div><div class="sp-card">
-        <img src="assets/image_11.webp" alt="Joe Mattia" class="sp-img" loading="lazy">
-        <div class="sp-gradient"></div>
-        <div class="sp-lime-bar"></div>
-        <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">10</span><span class="sp-name">Joe Mattia</span></div>
-          <div class="sp-role">Co-Founder &middot; Quantus</div>
+          <div class="sp-name-row"><span class="sp-idx">04</span><span class="sp-name">Joe Mattia</span></div>
+          <div class="sp-role">Co-Founder and COO &middot; Quantus</div>
         </div>
         <div class="sp-hover-overlay">
           <div class="sp-hover-name">Joe Mattia</div>
-          <div class="sp-hover-role">Co-Founder</div>
+          <div class="sp-hover-role">Co-Founder and COO</div>
           <div class="sp-hover-org">Quantus</div>
         </div>
       </div><div class="sp-card">
-        <img src="assets/image_10.webp" alt="Jonathan Angle" class="sp-img" loading="lazy">
+        <img src="assets/speaker-smith.webp" alt="Chris Smith" class="sp-img" width="800" height="800" loading="lazy">
         <div class="sp-gradient"></div>
         <div class="sp-lime-bar"></div>
         <div class="sp-info">
-          <div class="sp-name-row"><span class="sp-idx">11</span><span class="sp-name">Jonathan Angle</span></div>
-          <div class="sp-role">Master of Ceremonies &middot; Quantus</div>
+          <div class="sp-name-row"><span class="sp-idx">05</span><span class="sp-name">Chris Smith</span></div>
+          <div class="sp-role">CEO and Co-Founder &middot; Quantus</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Chris Smith</div>
+          <div class="sp-hover-role">CEO and Co-Founder</div>
+          <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-angle.webp" alt="Jonathan Angle" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">06</span><span class="sp-name">Jonathan Angle</span></div>
+          <div class="sp-role">Communications Director &middot; Quantus</div>
         </div>
         <div class="sp-hover-overlay">
           <div class="sp-hover-name">Jonathan Angle</div>
-          <div class="sp-hover-role">Master of Ceremonies</div>
+          <div class="sp-hover-role">Communications Director</div>
           <div class="sp-hover-org">Quantus</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-pruden.webp" alt="Alex Pruden" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">07</span><span class="sp-name">Alex Pruden</span></div>
+          <div class="sp-role">CEO and Co-Founder &middot; Project Eleven</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Alex Pruden</div>
+          <div class="sp-hover-role">CEO and Co-Founder</div>
+          <div class="sp-hover-org">Project Eleven</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-deegan.webp" alt="Conor Deegan" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">08</span><span class="sp-name">Conor Deegan</span></div>
+          <div class="sp-role">CTO and Co-Founder &middot; Project Eleven</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Conor Deegan</div>
+          <div class="sp-hover-role">CTO and Co-Founder</div>
+          <div class="sp-hover-org">Project Eleven</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-wilcox.webp" alt="Zooko Wilcox" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">09</span><span class="sp-name">Zooko Wilcox</span></div>
+          <div class="sp-role">Chief Product Officer &middot; Shielded Labs / Zcash</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Zooko Wilcox</div>
+          <div class="sp-hover-role">Chief Product Officer</div>
+          <div class="sp-hover-org">Shielded Labs / Zcash</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-polosukhin.webp" alt="Illia Polosukhin" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">10</span><span class="sp-name">Illia Polosukhin</span></div>
+          <div class="sp-role">Co-Founder &middot; NEAR Protocol</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Illia Polosukhin</div>
+          <div class="sp-hover-role">Co-Founder</div>
+          <div class="sp-hover-org">NEAR Protocol</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-shevchenko.webp" alt="Alex Shevchenko" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">11</span><span class="sp-name">Alex Shevchenko</span></div>
+          <div class="sp-role">GM &middot; NEAR Intents</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Alex Shevchenko</div>
+          <div class="sp-hover-role">GM</div>
+          <div class="sp-hover-org">NEAR Intents</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-cavanaugh.webp" alt="Andy Cavanaugh" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">12</span><span class="sp-name">Andy Cavanaugh</span></div>
+          <div class="sp-role">Co-Founder &middot; The Rollup</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Andy Cavanaugh</div>
+          <div class="sp-hover-role">Co-Founder</div>
+          <div class="sp-hover-org">The Rollup</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-carback.webp" alt="Richard Carback" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">13</span><span class="sp-name">Richard Carback</span></div>
+          <div class="sp-role">Co-Founder / Cryptographer &middot; Quip Network</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Richard Carback</div>
+          <div class="sp-hover-role">Co-Founder / Cryptographer</div>
+          <div class="sp-hover-org">Quip Network</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-khan.webp" alt="Azeem Khan" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">14</span><span class="sp-name">Azeem Khan</span></div>
+          <div class="sp-role">Co-Founder &middot; Miden</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Azeem Khan</div>
+          <div class="sp-hover-role">Co-Founder</div>
+          <div class="sp-hover-org">Miden</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-gulati.webp" alt="Raghav Gulati" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">15</span><span class="sp-name">Raghav Gulati</span></div>
+          <div class="sp-role">Partner &middot; Ravikant Capital</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Raghav Gulati</div>
+          <div class="sp-hover-role">Partner</div>
+          <div class="sp-hover-org">Ravikant Capital</div>
+        </div>
+      </div><div class="sp-card">
+        <img src="assets/speaker-ojha.webp" alt="Dev Ojha" class="sp-img" width="800" height="800" loading="lazy">
+        <div class="sp-gradient"></div>
+        <div class="sp-lime-bar"></div>
+        <div class="sp-info">
+          <div class="sp-name-row"><span class="sp-idx">16</span><span class="sp-name">Dev Ojha</span></div>
+          <div class="sp-role">ZK Builder &middot; Valor Group</div>
+        </div>
+        <div class="sp-hover-overlay">
+          <div class="sp-hover-name">Dev Ojha</div>
+          <div class="sp-hover-role">ZK Builder</div>
+          <div class="sp-hover-org">Valor Group</div>
         </div>
       </div></div>
     <p class="speakers-note">The whole event broadcast live from The Rollup Studio.</p>
@@ -1053,14 +1097,14 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <div>
       <p class="section-eyebrow">05 &middot; Venue</p>
       <h2 class="venue-title">Tower Club, Singapore</h2>
-      <p class="venue-body">The penthouse floors of Republic Plaza, 62 and 64, at the heart of Raffles Place. Singapore's oldest private members' club. A main stage on floor 62, an evening reception in the Straits Bar on 64, and a view over Marina Bay.</p>
+      <p class="venue-body">The penthouse floors of Republic Plaza, 62 and 64, at the heart of Raffles Place. A private business and social club above the CBD, open since 1997. A main stage on floor 62, an evening reception in the Straits Bar on 64, and a view over Marina Bay.</p>
       <div class="venue-rules">
         <span class="venue-rule">Limited capacity</span>
         <span class="venue-rule">Luma approved only</span>
         <span class="venue-rule">No plus ones</span>
       </div>
     </div>
-    <img class="venue-photo" src="assets/tower-club-straits-bar.jpg" alt="Straits Bar on floor 64 of Tower Club, overlooking Marina Bay at sunset" loading="lazy">
+    <img class="venue-photo" src="assets/tower-club-straits-bar.webp" width="1600" height="1080" alt="Straits Bar on floor 64 of Tower Club, overlooking Marina Bay at sunset" loading="lazy">
   </div>
 </section>
 
@@ -1069,7 +1113,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   <section id="register">
     <div class="register-inner">
       <div class="register-left">
-        <p class="section-eyebrow">08 &middot; Register</p>
+        <p class="section-eyebrow">06 &middot; Register</p>
         <h2 class="register-title">Register</h2>
         <p class="register-body">Registration is open. If you're in blockchain, cryptography, quantum, or capital allocation, apply now. Every registration is manually reviewed by our team, so please include an active social link.</p>
       </div>
@@ -1110,12 +1154,19 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <div class="sponsors-inner" style="text-align:center">
       <p class="section-eyebrow">07 &middot; Partners</p>
       <h2 class="sponsors-title">Brought to you by</h2>
-      <div class="current-partners">
+      <div class="sp-group">
+        <p class="sp-group-label">Hosted by</p>
+        <div class="current-partners">
         <a class="cp-card" href="https://www.quantus.com/" target="_blank" rel="noopener noreferrer" aria-label="Quantus"><svg class="cp-mark cp-mark-quantus" viewBox="0 0 404 80" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M67.4152 80.0012L40.2246 52.7859L44.8245 48.186L72.0151 75.4014L67.4152 80.0012Z" fill="currentColor"/> <path d="M48.2036 44.8076L52.8018 40.2095L79.9966 67.4205L75.3959 72.0213L48.2036 44.8076Z" fill="currentColor"/> <path d="M77.1157 31.1771C76.9144 30.1747 76.6721 29.1877 76.3914 28.2186C73.7127 18.7663 67.4536 11.0953 59.5096 6.16188C52.0672 1.43575 43.085 -0.879545 33.968 0.307105C32.3395 0.508435 30.7109 0.819815 29.0918 1.24721C23.6209 2.66079 18.301 5.38301 13.5117 9.6041C13.5066 9.60837 13.5015 9.61263 13.4972 9.6169C13.4699 9.64078 13.4426 9.66553 13.4162 9.68941C13.3411 9.75595 13.2652 9.82335 13.1901 9.8916C13.1526 9.92572 13.1151 9.95899 13.0784 9.99311C13.0076 10.0579 12.9359 10.1228 12.8651 10.1876C12.7994 10.2473 12.7346 10.3079 12.6697 10.3685C12.6399 10.3966 12.6092 10.4248 12.5793 10.4529C12.3823 10.6372 12.1869 10.8223 11.995 11.0083C11.5138 11.4664 11.0369 11.9407 10.566 12.4304C10.2103 12.8186 9.86393 13.2101 9.52696 13.6042C5.60444 18.0966 2.99142 23.0369 1.52751 28.1213C1.07367 29.662 0.72646 31.2112 0.481623 32.7621C-1.1401 42.6751 1.4277 52.4737 6.76891 60.3938C12.198 68.6355 20.6231 74.9219 30.8884 77.047C31.8165 77.2449 32.7575 77.407 33.7112 77.5341C38.3222 78.1697 43.19 77.9496 48.1677 76.6895C48.358 76.6452 48.5482 76.6 48.7385 76.5522V76.5505C49.113 76.4524 49.4883 76.3492 49.862 76.2391L49.85 76.2246C50.158 76.1325 50.4668 76.0361 50.7756 75.9363C51.3848 75.7443 51.9964 75.5379 52.6089 75.3152L52.6072 75.3135C52.9706 75.1761 53.3332 75.0345 53.6932 74.8861L53.6813 74.8742C54.1411 74.6873 54.6018 74.4911 55.0624 74.2855L47.5475 66.7638C47.4452 66.7954 47.3437 66.8278 47.2404 66.8577L47.2362 66.8534C46.8284 66.9779 46.4206 67.0923 46.012 67.1972H46.0111C45.6016 67.2978 45.1905 67.3908 44.7759 67.4744L44.7716 67.4702C44.1224 67.6084 43.4732 67.7227 42.8257 67.8131C42.4742 67.86 42.121 67.9018 41.767 67.9351L41.7636 67.9308C40.8567 68.0264 39.955 68.0767 39.061 68.0844C33.19 68.0963 27.5007 66.2784 22.7277 63.0827C21.7842 62.448 20.8773 61.7587 20.0123 61.0208C15.9158 57.5018 12.7764 52.8772 11.1222 47.6332C10.7588 46.4534 10.4696 45.2378 10.2606 43.9888C10.1915 43.622 10.1309 43.2552 10.0781 42.8883C10.0175 42.4191 9.96715 41.9465 9.92961 41.4705C9.89464 41.1173 9.86734 40.7641 9.84687 40.4127C9.81786 39.7575 9.81189 39.0972 9.8298 38.4318C9.84175 36.758 10.0038 35.1167 10.3016 33.5197C11.2323 28.721 13.3829 24.2466 16.4387 20.5066C20.7767 15.2575 26.8959 11.5201 33.7087 10.2584C34.5933 10.1023 35.4925 9.98885 36.4053 9.91804C36.8685 9.87368 37.3301 9.84126 37.7899 9.81993C38.1729 9.80799 38.5577 9.80372 38.945 9.80799C39.3468 9.80458 39.7469 9.81055 40.1453 9.82335C40.7595 9.85321 41.3763 9.90354 41.9956 9.9752C43.9355 10.1629 45.8064 10.5434 47.5953 11.0936C52.7582 12.7213 57.3317 15.7848 60.8421 19.7909C60.889 19.8446 60.936 19.8984 60.9829 19.953C60.9957 19.9675 61.0076 19.982 61.0204 19.9965C61.6073 20.6824 62.1636 21.3947 62.6865 22.1318C65.7849 26.5201 67.7001 31.7376 68.0499 37.1965C68.0525 37.2443 68.0559 37.2929 68.0584 37.3407C68.1446 38.9914 68.0874 40.6746 67.8725 42.3748L67.887 42.3876C67.7837 43.2176 67.643 44.0502 67.463 44.8837L67.4843 44.905C67.2958 45.788 67.062 46.6709 66.7839 47.5505L74.2877 55.0603C74.6392 54.2677 74.9634 53.4769 75.2611 52.6869L75.2824 52.7083C75.5076 52.0812 75.7175 51.4568 75.912 50.834C76.0596 50.3802 76.1986 49.928 76.3292 49.4759L76.3437 49.4879C76.4059 49.2515 76.4657 49.0161 76.5237 48.7806C78.1787 42.6537 78.2631 36.6975 77.1157 31.1745V31.1771Z" fill="currentColor"/> <path d="M110.541 72.2929C102.801 72.2929 97.1444 70.8375 93.5719 67.9266C89.9664 65.0157 88.1801 60.2855 88.1801 53.8021V27.0418H98.6329V52.7436C98.6329 56.713 99.526 59.5578 101.378 61.2778C103.231 63.031 106.241 63.891 110.475 63.891C114.709 63.891 117.752 63.031 119.605 61.3109C121.424 59.5908 122.35 56.713 122.35 52.7436V27.0418H132.704V53.8021C132.704 60.3186 130.917 65.0157 127.378 67.9266C123.839 70.8375 118.215 72.2929 110.541 72.2929ZM189.978 71.7637H179.062L175.357 63.031H151.905L148.101 71.7637H137.747L157.727 27.0418H170.065L189.978 71.7637ZM162.258 39.38L155.08 55.853H172.281L165.235 39.38L163.978 35.8075H163.548L162.258 39.38ZM206.963 71.7637H197.006V27.0418H209.113L229.092 54.0006L232.764 59.227L233.029 59.1608L232.83 50.6266V27.0418H242.787V71.7637H230.316L206.963 40.207L206.732 40.2731L206.963 48.8073V71.7637ZM295.166 27.0418V35.3775H278.097V71.7637H267.678V35.3775H250.51V27.0418H295.166ZM325.151 72.2929C317.41 72.2929 311.754 70.8375 308.181 67.9266C304.576 65.0157 302.79 60.2855 302.79 53.8021V27.0418L313.242 27.0418V52.7436C313.242 56.713 314.136 59.5578 315.988 61.2778C317.84 63.031 320.85 63.891 325.084 63.891C329.318 63.891 332.362 63.031 334.214 61.3109C336.033 59.5908 336.96 56.713 336.96 52.7436V27.0418H347.313V53.8021C347.313 60.3186 345.527 65.0157 341.987 67.9266C338.448 70.8375 332.825 72.2929 325.151 72.2929ZM379.216 72.2929C371.708 72.2929 366.117 71.1683 362.446 68.8859C358.741 66.6365 356.723 62.9648 356.359 57.9369H366.547C366.746 60.484 367.904 62.3033 369.955 63.4279C372.005 64.5526 375.082 65.1149 379.216 65.1149C383.054 65.1149 385.832 64.5857 387.552 63.461C389.272 62.3364 390.165 60.8809 390.165 59.0285C390.165 57.8377 389.802 56.8784 389.074 56.1838C388.346 55.4891 386.924 54.8937 384.873 54.3645C382.822 53.8352 379.779 53.3721 375.743 52.9421C372.799 52.6444 370.318 52.2805 368.268 51.8174C366.217 51.3874 364.43 50.8582 362.909 50.1966C361.387 49.5681 360.229 48.8073 359.369 47.8811C358.509 46.9549 357.848 45.9295 357.451 44.7387C357.054 43.5479 356.856 42.1586 356.856 40.5377C356.856 38.8838 357.087 37.3622 357.583 35.9729C358.079 34.5836 358.873 33.3267 359.998 32.1358C361.09 30.945 362.479 29.9527 364.133 29.1257C365.787 28.3318 367.804 27.6703 370.219 27.2072C372.634 26.7441 375.346 26.5125 378.389 26.5125C385.237 26.5125 390.397 27.6372 393.903 29.8204C397.41 32.0366 399.328 35.4106 399.659 39.9092L389.835 39.8431C389.636 37.7922 388.611 36.2376 386.692 35.179C384.774 34.1536 381.797 33.6244 377.794 33.6244C374.222 33.6244 371.575 34.1536 369.822 35.179C368.069 36.2376 367.209 37.6268 367.209 39.38C367.209 40.5708 367.573 41.497 368.301 42.1586C369.028 42.8201 370.385 43.3825 372.402 43.8456C374.42 44.3087 377.463 44.7387 381.499 45.1356C385.204 45.5326 388.247 46.0287 390.628 46.6241C393.01 47.2196 394.929 48.0134 396.45 49.0058C397.939 49.9981 398.997 51.189 399.593 52.5782C400.188 53.9675 400.486 55.6876 400.486 57.7385C400.486 59.8555 400.056 61.8071 399.262 63.5272C398.468 65.2472 397.211 66.8019 395.557 68.1251C393.903 69.4482 391.687 70.4736 388.908 71.2013C386.13 71.9291 382.921 72.2929 379.216 72.2929Z" fill="currentColor"/> </svg></a>
         <a class="cp-card" href="https://near.org/" target="_blank" rel="noopener noreferrer" aria-label="NEAR"><svg class="cp-mark cp-mark-near" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1656 567"> <g> <path fill="currentColor" d="m703.42,157.72c-26.61,0-45.96,6.29-62.4,20.8l-29.03,25.15c-2.42,1.94-7.26,3.39-10.64.48-3.39-2.9-3.87-6.77-.97-10.64l15.48-23.22c2.42-3.39.49-7.74-3.87-7.74h-37.25c-4.35,0-7.74,3.39-7.74,7.74v226.4c0,4.35,3.39,7.74,7.74,7.74h38.7c4.35,0,7.74-3.39,7.74-7.74v-127.71c0-58.53,48.86-67.72,67.24-67.72,39.18,0,53.21,28.06,53.21,49.34v146.09c0,4.35,3.39,7.74,7.74,7.74h38.7c4.35,0,7.74-3.39,7.74-7.74v-150.93c0-54.18-35.32-88.04-92.4-88.04Z"/> <path fill="currentColor" d="m953.5,156.75c-74.98,0-122.87,45.96-122.87,108.36v34.35c0,65.79,47.89,110.78,122.87,110.78,66.27,0,112.71-34.35,117.55-80.79.49-4.84-2.9-8.22-7.74-8.22h-37.73c-3.39,0-6.29,1.94-7.26,5.32-4.84,15.48-27.57,38.7-64.82,38.7s-72.08-27.09-71.6-65.79l.49-43.05c.48-32.41,34.35-54.66,71.11-54.66,33.38,0,65.79,18.87,69.17,49.83h0c.28,3.58-2.18,6.81-5.71,7.49l-108.46,21.05c-4.35.97-7.74,4.84-7.74,9.67v.48c0,4.35,4.35,8.22,10.64,8.22h155.77c4.28,0,7.74-3.47,7.74-7.74v-30.47c0-57.56-49.83-103.52-121.42-103.52Z"/> <path fill="currentColor" d="m1223.42,156.75c-60.47,0-112.71,35.31-112.71,81.75,0,3.87,3.39,6.77,7.74,6.77h39.18c3.87,0,6.77-2.9,7.26-6.77,3.87-21.28,29.51-36.76,57.08-36.76,32.89,0,55.15,20.32,55.15,55.15v42.09c0,43.05-31.93,64.82-71.6,64.82-30.96,0-48.86-11.61-48.86-30.48,0-16.45,8.71-30.48,44.5-38.7l51.76-14.03c5.32-1.45,7.26-5.81,6.29-10.64-.48-3.87-4.83-5.81-8.71-5.81h-53.69c-45.47,0-91.43,29.02-91.43,71.59v6.77c0,43.54,41.12,66.27,88.04,66.27,29.99,0,55.63-11.61,71.59-25.15l23.71-20.32c3.87-3.39,7.74-3.39,11.12,0,2.9,2.9,1.93,7.26-.49,10.64l-14.51,22.74c-2.42,3.39-.49,7.74,3.87,7.74h34.83c4.35,0,7.74-3.39,7.74-7.74v-146.58c0-56.11-40.15-93.36-107.88-93.36Z"/> <path fill="currentColor" d="m1540.26,162.56h-54.18c-18.86,0-37.25,11.61-50.31,22.74l-21.28,18.38c-2.42,1.94-6.78,3.39-9.68.97-3.39-2.42-4.84-7.26-1.93-11.13l15.48-23.22c2.42-3.39.49-7.74-3.87-7.74h-36.28c-4.35,0-7.74,3.39-7.74,7.74v226.4c0,4.35,3.39,7.74,7.74,7.74h39.67c4.35,0,7.74-3.39,7.74-7.74v-116.1c0-49.83,20.32-72.08,64.34-72.08h50.31c4.35,0,7.74-3.39,7.74-7.74v-30.48c0-4.35-3.39-7.74-7.74-7.74Z"/> </g> <path fill="currentColor" d="m421.61,108c-13,0-25.07,6.74-31.88,17.82l-73.37,108.93c-2.39,3.59-1.42,8.43,2.17,10.82,2.91,1.94,6.76,1.7,9.41-.58l72.22-62.64c1.2-1.08,3.05-.97,4.13.23.49.55.75,1.26.75,1.99v196.12c0,1.62-1.31,2.92-2.93,2.92-.87,0-1.69-.38-2.24-1.05L181.56,121.24c-7.11-8.39-17.55-13.23-28.54-13.24h-7.63c-20.65,0-37.39,16.74-37.39,37.39v276.22c0,20.65,16.74,37.39,37.39,37.39,13,0,25.07-6.74,31.88-17.82l73.37-108.93c2.39-3.59,1.42-8.43-2.17-10.82-2.91-1.94-6.76-1.7-9.41.58l-72.22,62.64c-1.2,1.08-3.05.97-4.13-.23-.49-.55-.75-1.26-.74-1.99v-196.17c0-1.62,1.31-2.92,2.93-2.92.86,0,1.69.38,2.24,1.05l218.28,261.37c7.11,8.39,17.55,13.23,28.54,13.24h7.63c20.65.01,37.4-16.72,37.42-37.37V145.39c0-20.65-16.74-37.39-37.39-37.39Z"/> </svg></a>
       </div>
+      </div>
+      <div class="sp-group">
+        <p class="sp-group-label">Sponsors</p>
+        <div class="sponsors-cols"><a class="sponsor-card" href="https://quip.network/" target="_blank" rel="noopener noreferrer" aria-label="Quip Network"><img class="sl sl-quip-network" src="assets/quip-network-logo.webp" alt="Quip Network" loading="lazy"></a><a class="sponsor-card" href="https://z.cash/" target="_blank" rel="noopener noreferrer" aria-label="Zcash"><img class="sl sl-zcash" src="assets/zcash-logo.webp" alt="Zcash" loading="lazy"></a><a class="sponsor-card" href="https://vizor.cash/" target="_blank" rel="noopener noreferrer" aria-label="Vizor"><svg class="sl sl-vizor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="634.779 0 220.881 64"><g clip-path="url(#clip1_68_1816)"><path fill-rule="evenodd" clip-rule="evenodd" d="M663.339 0.0217444C663.788 -0.0922258 664.216 0.256521 664.216 0.724205V1.9351C664.216 2.19541 664.468 2.31794 664.723 2.28004C679.901 0.0218125 691.386 11.2426 685.281 27.0188L682.95 32.6916C680.689 38.329 681.349 41.8336 684.895 44.8812L686.242 46.2261C686.865 46.8495 686.556 47.9497 685.705 48.1673C680.702 49.4471 666.687 53.1741 653.403 63.7894C652.553 64.3965 651.395 63.5965 651.685 62.5856C652.78 58.762 654.146 54.1891 654.729 52.2473C654.871 51.7752 654.52 51.3006 654.032 51.3006H649.529C648.103 51.3006 646.809 51.3003 645.757 49.7816C642.171 42.7673 637.807 33.3999 634.9 27.5705C634.574 26.9169 634.9 25.8755 635.947 25.8753H652.24C654.032 25.8753 654.989 22.9646 653.533 23.0134L641.798 23.0341C640.984 23.0613 640.676 22.4032 640.972 21.6696C644.029 14.0862 651.246 3.09743 663.339 0.0217444ZM647.303 35.9127C646.348 35.9127 645.573 36.6961 645.573 37.6619C645.573 38.6275 646.348 39.4108 647.303 39.4108C648.258 39.4106 649.032 38.6275 649.032 37.6619C649.032 36.6963 648.258 35.913 647.303 35.9127ZM644.339 32.7148C643.384 32.7148 642.609 33.4974 642.609 34.463C642.609 35.4288 643.384 36.2119 644.339 36.2119C645.293 36.2117 646.067 35.4286 646.067 34.463C646.067 33.4977 645.293 32.7153 644.339 32.7148ZM650.267 32.7148C649.312 32.7148 648.538 33.4974 648.538 34.463C648.538 35.4288 649.312 36.2119 650.267 36.2119C651.222 36.2119 651.996 35.4288 651.996 34.463C651.996 33.4974 651.222 32.7151 650.267 32.7148ZM647.303 29.5556C646.348 29.5556 645.573 30.3387 645.573 31.3045C645.573 32.2704 646.348 33.0535 647.303 33.0535C648.258 33.0535 649.032 32.2701 649.032 31.3045C649.032 30.3389 648.258 29.5559 647.303 29.5556Z" fill="currentColor"/><path d="M713.403 11.5755L725.238 41.6465L726.123 44.866L737.619 13.2877L731.837 7.39667H746.054L741.292 13.4934L725.035 55.6894H721.769L703.81 11.4381L700.273 7.39667H718.844L713.403 11.5755Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M813.845 19.9323C816.248 19.9323 818.357 20.3888 820.171 21.3021C822.031 22.2155 823.573 23.426 824.797 24.9331C826.067 26.3942 827.019 28.1068 827.654 30.0702C828.289 31.9883 828.606 33.9747 828.606 36.0296C828.606 38.2215 828.221 40.4592 827.45 42.7425C826.725 45.0257 825.591 47.0808 824.049 48.9075C822.552 50.7341 820.625 52.2412 818.267 53.4285C815.954 54.5701 813.21 55.1416 810.036 55.1416C807.633 55.1416 805.501 54.6848 803.642 53.7715C801.828 52.8582 800.285 51.6704 799.016 50.209C797.791 48.7022 796.862 46.9896 796.227 45.0717C795.592 43.1081 795.274 41.0982 795.274 39.0433C795.274 36.8514 795.637 34.6135 796.362 32.3304C797.133 30.0472 798.29 27.9921 799.832 26.1655C801.373 24.3388 803.301 22.8552 805.614 21.7136C807.927 20.5262 810.67 19.9323 813.845 19.9323ZM810.171 22.5355C808.766 22.5355 807.633 22.8775 806.771 23.5622C805.955 24.2471 805.319 25.1152 804.866 26.1655C804.457 27.17 804.185 28.2668 804.049 29.4542C803.959 30.6412 803.914 31.7598 803.914 32.8101C803.914 35.4588 804.14 37.9937 804.593 40.4141C805.092 42.7885 805.75 44.8889 806.567 46.7156C807.428 48.4967 808.472 49.9123 809.696 50.9626C810.92 52.0129 812.281 52.5382 813.777 52.5382C815.047 52.5382 816.09 52.1729 816.906 51.4424C817.723 50.7118 818.357 49.8213 818.811 48.7709C819.31 47.6749 819.65 46.533 819.831 45.3457C820.013 44.1586 820.103 43.1313 820.103 42.2637C820.103 39.5693 819.854 37.0344 819.355 34.6598C818.902 32.2851 818.244 30.2075 817.383 28.4264C816.521 26.6 815.478 25.1614 814.254 24.1111C813.029 23.0607 811.668 22.5355 810.171 22.5355Z" fill="currentColor"/><path d="M755.86 48.4286L760.894 54.3195H742.663L747.697 48.4286V29.9329L743.072 24.659L755.86 20.0687V48.4286Z" fill="currentColor"/><path d="M770.115 20.7542H792.971L772.496 51.8529H784.808L792.767 40.0027L793.175 40.1392L792.018 53.292V54.3196H761.476L781.951 23.22H771.408L764.673 33.4947H764.265V19.5209L770.115 20.7542Z" fill="currentColor"/><path d="M855.66 32.8785H855.116C854.39 31.0976 853.596 29.5903 852.735 28.3575C851.873 27.1246 850.989 26.1426 850.082 25.4118C849.22 24.6357 848.336 24.0876 847.429 23.768C846.567 23.4484 845.751 23.2883 844.98 23.2883C843.801 23.2884 842.894 23.5171 842.26 23.9737C841.625 24.3847 841.148 25.024 840.83 25.8915C840.559 26.7591 840.401 27.8552 840.355 29.1793C840.31 30.4579 840.286 31.9652 840.286 33.7003V48.4287L846.613 54.3196H827.09L832.124 48.4287V26.029L827.498 20.7543H855.66V32.8785Z" fill="currentColor"/><path d="M757.357 10.5478L751.575 16.9185L745.725 10.5478L751.575 4.24542L757.357 10.5478Z" fill="currentColor"/></g></svg></a><a class="sponsor-card" href="https://keyst.one/" target="_blank" rel="noopener noreferrer" aria-label="Keystone"><img class="sl sl-keystone" src="assets/keystone-logo.webp" alt="Keystone" loading="lazy"></a><a class="sponsor-card" href="https://www.projecteleven.com/" target="_blank" rel="noopener noreferrer" aria-label="Project Eleven"><svg class="sl sl-project-eleven" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="410.415 0 136.364 64"><g clip-path="url(#clip0_68_1816)"><mask id="mask0_68_1816" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="410" y="0" width="137" height="65"><path d="M546.727 0H410.415V64.0565H546.727V0Z" fill="currentColor"/></mask><g mask="url(#mask0_68_1816)"><path d="M423.231 28.8279C424.017 28.8279 424.655 29.4651 424.655 30.2513V62.633C424.655 63.4191 424.017 64.0564 423.231 64.0564H411.844C411.058 64.0564 410.421 63.4191 410.421 62.633V30.2513C410.421 29.4651 411.058 28.8279 411.844 28.8279H423.231Z" fill="currentColor"/><path d="M419.789 9.06687e-08C420.167 -0.00013464 420.528 0.14989 420.795 0.41636L448.872 28.4416C449.139 28.7079 449.501 28.8575 449.878 28.8575H458.817C459.603 28.8575 460.24 28.2202 460.24 27.4342V15.6669C460.24 14.8807 459.603 14.2435 458.817 14.2435H440.671C439.885 14.2435 439.247 13.6061 439.247 12.8199V1.43322C439.247 0.647118 439.885 0.00961635 440.671 0.00961407H473.052C473.839 0.00961407 474.476 0.647116 474.476 1.43322V12.8199C474.476 12.8345 474.474 12.8491 474.474 12.8635V33.493C474.474 33.4976 474.473 33.5023 474.473 33.507V41.6427C474.473 42.4287 473.836 43.0662 473.049 43.0662H445.407C444.936 43.0662 444.422 43.0632 443.952 43.0609C443.591 43.0592 443.23 42.9209 442.955 42.6455L410.833 10.5569C410.565 10.2897 410.415 9.92697 410.415 9.54893L410.42 1.42657C410.421 0.641107 411.058 0.00482819 411.843 0.00443732L419.789 9.06687e-08Z" fill="currentColor"/><path d="M513.269 62.6286C513.27 63.4148 512.633 64.0521 511.847 64.0521H500.458C499.672 64.0521 499.035 63.415 499.035 62.629L499.03 15.6571C499.03 14.871 498.393 14.2339 497.607 14.2339H486.574C485.788 14.2339 485.151 13.5966 485.151 12.8105V1.42337C485.151 0.637268 485.788 0 486.574 0H497.962C498.748 0 499.385 0.637267 499.385 1.42337V12.8105C499.385 13.5966 500.022 14.2339 500.808 14.2339H511.84C512.627 14.2339 513.264 14.871 513.264 15.6571L513.269 62.6286Z" fill="currentColor"/><path d="M546.726 62.6286C546.726 63.4148 546.089 64.0521 545.303 64.0521H533.914C533.129 64.0521 532.493 63.415 532.493 62.629L532.486 15.6571C532.486 14.871 531.849 14.2339 531.063 14.2339H520.031C519.245 14.2339 518.608 13.5966 518.608 12.8105V1.42337C518.608 0.637268 519.245 0 520.031 0H531.418C532.204 0 532.842 0.637267 532.842 1.42337V12.8105C532.842 13.5966 533.479 14.2339 534.265 14.2339H545.297C546.083 14.2339 546.72 14.871 546.72 15.6571L546.726 62.6286Z" fill="currentColor"/></g></g></svg></a></div>
+      </div>
       <p class="sponsors-pitch">Singapore is waiting for you to make your mark on Quantum and Privacy in 2026.</p>
-      <a class="sponsors-cta" href="mailto:REPLACE@quantus.com?subject=Quantum%20%26%20Privacy%20Day%20sponsorship%20prospectus&amp;body=Hi%2C%0A%0APlease%20send%20over%20the%20sponsorship%20prospectus%20for%20Quantum%20%26%20Privacy%20Day.%0A%0AName%3A%0ACompany%3A%0A">Request the prospectus</a>
+      <a class="sponsors-cta" href="mailto:jay@quantus.com?subject=Quantum%20%26%20Privacy%20Day%20sponsorship%20prospectus&amp;body=Hi%2C%0A%0APlease%20send%20over%20the%20sponsorship%20prospectus%20for%20Quantum%20%26%20Privacy%20Day.%0A%0AName%3A%0ACompany%3A%0A">Request the prospectus</a>
       <div class="prev-partners">
         <h3 class="pp-head">Previously at QDay, June 2026</h3>
         <p class="pp-list"><a class="pp-link" href="https://ns.com/" target="_blank" rel="noopener noreferrer">Network School</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://z.cash/" target="_blank" rel="noopener noreferrer">Zcash</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://docs.near-intents.org/" target="_blank" rel="noopener noreferrer">NEAR Intents</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://www.base.org/" target="_blank" rel="noopener noreferrer">Base</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://superteam.fun/" target="_blank" rel="noopener noreferrer">Superteam MY</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://www.circuitlabs.io/" target="_blank" rel="noopener noreferrer">Circuit Labs</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://midnight.network/" target="_blank" rel="noopener noreferrer">Midnight</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://keyst.one/" target="_blank" rel="noopener noreferrer">Keystone</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://www.terminal3.io/" target="_blank" rel="noopener noreferrer">Terminal3</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://quip.network/" target="_blank" rel="noopener noreferrer">Quip Network</a> <span class="pp-sep">·</span> <a class="pp-link" href="https://v12.sh/" target="_blank" rel="noopener noreferrer">V12</a></p>
@@ -1137,7 +1188,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
   
   <section id="faq">
     <div class="faq-header">
-      <p class="section-eyebrow">09 &middot; FAQ</p>
+      <p class="section-eyebrow">08 &middot; FAQ</p>
       <h2 class="faq-title">FAQ</h2>
     </div>
     <div class="faq-list">
@@ -1164,7 +1215,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
         <span class="faq-q-text">How do I sponsor?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-a"><p class="faq-a-inner">Sponsorship tiers are yet to be decided. Reach out to the Quantus team to express your interest.</p></div>
+      <div class="faq-a"><p class="faq-a-inner">Three sponsorship tiers are open. Use the Become a Sponsor form to see them and register your interest, or email jay@quantus.com for the full prospectus.</p></div>
     </div>
     </div>
   </section>
@@ -1179,9 +1230,9 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     </div>
     <div class="footer-body" style="z-index:1">
       <div class="footer-cta-area">
-        <div class="footer-lockup-wrap" role="img" aria-label="Quantum &amp; Privacy Day"><svg class="footer-lockup" xmlns="http://www.w3.org/2000/svg" viewBox="305 430 1663 950"><g id="Title__x2B_logos"><path fill="#FFFFFF" d="M960.7,1223.5v-164.9h50.7c50.7,0,86.8,33.7,86.8,82.4s-35.9,82.4-86.8,82.4h-50.7ZM994.6,1193.7h15c36.6,0,53.3-21.8,53.3-52.6s-16.7-52.6-53.3-52.6h-15v105.2ZM1168.7,1162.1c-.5-11.9-6.3-17.2-17.2-17.2s-18.9,5.3-23.5,9.4l-18.2-19.4c9.7-9.4,20.6-17,44.9-17s46.5,14.3,46.5,46.8v58.7h-32.5l.7-14.3c-7.8,11.9-16.7,16.5-30.6,16.5s-36.4-8.5-36.4-32.5,16.7-31,42.2-31h24ZM1168.7,1181.5h-22.3c-8.2,0-11.9,3.6-11.9,9.5s4.8,9.2,14.1,9.2c13.3,0,20.1-5.8,20.1-14.5v-4.1ZM1217.6,1274.9l26.9-61.1-41-93.6h36.1l14.8,39.8c3.6,9.7,7.3,26.7,7.3,26.7,0,0,3.1-17.2,7-26.7l16-39.8h33.2l-67.6,154.7h-32.7Z"/><path fill="#B7F61C" d="M528.8,648.9l33.7,38.7-33,27.3-35.8-41.1c-16.7,7.8-35.5,12.4-55.7,12.4-69.5,0-124.8-52.5-124.8-123.7s55.3-123.8,124.8-123.8,124.8,52.5,124.8,123.8-12.8,64.5-34,86.5ZM462.5,638.3l-28.7-33,33.3-27.3,30.5,35.1c9.2-13.1,14.2-30.5,14.2-50.7,0-45-29.8-79.4-73.8-79.4s-73.8,34.4-73.8,79.4,29.8,79.4,73.8,79.4,17-1.1,24.5-3.5ZM691.1,686.1c-55.7,0-97.9-29.4-97.9-90.4v-153.9h49.6v151.1c0,35.1,15.2,48.6,48.2,48.6s47.5-13.5,47.5-48.6v-151.1h49.6v153.9c0,61-42.2,90.4-97.2,90.4ZM794.8,683l106-243.2h4.3l110.3,243.2h-52.1l-11.3-27.3h-97.9l-11.3,27.3h-47.9ZM870.7,614.2h63.5l-17.4-41.8c-7.1-17-14.5-43.3-14.5-43.3,0,0-7.1,26.2-14.2,43.3l-17.4,41.8ZM1230.6,685.1l-121.6-114.2c-12.1-11.3-28.7-33-28.7-33,0,0,3.5,26.6,3.5,44v101.1h-46.5v-243.2h5l121.6,114.2c11.7,11,28.4,33,28.4,33,0,0-3.2-27.3-3.2-44v-101.1h46.5v243.2h-5ZM1330.3,683v-197.5h-68.8v-43.6h187.2v43.6h-68.8v197.5h-49.6ZM1571.4,686.1c-55.7,0-97.9-29.4-97.9-90.4v-153.9h49.6v151.1c0,35.1,15.2,48.6,48.2,48.6s47.5-13.5,47.5-48.6v-151.1h49.6v153.9c0,61-42.2,90.4-97.2,90.4ZM1707,683v-243.6h3.9l118.8,130.5,117-130.5h4.3v243.6h-47.9v-90.4c0-16.3,1.8-42.2,1.8-42.2,0,0-14.5,21.3-25.9,34l-47.9,53.5h-4.6l-47.9-53.5c-11.3-12.8-25.9-34-25.9-34,0,0,1.8,25.9,1.8,42.2v90.4h-47.5ZM440,861.5l37.9,47.2c5.3-12.4,8.5-27.3,8.5-45h44.7c0,32.3-8.9,59.9-23.8,81.6l37.6,46.5h-58.5l-12.1-14.9c-18.1,11.7-39.4,18.1-62.1,18.1-59.9,0-93.6-29.8-93.6-70.9s17.7-52.5,55.7-71.3c-12.1-16.3-16.7-31.6-16.7-47.9,0-31.2,23.8-57.1,63.8-57.1s62.4,22.3,62.4,56-13.5,41.8-44,57.8ZM416.6,832.8c17.7-9.9,24.1-18.4,24.1-29.4s-7.4-17.4-18.4-17.4-19.1,7.4-19.1,18.1,6,19.1,12.8,27.7l.7,1.1ZM447.4,943.5l-50.7-62.8c-20.9,11.3-26.2,23.8-26.2,39.4s12.8,31.9,41.8,31.9,24.5-2.8,35.1-8.5ZM634.7,991.7v-241.1h66.7c67.4,0,107.8,35.1,107.8,93.3s-40.8,92.9-107.8,92.9h-17v55h-49.6ZM684.3,893.1h15.6c40.4,0,58.2-16.3,58.2-49.3s-18.4-49.6-58.2-49.6h-15.6v98.9ZM965,916.5l50,75.2h-57.4l-39.7-61c-4.6.7-9.6,1.1-14.2,1.1h-17v59.9h-49.6v-241.1h66.7c67.4,0,107.8,32.3,107.8,91.1s-16.7,61.3-46.5,74.8ZM886.6,888.5h15.6c40.4,0,58.2-12.8,58.2-46.8s-18.4-47.5-58.2-47.5h-15.6v94.3ZM1045.2,991.7v-241.1h49.6v241.1h-49.6ZM1227.5,993.8l-109.9-243.2h53.2l41.5,92.9c9.2,20.6,18.8,54.6,18.8,54.6,0,0,9.2-33.7,18.4-54.6l40.4-92.9h48.2l-105.7,243.2h-5ZM1296.4,991.7l106-243.2h4.3l110.3,243.2h-52.1l-11.3-27.3h-97.9l-11.3,27.3h-47.9ZM1372.2,922.9h63.5l-17.4-41.8c-7.1-17-14.5-43.3-14.5-43.3,0,0-7.1,26.2-14.2,43.3l-17.4,41.8ZM1633.7,994.9c-69.1,0-124.1-52.5-124.1-123.8s55-123.4,124.1-123.4,74.8,15.6,96.4,49.3l-37.9,26.9c-11.3-18.4-30.8-31.6-58.5-31.6-43.6,0-73,33.7-73,78.7s29.4,79.4,73,79.4,48.6-14.9,62-35.5l38.7,26.6c-20.9,32.6-54.3,53.2-100.7,53.2ZM1823.6,991.7v-76.6l-91.5-164.5h55l42.5,77.7c9.2,17,19.5,45.7,19.5,45.7,0,0,9.6-28.4,18.8-45.7l40.8-77.7h50.7l-85.8,161v80.1h-50Z"/><line fill="none" stroke="#FFFFFF" stroke-width="7.5" x1="316" y1="1449.4" x2="1955.1" y2="1448.2"/><line fill="none" stroke="#FFFFFF" stroke-width="7.5" x1="316" y1="1734.3" x2="1955.1" y2="1733.1"/><g ><g><path fill="#FFFFFF" d="M633.5,1540.3c-11,0-19,2.6-25.8,8.6l-12,10.4c-1,.8-3,1.4-4.4.2-1.4-1.2-1.6-2.8-.4-4.4l6.4-9.6c1-1.4.2-3.2-1.6-3.2h-15.4c-1.8,0-3.2,1.4-3.2,3.2v93.9c0,1.8,1.4,3.2,3.2,3.2h16c1.8,0,3.2-1.4,3.2-3.2v-53c0-24.3,20.2-28.1,27.7-28.1,16.2,0,22,11.6,22,20.5v60.6c0,1.8,1.4,3.2,3.2,3.2h16c1.8,0,3.2-1.4,3.2-3.2v-62.6c0-22.5-14.6-36.5-38.2-36.5h.1Z"/><path fill="#FFFFFF" d="M736.8,1539.9c-31,0-50.7,19.1-50.7,45v14.3c0,27.3,19.8,46,50.7,46s46.5-14.3,48.6-33.5c.2-2-1.2-3.4-3.2-3.4h-15.6c-1.4,0-2.6.8-3,2.2-2,6.4-11.4,16.1-26.8,16.1s-29.8-11.2-29.6-27.3l.2-17.9c.2-13.4,14.2-22.7,29.4-22.7s27.2,7.8,28.6,20.7c.1,1.5-.9,2.8-2.3,3.1l-44.8,8.7c-1.8.4-3.2,2-3.2,4v.2c0,1.8,1.8,3.4,4.4,3.4h64.3c1.8,0,3.2-1.4,3.2-3.2v-12.6c0-23.9-20.6-42.9-50.1-42.9h0Z"/><path fill="#FFFFFF" d="M848.2,1539.9c-25,0-46.5,14.7-46.5,33.9s1.4,2.8,3.2,2.8h16.2c1.6,0,2.8-1.2,3-2.8,1.6-8.8,12.2-15.2,23.6-15.2s22.8,8.4,22.8,22.9v17.5c0,17.9-13.2,26.9-29.6,26.9s-20.2-4.8-20.2-12.6,3.6-12.6,18.4-16.1l21.4-5.8c2.2-.6,3-2.4,2.6-4.4-.2-1.6-2-2.4-3.6-2.4h-22.2c-18.8,0-37.8,12-37.8,29.7v2.8c0,18.1,17,27.5,36.3,27.5s23-4.8,29.6-10.4l9.8-8.5c1.6-1.4,3.2-1.4,4.6,0,1.2,1.2.8,3-.2,4.4l-6,9.4c-1,1.4-.2,3.2,1.6,3.2h14.4c1.8,0,3.2-1.4,3.2-3.2v-60.8c0-23.3-16.6-38.7-44.5-38.7h0Z"/><path fill="#FFFFFF" d="M979,1542.3h-22.4c-7.8,0-15.4,4.8-20.8,9.4l-8.8,7.6c-1,.8-2.8,1.4-4,.4-1.4-1-2-3-.8-4.6l6.4-9.6c1-1.4.2-3.2-1.6-3.2h-15c-1.8,0-3.2,1.4-3.2,3.2v93.9c0,1.8,1.4,3.2,3.2,3.2h16.4c1.8,0,3.2-1.4,3.2-3.2v-48.2c0-20.7,8.4-29.9,26.6-29.9h20.8c1.8,0,3.2-1.4,3.2-3.2v-12.6c0-1.8-1.4-3.2-3.2-3.2h0Z"/><path fill="#FFFFFF" d="M522.6,1525.3c-5,0-9.6,2.6-12.1,6.8l-28,41.7c-.9,1.4-.5,3.2.8,4.1,1.1.7,2.6.6,3.6-.2l27.5-24c.5-.4,1.1-.4,1.6,0,.2.2.3.5.3.7v75.1c0,.6-.5,1.1-1.1,1.1s-.6-.1-.8-.4l-83.2-100.1c-2.7-3.2-6.7-5.1-10.9-5.1h-2.9c-7.8,0-14.2,6.4-14.2,14.3v105.8c0,7.9,6.4,14.3,14.2,14.3s9.6-2.6,12.1-6.8l28-41.7c.9-1.4.5-3.2-.8-4.1-1.1-.7-2.6-.6-3.6.2l-27.5,24c-.5.4-1.1.4-1.6-.1-.2-.2-.3-.5-.3-.7v-75.1c0-.6.5-1.1,1.1-1.1s.6.1.8.4l83.2,100.1c2.7,3.2,6.7,5.1,10.9,5.1h2.9c7.9,0,14.3-6.4,14.3-14.3v-105.8c0-7.9-6.4-14.3-14.2-14.3Z"/></g></g><path fill="#FFFFFF" d="M1318.1,1521.1c5.6-.8,17.7,1.8,23.1,4,34.1,14.1,46.8,47.3,33.6,81l-11.5-11.5c1.9-7.2,2.6-13.4,1.3-20.8-2-12-8.8-22.6-18.7-29.5-9.8-6.9-21.9-9.4-33.7-7.2-11.6,2.3-21.9,9.1-28.6,18.9-7.4,11-9,23.3-6.5,36.2,8.3,26,30.1,38.5,56.6,31.9l11.6,11.7c-6,2.5-11.8,4.3-18.3,5.1-15.2,1.9-30.5-2.5-42.5-12-12.5-10-21.4-25.2-23.2-41.2-1.8-15.6,2.7-31.3,12.5-43.6,12-15.2,25.8-20.8,44.3-23Z"/><path fill="#FFFFFF" d="M1563.8,1562.4h18.8c12.5,16.7,24.9,33.5,37.2,50.3-.8-17.1-.6-33.3-.6-50.3h15.5s0,67.9,0,67.9c-1.7,1.5-16.2.9-19.6.8-10.5-15.2-25-34-36.3-48.9.6,16.5.5,32.3.5,48.9h-15.5s0-68.7,0-68.7Z"/><path fill="#FFFFFF" d="M1522.5,1562.6c9.8,22.9,20.6,45.7,30.5,68.6h-16.6c-1.9-3.9-3.9-9.1-5.6-13.1h-6.6s-29.6,0-29.6,0c-1.9,4.4-3.9,8.8-5.9,13.1h-15.8s30.6-68.7,30.6-68.7h19.1ZM1512.5,1576.2c-3.5,9.8-8.7,21-13,30.6,4.6.4,9.5.2,14.2.2h12.1c-2-4.7-11.4-28.5-13.4-30.8Z"/><path fill="#FFFFFF" d="M1834.5,1562.1c13-.6,32.7-1.6,39.7,12.6,1,2,2.1,5.3,1.3,7.5-2.5.7-11.3.3-14.3.2-3.6-11.6-14.1-9.2-23.6-9.4-8.2-.4-17.9,9.8-6.6,14.6,11.4,4.9,43.7.6,46.1,18.1,2.6,19.2-11.2,24.7-26.9,26.8-11.8.5-28.3.5-36.4-9.8-3.1-3.9-3.6-7.5-4.6-12.2h15.7c3.5,13.5,16.5,10.7,27.6,10.4,2.5-.3,6.6-2.4,7.7-4.6,5.2-10.6-6.9-11.6-13.8-12.7-10.5-1.7-33.1-1.5-35.7-15-3.4-17.9,9.1-23.8,23.8-26.4Z"/><path fill="#FFFFFF" d="M1396.2,1562.4h16.4c0,14.8-.9,30.3.4,44.9,1.4,16.6,34.3,16.3,35.6.2,1.2-14.5.5-30.5.4-45.2h16.2s0,13,0,13c0,12.7,2.6,39.3-6.4,48.4-13.1,13.3-58.7,13-61.5-10.9-1.9-15.8-1-34.3-1-50.5Z"/><path fill="#FFFFFF" d="M1779.5,1562.4h16s0,13.6,0,13.6c0,12.5,2.6,38.7-6.4,47.8-13.2,13.3-58.1,12.9-61.3-10.6-2.2-15.8-1.2-34.6-1.2-50.8h16.3c0,12.5-.2,25.1-.2,37.5,0,13.1,5,19.5,18.4,19.6,21.1.2,18.9-16,18.7-31.4,0-8.5,0-17.3-.1-25.8Z"/><path fill="#FFFFFF" d="M1646.7,1562.4h68.2s0,13.1,0,13.1h-26.1s0,28.8,0,28.8v26.9s-16.1,0-16.1,0c-.2-18.5,0-37.2,0-55.7h-26s0-13.1,0-13.1Z"/><path fill="#FFFFFF" d="M1329.4,1595.8l41.8,41.9-6.8,6.9c-1.7-1.1-10.9-10.5-13.1-12.6l-29-29,7-7.1Z"/><path fill="#FFFFFF" d="M1342,1583.8c2.4,1.2,36.9,36.5,41.9,41.5l-6.7,6.7c-1.3,0-37.9-37.1-42.2-41.3l6.9-6.8Z"/><path fill="#FFFFFF" d="M906.8,1861.8v-38.1h7.8v19.5h16.3v-19.5h7.8v38.1h-7.8v-11.6h-16.3v11.6h-7.8ZM984.1,1862.3c-11,0-19.7-8.3-19.7-19.5s8.7-19.5,19.7-19.5,19.7,8.3,19.7,19.5-8.7,19.5-19.7,19.5ZM984.1,1855.3c6.9,0,11.6-5.4,11.6-12.5s-4.7-12.5-11.6-12.5-11.6,5.4-11.6,12.5,4.7,12.5,11.6,12.5ZM1040.2,1862.3c-7.3,0-12-3.5-14.3-8l6.4-3.7c1.7,2.7,3.9,4.8,7.7,4.8s5.3-1.6,5.3-3.9-2.1-3.6-5.7-5.2l-2-.8c-5.6-2.4-9.4-5.4-9.4-11.8s4.5-10.4,11.5-10.4,8.6,1.7,11.1,6.3l-6.1,3.9c-1.3-2.4-2.8-3.4-5-3.4s-3.8,1.5-3.8,3.4,1.5,3.3,4.8,4.8l2,.8c6.7,2.9,10.4,5.8,10.4,12.3s-5.5,10.9-13,10.9ZM1085.9,1861.8v-31.2h-10.9v-6.9h29.6v6.9h-10.9v31.2h-7.8ZM1129.4,1861.8v-38.1h25.2v6.9h-17.4v12.1h15.3v6.7h-15.3v5.5h18.1v6.9h-26ZM1181.7,1861.8v-38.1h11.7c11.7,0,20,7.8,20,19s-8.3,19-20,19h-11.7ZM1189.5,1855h3.5c8.5,0,12.3-5,12.3-12.2s-3.9-12.1-12.3-12.1h-3.5v24.3ZM1270.5,1861.8v-38.1h14.7c7.1,0,11.1,4.5,11.1,9.8s-2.1,5.9-5.4,7c5.2,1.2,7.7,4.7,7.7,9.5,0,6.8-4.8,11.8-12.8,11.8h-15.4ZM1278.3,1837.8h6c2.5,0,4.2-1.4,4.2-3.6s-1.4-3.6-3.8-3.6h-6.4v7.2ZM1278.3,1855h7.2c3.2,0,5.2-2.1,5.2-5.3s-2.1-5.2-5.7-5.2h-6.8v10.5ZM1333.3,1861.8v-12.1l-14.4-26h8.7l6.7,12.3c1.5,2.7,3.1,7.2,3.1,7.2,0,0,1.5-4.5,3-7.2l6.4-12.3h8l-13.6,25.4v12.7h-7.9Z"/><line fill="none" stroke="#FFFFFF" stroke-width="7.5" x1="1123.4" y1="1451.9" x2="1123.4" y2="1732.4"/></g></svg></div>
+        <div class="footer-lockup-wrap" role="img" aria-label="Quantum &amp; Privacy Day"><svg class="footer-lockup" xmlns="http://www.w3.org/2000/svg" viewBox="305 430 1663 950"><g><path fill="#FFFFFF" d="M960.7,1223.5v-164.9h50.7c50.7,0,86.8,33.7,86.8,82.4s-35.9,82.4-86.8,82.4h-50.7ZM994.6,1193.7h15c36.6,0,53.3-21.8,53.3-52.6s-16.7-52.6-53.3-52.6h-15v105.2ZM1168.7,1162.1c-.5-11.9-6.3-17.2-17.2-17.2s-18.9,5.3-23.5,9.4l-18.2-19.4c9.7-9.4,20.6-17,44.9-17s46.5,14.3,46.5,46.8v58.7h-32.5l.7-14.3c-7.8,11.9-16.7,16.5-30.6,16.5s-36.4-8.5-36.4-32.5,16.7-31,42.2-31h24ZM1168.7,1181.5h-22.3c-8.2,0-11.9,3.6-11.9,9.5s4.8,9.2,14.1,9.2c13.3,0,20.1-5.8,20.1-14.5v-4.1ZM1217.6,1274.9l26.9-61.1-41-93.6h36.1l14.8,39.8c3.6,9.7,7.3,26.7,7.3,26.7,0,0,3.1-17.2,7-26.7l16-39.8h33.2l-67.6,154.7h-32.7Z"/><path fill="#B7F61C" d="M528.8,648.9l33.7,38.7-33,27.3-35.8-41.1c-16.7,7.8-35.5,12.4-55.7,12.4-69.5,0-124.8-52.5-124.8-123.7s55.3-123.8,124.8-123.8,124.8,52.5,124.8,123.8-12.8,64.5-34,86.5ZM462.5,638.3l-28.7-33,33.3-27.3,30.5,35.1c9.2-13.1,14.2-30.5,14.2-50.7,0-45-29.8-79.4-73.8-79.4s-73.8,34.4-73.8,79.4,29.8,79.4,73.8,79.4,17-1.1,24.5-3.5ZM691.1,686.1c-55.7,0-97.9-29.4-97.9-90.4v-153.9h49.6v151.1c0,35.1,15.2,48.6,48.2,48.6s47.5-13.5,47.5-48.6v-151.1h49.6v153.9c0,61-42.2,90.4-97.2,90.4ZM794.8,683l106-243.2h4.3l110.3,243.2h-52.1l-11.3-27.3h-97.9l-11.3,27.3h-47.9ZM870.7,614.2h63.5l-17.4-41.8c-7.1-17-14.5-43.3-14.5-43.3,0,0-7.1,26.2-14.2,43.3l-17.4,41.8ZM1230.6,685.1l-121.6-114.2c-12.1-11.3-28.7-33-28.7-33,0,0,3.5,26.6,3.5,44v101.1h-46.5v-243.2h5l121.6,114.2c11.7,11,28.4,33,28.4,33,0,0-3.2-27.3-3.2-44v-101.1h46.5v243.2h-5ZM1330.3,683v-197.5h-68.8v-43.6h187.2v43.6h-68.8v197.5h-49.6ZM1571.4,686.1c-55.7,0-97.9-29.4-97.9-90.4v-153.9h49.6v151.1c0,35.1,15.2,48.6,48.2,48.6s47.5-13.5,47.5-48.6v-151.1h49.6v153.9c0,61-42.2,90.4-97.2,90.4ZM1707,683v-243.6h3.9l118.8,130.5,117-130.5h4.3v243.6h-47.9v-90.4c0-16.3,1.8-42.2,1.8-42.2,0,0-14.5,21.3-25.9,34l-47.9,53.5h-4.6l-47.9-53.5c-11.3-12.8-25.9-34-25.9-34,0,0,1.8,25.9,1.8,42.2v90.4h-47.5ZM440,861.5l37.9,47.2c5.3-12.4,8.5-27.3,8.5-45h44.7c0,32.3-8.9,59.9-23.8,81.6l37.6,46.5h-58.5l-12.1-14.9c-18.1,11.7-39.4,18.1-62.1,18.1-59.9,0-93.6-29.8-93.6-70.9s17.7-52.5,55.7-71.3c-12.1-16.3-16.7-31.6-16.7-47.9,0-31.2,23.8-57.1,63.8-57.1s62.4,22.3,62.4,56-13.5,41.8-44,57.8ZM416.6,832.8c17.7-9.9,24.1-18.4,24.1-29.4s-7.4-17.4-18.4-17.4-19.1,7.4-19.1,18.1,6,19.1,12.8,27.7l.7,1.1ZM447.4,943.5l-50.7-62.8c-20.9,11.3-26.2,23.8-26.2,39.4s12.8,31.9,41.8,31.9,24.5-2.8,35.1-8.5ZM634.7,991.7v-241.1h66.7c67.4,0,107.8,35.1,107.8,93.3s-40.8,92.9-107.8,92.9h-17v55h-49.6ZM684.3,893.1h15.6c40.4,0,58.2-16.3,58.2-49.3s-18.4-49.6-58.2-49.6h-15.6v98.9ZM965,916.5l50,75.2h-57.4l-39.7-61c-4.6.7-9.6,1.1-14.2,1.1h-17v59.9h-49.6v-241.1h66.7c67.4,0,107.8,32.3,107.8,91.1s-16.7,61.3-46.5,74.8ZM886.6,888.5h15.6c40.4,0,58.2-12.8,58.2-46.8s-18.4-47.5-58.2-47.5h-15.6v94.3ZM1045.2,991.7v-241.1h49.6v241.1h-49.6ZM1227.5,993.8l-109.9-243.2h53.2l41.5,92.9c9.2,20.6,18.8,54.6,18.8,54.6,0,0,9.2-33.7,18.4-54.6l40.4-92.9h48.2l-105.7,243.2h-5ZM1296.4,991.7l106-243.2h4.3l110.3,243.2h-52.1l-11.3-27.3h-97.9l-11.3,27.3h-47.9ZM1372.2,922.9h63.5l-17.4-41.8c-7.1-17-14.5-43.3-14.5-43.3,0,0-7.1,26.2-14.2,43.3l-17.4,41.8ZM1633.7,994.9c-69.1,0-124.1-52.5-124.1-123.8s55-123.4,124.1-123.4,74.8,15.6,96.4,49.3l-37.9,26.9c-11.3-18.4-30.8-31.6-58.5-31.6-43.6,0-73,33.7-73,78.7s29.4,79.4,73,79.4,48.6-14.9,62-35.5l38.7,26.6c-20.9,32.6-54.3,53.2-100.7,53.2ZM1823.6,991.7v-76.6l-91.5-164.5h55l42.5,77.7c9.2,17,19.5,45.7,19.5,45.7,0,0,9.6-28.4,18.8-45.7l40.8-77.7h50.7l-85.8,161v80.1h-50Z"/><line fill="none" stroke="#FFFFFF" stroke-width="7.5" x1="316" y1="1449.4" x2="1955.1" y2="1448.2"/><line fill="none" stroke="#FFFFFF" stroke-width="7.5" x1="316" y1="1734.3" x2="1955.1" y2="1733.1"/><g ><g><path fill="#FFFFFF" d="M633.5,1540.3c-11,0-19,2.6-25.8,8.6l-12,10.4c-1,.8-3,1.4-4.4.2-1.4-1.2-1.6-2.8-.4-4.4l6.4-9.6c1-1.4.2-3.2-1.6-3.2h-15.4c-1.8,0-3.2,1.4-3.2,3.2v93.9c0,1.8,1.4,3.2,3.2,3.2h16c1.8,0,3.2-1.4,3.2-3.2v-53c0-24.3,20.2-28.1,27.7-28.1,16.2,0,22,11.6,22,20.5v60.6c0,1.8,1.4,3.2,3.2,3.2h16c1.8,0,3.2-1.4,3.2-3.2v-62.6c0-22.5-14.6-36.5-38.2-36.5h.1Z"/><path fill="#FFFFFF" d="M736.8,1539.9c-31,0-50.7,19.1-50.7,45v14.3c0,27.3,19.8,46,50.7,46s46.5-14.3,48.6-33.5c.2-2-1.2-3.4-3.2-3.4h-15.6c-1.4,0-2.6.8-3,2.2-2,6.4-11.4,16.1-26.8,16.1s-29.8-11.2-29.6-27.3l.2-17.9c.2-13.4,14.2-22.7,29.4-22.7s27.2,7.8,28.6,20.7c.1,1.5-.9,2.8-2.3,3.1l-44.8,8.7c-1.8.4-3.2,2-3.2,4v.2c0,1.8,1.8,3.4,4.4,3.4h64.3c1.8,0,3.2-1.4,3.2-3.2v-12.6c0-23.9-20.6-42.9-50.1-42.9h0Z"/><path fill="#FFFFFF" d="M848.2,1539.9c-25,0-46.5,14.7-46.5,33.9s1.4,2.8,3.2,2.8h16.2c1.6,0,2.8-1.2,3-2.8,1.6-8.8,12.2-15.2,23.6-15.2s22.8,8.4,22.8,22.9v17.5c0,17.9-13.2,26.9-29.6,26.9s-20.2-4.8-20.2-12.6,3.6-12.6,18.4-16.1l21.4-5.8c2.2-.6,3-2.4,2.6-4.4-.2-1.6-2-2.4-3.6-2.4h-22.2c-18.8,0-37.8,12-37.8,29.7v2.8c0,18.1,17,27.5,36.3,27.5s23-4.8,29.6-10.4l9.8-8.5c1.6-1.4,3.2-1.4,4.6,0,1.2,1.2.8,3-.2,4.4l-6,9.4c-1,1.4-.2,3.2,1.6,3.2h14.4c1.8,0,3.2-1.4,3.2-3.2v-60.8c0-23.3-16.6-38.7-44.5-38.7h0Z"/><path fill="#FFFFFF" d="M979,1542.3h-22.4c-7.8,0-15.4,4.8-20.8,9.4l-8.8,7.6c-1,.8-2.8,1.4-4,.4-1.4-1-2-3-.8-4.6l6.4-9.6c1-1.4.2-3.2-1.6-3.2h-15c-1.8,0-3.2,1.4-3.2,3.2v93.9c0,1.8,1.4,3.2,3.2,3.2h16.4c1.8,0,3.2-1.4,3.2-3.2v-48.2c0-20.7,8.4-29.9,26.6-29.9h20.8c1.8,0,3.2-1.4,3.2-3.2v-12.6c0-1.8-1.4-3.2-3.2-3.2h0Z"/><path fill="#FFFFFF" d="M522.6,1525.3c-5,0-9.6,2.6-12.1,6.8l-28,41.7c-.9,1.4-.5,3.2.8,4.1,1.1.7,2.6.6,3.6-.2l27.5-24c.5-.4,1.1-.4,1.6,0,.2.2.3.5.3.7v75.1c0,.6-.5,1.1-1.1,1.1s-.6-.1-.8-.4l-83.2-100.1c-2.7-3.2-6.7-5.1-10.9-5.1h-2.9c-7.8,0-14.2,6.4-14.2,14.3v105.8c0,7.9,6.4,14.3,14.2,14.3s9.6-2.6,12.1-6.8l28-41.7c.9-1.4.5-3.2-.8-4.1-1.1-.7-2.6-.6-3.6.2l-27.5,24c-.5.4-1.1.4-1.6-.1-.2-.2-.3-.5-.3-.7v-75.1c0-.6.5-1.1,1.1-1.1s.6.1.8.4l83.2,100.1c2.7,3.2,6.7,5.1,10.9,5.1h2.9c7.9,0,14.3-6.4,14.3-14.3v-105.8c0-7.9-6.4-14.3-14.2-14.3Z"/></g></g><path fill="#FFFFFF" d="M1318.1,1521.1c5.6-.8,17.7,1.8,23.1,4,34.1,14.1,46.8,47.3,33.6,81l-11.5-11.5c1.9-7.2,2.6-13.4,1.3-20.8-2-12-8.8-22.6-18.7-29.5-9.8-6.9-21.9-9.4-33.7-7.2-11.6,2.3-21.9,9.1-28.6,18.9-7.4,11-9,23.3-6.5,36.2,8.3,26,30.1,38.5,56.6,31.9l11.6,11.7c-6,2.5-11.8,4.3-18.3,5.1-15.2,1.9-30.5-2.5-42.5-12-12.5-10-21.4-25.2-23.2-41.2-1.8-15.6,2.7-31.3,12.5-43.6,12-15.2,25.8-20.8,44.3-23Z"/><path fill="#FFFFFF" d="M1563.8,1562.4h18.8c12.5,16.7,24.9,33.5,37.2,50.3-.8-17.1-.6-33.3-.6-50.3h15.5s0,67.9,0,67.9c-1.7,1.5-16.2.9-19.6.8-10.5-15.2-25-34-36.3-48.9.6,16.5.5,32.3.5,48.9h-15.5s0-68.7,0-68.7Z"/><path fill="#FFFFFF" d="M1522.5,1562.6c9.8,22.9,20.6,45.7,30.5,68.6h-16.6c-1.9-3.9-3.9-9.1-5.6-13.1h-6.6s-29.6,0-29.6,0c-1.9,4.4-3.9,8.8-5.9,13.1h-15.8s30.6-68.7,30.6-68.7h19.1ZM1512.5,1576.2c-3.5,9.8-8.7,21-13,30.6,4.6.4,9.5.2,14.2.2h12.1c-2-4.7-11.4-28.5-13.4-30.8Z"/><path fill="#FFFFFF" d="M1834.5,1562.1c13-.6,32.7-1.6,39.7,12.6,1,2,2.1,5.3,1.3,7.5-2.5.7-11.3.3-14.3.2-3.6-11.6-14.1-9.2-23.6-9.4-8.2-.4-17.9,9.8-6.6,14.6,11.4,4.9,43.7.6,46.1,18.1,2.6,19.2-11.2,24.7-26.9,26.8-11.8.5-28.3.5-36.4-9.8-3.1-3.9-3.6-7.5-4.6-12.2h15.7c3.5,13.5,16.5,10.7,27.6,10.4,2.5-.3,6.6-2.4,7.7-4.6,5.2-10.6-6.9-11.6-13.8-12.7-10.5-1.7-33.1-1.5-35.7-15-3.4-17.9,9.1-23.8,23.8-26.4Z"/><path fill="#FFFFFF" d="M1396.2,1562.4h16.4c0,14.8-.9,30.3.4,44.9,1.4,16.6,34.3,16.3,35.6.2,1.2-14.5.5-30.5.4-45.2h16.2s0,13,0,13c0,12.7,2.6,39.3-6.4,48.4-13.1,13.3-58.7,13-61.5-10.9-1.9-15.8-1-34.3-1-50.5Z"/><path fill="#FFFFFF" d="M1779.5,1562.4h16s0,13.6,0,13.6c0,12.5,2.6,38.7-6.4,47.8-13.2,13.3-58.1,12.9-61.3-10.6-2.2-15.8-1.2-34.6-1.2-50.8h16.3c0,12.5-.2,25.1-.2,37.5,0,13.1,5,19.5,18.4,19.6,21.1.2,18.9-16,18.7-31.4,0-8.5,0-17.3-.1-25.8Z"/><path fill="#FFFFFF" d="M1646.7,1562.4h68.2s0,13.1,0,13.1h-26.1s0,28.8,0,28.8v26.9s-16.1,0-16.1,0c-.2-18.5,0-37.2,0-55.7h-26s0-13.1,0-13.1Z"/><path fill="#FFFFFF" d="M1329.4,1595.8l41.8,41.9-6.8,6.9c-1.7-1.1-10.9-10.5-13.1-12.6l-29-29,7-7.1Z"/><path fill="#FFFFFF" d="M1342,1583.8c2.4,1.2,36.9,36.5,41.9,41.5l-6.7,6.7c-1.3,0-37.9-37.1-42.2-41.3l6.9-6.8Z"/><path fill="#FFFFFF" d="M906.8,1861.8v-38.1h7.8v19.5h16.3v-19.5h7.8v38.1h-7.8v-11.6h-16.3v11.6h-7.8ZM984.1,1862.3c-11,0-19.7-8.3-19.7-19.5s8.7-19.5,19.7-19.5,19.7,8.3,19.7,19.5-8.7,19.5-19.7,19.5ZM984.1,1855.3c6.9,0,11.6-5.4,11.6-12.5s-4.7-12.5-11.6-12.5-11.6,5.4-11.6,12.5,4.7,12.5,11.6,12.5ZM1040.2,1862.3c-7.3,0-12-3.5-14.3-8l6.4-3.7c1.7,2.7,3.9,4.8,7.7,4.8s5.3-1.6,5.3-3.9-2.1-3.6-5.7-5.2l-2-.8c-5.6-2.4-9.4-5.4-9.4-11.8s4.5-10.4,11.5-10.4,8.6,1.7,11.1,6.3l-6.1,3.9c-1.3-2.4-2.8-3.4-5-3.4s-3.8,1.5-3.8,3.4,1.5,3.3,4.8,4.8l2,.8c6.7,2.9,10.4,5.8,10.4,12.3s-5.5,10.9-13,10.9ZM1085.9,1861.8v-31.2h-10.9v-6.9h29.6v6.9h-10.9v31.2h-7.8ZM1129.4,1861.8v-38.1h25.2v6.9h-17.4v12.1h15.3v6.7h-15.3v5.5h18.1v6.9h-26ZM1181.7,1861.8v-38.1h11.7c11.7,0,20,7.8,20,19s-8.3,19-20,19h-11.7ZM1189.5,1855h3.5c8.5,0,12.3-5,12.3-12.2s-3.9-12.1-12.3-12.1h-3.5v24.3ZM1270.5,1861.8v-38.1h14.7c7.1,0,11.1,4.5,11.1,9.8s-2.1,5.9-5.4,7c5.2,1.2,7.7,4.7,7.7,9.5,0,6.8-4.8,11.8-12.8,11.8h-15.4ZM1278.3,1837.8h6c2.5,0,4.2-1.4,4.2-3.6s-1.4-3.6-3.8-3.6h-6.4v7.2ZM1278.3,1855h7.2c3.2,0,5.2-2.1,5.2-5.3s-2.1-5.2-5.7-5.2h-6.8v10.5ZM1333.3,1861.8v-12.1l-14.4-26h8.7l6.7,12.3c1.5,2.7,3.1,7.2,3.1,7.2,0,0,1.5-4.5,3-7.2l6.4-12.3h8l-13.6,25.4v12.7h-7.9Z"/><line fill="none" stroke="#FFFFFF" stroke-width="7.5" x1="1123.4" y1="1451.9" x2="1123.4" y2="1732.4"/></g></svg></div>
         <div class="footer-btn-row">
-          <a href="https://luma.com/jtof4o9b" class="footer-btn-primary" target="_blank">Register now</a>
+          <a href="https://luma.com/jtof4o9b" class="footer-btn-primary" target="_blank" rel="noopener noreferrer">Register now</a>
         </div>
 
       </div>
@@ -1270,13 +1321,13 @@ track.innerHTML=inner;
 var pcanvas=document.getElementById('pixel-canvas');
 var pctx=pcanvas.getContext('2d');
 function resizePC(){pcanvas.width=pcanvas.offsetWidth;pcanvas.height=pcanvas.offsetHeight;drawHP();}
-function drawHP(){pctx.clearRect(0,0,pcanvas.width,pcanvas.height);pctx.globalCompositeOperation='color-dodge';var sizes=[4,8,12,16];var sh=pcanvas.height*0.6;for(var i=0;i<40;i++){var x=Math.random()*pcanvas.width;var y=Math.random()*sh;var s=sizes[Math.floor(Math.random()*sizes.length)];pctx.fillStyle='rgba(176,234,32,'+(Math.random()*0.2+0.04)+')';pctx.fillRect(x,y,s,s);}pctx.globalCompositeOperation='source-over';}
+function drawHP(){pctx.clearRect(0,0,pcanvas.width,pcanvas.height);pctx.globalCompositeOperation='color-dodge';var sizes=[4,8,12,16];var sh=pcanvas.height*0.6;for(var i=0;i<40;i++){var x=Math.random()*pcanvas.width;var y=Math.random()*sh;var s=sizes[Math.floor(Math.random()*sizes.length)];pctx.fillStyle='rgba(183,246,28,'+(Math.random()*0.2+0.04)+')';pctx.fillRect(x,y,s,s);}pctx.globalCompositeOperation='source-over';}
 resizePC();window.addEventListener('resize',resizePC);
 
 var loaderEl=document.getElementById('loader');
 var ldNum=document.getElementById('ld-num');
 var ldBar=document.getElementById('loader-bar');
-var QDAY=new Date('2026-10-06');
+var QDAY=new Date('2026-10-08T13:00:00+08:00');
 var daysLeft=Math.ceil((QDAY-new Date())/86400000);
 var displayVal=daysLeft+120;
 var startT=null;
@@ -1286,7 +1337,7 @@ requestAnimationFrame(loaderTick);
 var gcanvas=document.getElementById('glitch-canvas');
 var gctx=gcanvas.getContext('2d');
 gcanvas.width=window.innerWidth;gcanvas.height=window.innerHeight;
-function doGlitch(){var gl=document.getElementById('glitch-overlay');[0,70,140,210,280].forEach(function(t,i){setTimeout(function(){if(i%2===0){gl.style.opacity='1';gctx.clearRect(0,0,gcanvas.width,gcanvas.height);for(var b=0;b<7;b++){var gy=Math.random()*gcanvas.height;gctx.fillStyle='rgba(176,234,32,'+(Math.random()*0.45+0.1)+')';gctx.fillRect(0,gy,gcanvas.width,Math.random()*18+2);}}else{gl.style.opacity='0';gctx.clearRect(0,0,gcanvas.width,gcanvas.height);}}  ,t);});setTimeout(function(){loaderEl.style.transition='opacity 0.3s';loaderEl.style.opacity='0';document.getElementById('glitch-overlay').style.opacity='0';setTimeout(function(){loaderEl.style.display='none';heroIn();},300);},360);}
+function doGlitch(){var gl=document.getElementById('glitch-overlay');[0,70,140,210,280].forEach(function(t,i){setTimeout(function(){if(i%2===0){gl.style.opacity='1';gctx.clearRect(0,0,gcanvas.width,gcanvas.height);for(var b=0;b<7;b++){var gy=Math.random()*gcanvas.height;gctx.fillStyle='rgba(183,246,28,'+(Math.random()*0.45+0.1)+')';gctx.fillRect(0,gy,gcanvas.width,Math.random()*18+2);}}else{gl.style.opacity='0';gctx.clearRect(0,0,gcanvas.width,gcanvas.height);}}  ,t);});setTimeout(function(){loaderEl.style.transition='opacity 0.3s';loaderEl.style.opacity='0';document.getElementById('glitch-overlay').style.opacity='0';setTimeout(function(){loaderEl.style.display='none';heroIn();},300);},360);}
 
 function heroIn(){var items=[['he-eyebrow',0],['he-qday',80],['he-sub',220],['he-cta',300],['he-meta',380]];items.forEach(function(p){var el=document.getElementById(p[0]);if(el)setTimeout(function(){el.classList.add('do-anim');},p[1]);});}
 
@@ -1355,14 +1406,14 @@ function toggleFaq(el){
       var r=b.r*Math.max(W,H)*(1+Math.sin(b.phase)*0.12);
       var g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
       if(b.lime){
-        g.addColorStop(0,'rgba(176,234,32,0.22)');
-        g.addColorStop(0.4,'rgba(176,234,32,0.07)');
-        g.addColorStop(1,'rgba(176,234,32,0)');
+        g.addColorStop(0,'rgba(183,246,28,0.22)');
+        g.addColorStop(0.4,'rgba(183,246,28,0.07)');
+        g.addColorStop(1,'rgba(183,246,28,0)');
         ctx.globalCompositeOperation='screen';
       } else {
         g.addColorStop(0,'rgba(45,45,55,0.85)');
         g.addColorStop(0.5,'rgba(20,20,28,0.35)');
-        g.addColorStop(1,'rgba(8,8,8,0)');
+        g.addColorStop(1,'rgba(0,0,0,0)');
         ctx.globalCompositeOperation='source-over';
       }
       ctx.fillStyle=g;
@@ -1394,7 +1445,7 @@ function toggleFaq(el){
     var tiltX=y*14;
     var tiltY=-x*14;
     ticket.style.transform='perspective(800px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) scale(1.02)';
-    ticket.style.boxShadow='0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(176,234,32,0.08)';
+    ticket.style.boxShadow='0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(183,246,28,0.08)';
   });
   ticket.addEventListener('mouseleave',function(){
     ticket.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
@@ -1545,16 +1596,7 @@ function closeMobileNav(){
 
 <style>
 @media (max-width: 768px) {
-  .sponsor-tier {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 14px !important;
-  }
-  .sponsor-tier-label {
-    width: auto !important;
-    flex-shrink: unset !important;
-  }
-  .sponsor-logo-img, .sponsor-logo-img.large {
+      .sponsor-logo-img, .sponsor-logo-img.large {
     width: 80px !important;
     height: auto !important;
   }
@@ -1585,41 +1627,23 @@ function closeMobileNav(){
     opacity: 1 !important;
     transform: none !important;
   }
-  .hero-bottom { display: none !important; }
-  .hero-mobile-content {
-    position: absolute;
-    top: 30%;
-    left: 0; right: 0;
-    z-index: 5;
+  /* subhead + CTAs belong on mobile too. the meta block stays hidden
+     because #mobile-event-info already carries date / time / venue. */
+  .hero-bottom {
     display: flex !important;
-    flex-direction: column;
+    position: absolute;
+    top: 30%; left: 0; right: 0;
+    z-index: 5;
+    padding: 0 24px !important;
+    margin-top: calc(clamp(48px, 14vw, 72px) + 20px);
     align-items: center;
-    padding: 0 24px;
     text-align: center;
-    margin-top: calc(clamp(48px,14vw,72px) + 16px);
   }
-  .hero-mobile-sub { margin-bottom: 80px; margin-top: 0; }
-  .hero-mobile-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px; font-weight: 300;
-    color: var(--grey-5);
-    line-height: 1.6;
-    max-width: 280px;
-  }
-  .hero-mobile-cta {
-    display: inline-flex !important;
-    align-items: center; gap: 8px;
-    padding: 13px 28px;
-    background: var(--lime);
-    color: var(--black);
-    font-family: 'Inter', sans-serif;
-    font-size: 12px; font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    cursor: none;
-  }
-
+  .hero-subhead { font-size: 14px; max-width: 300px; }
+  .hero-cta-row { margin-top: 22px; flex-direction: column; width: 100%; max-width: 280px; }
+  .hero-cta-row a { width: 100%; text-align: center; }
+  .hero-meta-block { display: none; }
+        
   /* Date/Time/Venue section — mobile only */
   #mobile-event-info {
     display: block !important;
@@ -1647,28 +1671,16 @@ function closeMobileNav(){
 }
 
 /* Hide mobile elements on desktop */
-.hero-mobile-content { display: none; }
 #mobile-event-info { display: none; }
-.hero-mobile-cta { display: none; }
 </style>
 
 
 <style>
 @media (max-width: 768px) {
-  .hero-mobile-cta .arr,
-  .mobile-nav-cta .arr { display: none; }
-  /* Hide arrow from Register CTA buttons */
-  .nav-cta .cta-arrow { display: none; }
-  .become-cta { gap: 0; }
+    /* Hide arrow from Register CTA buttons */
+  .nav-cta   .become-cta { gap: 0; }
   .register-btn span, .footer-btn-primary span { display: none; }
-  .sp-col a {
-    width: 150px !important;
-  }
-  .sp-col a img {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  #v12-logo {
+      #v12-logo {
     grid-column: auto !important;
   }
   #v12-logo a  {
