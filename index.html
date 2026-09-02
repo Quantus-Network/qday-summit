@@ -51,7 +51,6 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
 .nav-cta{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 16px;background:var(--lime);color:var(--black);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;text-decoration:none;cursor:none;position:relative;overflow:hidden;transition:opacity 0.2s;letter-spacing:.06em;text-transform:uppercase}
 .nav-cta::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.1);opacity:0;transition:opacity 0.2s}
 .nav-cta:hover::before{opacity:1}
-.nav-cta .nav-cta:hover 
 /* MAIN */
 #content{margin-left:var(--nav-width)}
 
@@ -479,7 +478,7 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     #sidenav { display: none; }
   #content { margin-left: 0; }
   #topbar { display: flex; }
-  .nav-mobile-cta 
+  #mobile-nav { display: block; }
   /* Top bar */
   #topbar {
     display: flex;
@@ -735,8 +734,8 @@ body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-ser
     <li><a href="#programme" onclick="closeMobileNav()">What to Expect</a></li>
     <li><a href="#venue" onclick="closeMobileNav()">Venue</a></li>
     <li><a href="#register" onclick="closeMobileNav()">Register</a></li>
-    <li><a href="#become-sponsor" onclick="closeMobileNav()">Become a Sponsor</a></li>
     <li><a href="#sponsors" onclick="closeMobileNav()">Sponsors</a></li>
+    <li><a href="#become-sponsor" onclick="closeMobileNav()">Become a Sponsor</a></li>
     <li><a href="#faq" onclick="closeMobileNav()">FAQ</a></li>
   </ul>
   <a href="https://luma.com/jtof4o9b" class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">Register now</a>
